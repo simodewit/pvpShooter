@@ -26,15 +26,18 @@ public class WeaponStorage : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == primaryWeaponTag && primaryWeapon == null)
+        if (collision.gameObject.GetComponent<GunScript>() == null)
+            return;
+
+        if(collision.gameObject.GetComponent<GunScript>())
         {
             primaryWeapon = collision.gameObject;
         }
-        if (collision.gameObject.tag == secondaryWeaponTag && secondaryWeapon == null)
+        if (collision.gameObject.GetComponent<GunScript>())
         {
             secondaryWeapon = collision.gameObject;
         }
-        if (collision.gameObject.tag == meleeWeaponTag && meleeWeapon == null)
+        if (collision.gameObject.GetComponent<GunScript>())
         {
             meleeWeapon = collision.gameObject;
         }
