@@ -7,6 +7,7 @@ public class Movement : MonoBehaviour
 {
     [Header("Conditions")]
     public float moveSpeed;
+    public float runSpeed;
     public float sensitivity;
     public float jumpStrength;
     public float maxRotationUpAndDown;
@@ -39,10 +40,20 @@ public class Movement : MonoBehaviour
 
     public void WalkingMovement()
     {
-        walkMovement.x = Input.GetAxis("Horizontal");
-        walkMovement.z = Input.GetAxis("Vertical");
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            walkMovement.x = Input.GetAxis("Horizontal");
+            walkMovement.z = Input.GetAxis("Vertical");
 
-        rb.AddRelativeForce(walkMovement * moveSpeed, ForceMode.Impulse);
+            rb.AddRelativeForce(walkMovement * runSpeed, ForceMode.Impulse);
+        }
+        else
+        {
+            walkMovement.x = Input.GetAxis("Horizontal");
+            walkMovement.z = Input.GetAxis("Vertical");
+
+            rb.AddRelativeForce(walkMovement * moveSpeed, ForceMode.Impulse);
+        }
     }
 
     public void Jumping()

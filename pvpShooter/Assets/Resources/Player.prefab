@@ -473,9 +473,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   view: {fileID: 0}
-  primaryWeapon: {fileID: 3444203798906801032}
+  primaryWeapon: {fileID: 0}
   secondaryWeapon: {fileID: 0}
   meleeWeapon: {fileID: 0}
-  primaryWeaponPlace: {fileID: 0}
+  primaryWeaponPlace: {fileID: 3163165682168973845}
   secondaryWeaponPlace: {fileID: 0}
   meleeWeaponPlace: {fileID: 0}
