@@ -439,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.7
+  runSpeed: 0
   sensitivity: 1.5
   jumpStrength: 5
   maxRotationUpAndDown: 60
@@ -458,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122dfd4fe8e824e4f8634eb802c0f276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
+  hp: 10
   view: {fileID: 0}
 --- !u!114 &-6364336055387608172
 MonoBehaviour:

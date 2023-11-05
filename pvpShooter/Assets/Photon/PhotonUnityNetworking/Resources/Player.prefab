@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.7
+  runSpeed: 0
   sensitivity: 1.5
   jumpStrength: 5
   maxRotationUpAndDown: 60

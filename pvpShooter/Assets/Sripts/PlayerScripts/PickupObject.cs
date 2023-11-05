@@ -22,12 +22,15 @@ public class PickupObject : MonoBehaviour
         view = GetComponent<PhotonView>();
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collision other)
     {
-        print("triggers");
-
         if (!view.IsMine)
+        {
+            print("Not Mine");
             return;
+        }
+        print("Is Mine");
+
 
         if (!other.gameObject.GetComponent<GunScript>())
             return;
