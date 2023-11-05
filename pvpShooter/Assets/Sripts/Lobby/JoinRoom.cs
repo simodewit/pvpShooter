@@ -8,28 +8,22 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     public Transform spawnPlace;
     public PhotonView view;
 
-    int players;
+    bool hasSpawned;
 
     public void Start()
     {
         view = GetComponent<PhotonView>();
 
-        HostJoinCode();
-    }
+        if(hasSpawned)
+            return;
 
-    public void Update()
-    {
-        //if(players != PhotonNetwork.CurrentRoom.PlayerCount)
-        //{
-        //    PhotonNetwork.Instantiate("Player", spawnPlace.position, new Quaternion(0, 0, 0, 0));
-        //    players = PhotonNetwork.CurrentRoom.PlayerCount;
-        //}
+        HostJoinCode();
     }
 
     public void HostJoinCode()
     {
+        hasSpawned = true;
         view.RPC("InstantiatePlayer", RpcTarget.All);
-        players = PhotonNetwork.CurrentRoom.PlayerCount;
     }
 
     [PunRPC]
