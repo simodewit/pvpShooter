@@ -53,6 +53,9 @@ public class GunScript : MonoBehaviour
     [PunRPC]
     public void Shoot()
     {
+        if (!view.IsMine)
+            return;
+
         print("shoot");
         if (Physics.Raycast(endOfBarrel.position, transform.forward, out rayHit, range))
         {

@@ -42,6 +42,9 @@ public class PickupObject : MonoBehaviour
     [PunRPC]
     public void PickUp()
     {
+        if (!view.IsMine)
+            return;
+
         gunScript = collider.gameObject.GetComponent<GunScript>();
 
         if(gunScript.weaponType == 1)
