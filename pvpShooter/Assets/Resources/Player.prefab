@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7024281763232655744}
   - component: {fileID: 6976322129031259452}
+  - component: {fileID: 3794162235077376629}
   m_Layer: 0
   m_Name: CollisionForJumping
   m_TagString: Untagged
@@ -244,6 +245,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3794162235077376629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5772773025505752952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e1297dc822c0d4aafb52fd78adb074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isJumping: 0
 --- !u!1 &7734912808294056741
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,14 +452,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9b9b0e63b2d9e45a45c6cfb3f85c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.7
+  moveSpeed: 1.5
   runSpeed: 0
   sensitivity: 1.5
   jumpStrength: 5
   maxRotationUpAndDown: 60
   cam: {fileID: 3201378899553850763}
   rb: {fileID: 3949275032856700319}
-  jumpCheckOnEmpty: {fileID: 0}
+  jumpCheckOnEmpty: {fileID: 3794162235077376629}
   view: {fileID: 0}
 --- !u!114 &-3145835146489726410
 MonoBehaviour:

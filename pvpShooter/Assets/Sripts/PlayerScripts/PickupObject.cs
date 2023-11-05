@@ -16,63 +16,64 @@ public class PickupObject : MonoBehaviour
     public Transform meleeWeaponPlace;
 
     GunScript gunScript;
+    GameObject collider;
 
     public void Start()
     {
         view = GetComponent<PhotonView>();
     }
 
-    public void OnCollisionEnter(Collision other)
+    public void OnTriggerEnter(Collider other)
     {
         if (!view.IsMine)
         {
-            print("Not Mine");
             return;
         }
-        print("Is Mine");
-
 
         if (!other.gameObject.GetComponent<GunScript>())
+        {
             return;
+        }
 
-        view.RPC("PickUp", RpcTarget.All, other);
+        collider = other.gameObject;
+        view.RPC("PickUp", RpcTarget.All);
     }
 
     [PunRPC]
-    public void PickUp(GameObject collider)
+    public void PickUp()
     {
         gunScript = collider.gameObject.GetComponent<GunScript>();
 
         if(gunScript.weaponType == 1)
         {
-            if (primaryWeapon == null)
+            if (primaryWeapon != null)
                 return;
 
             primaryWeapon = collider;
             collider.transform.SetParent(primaryWeaponPlace);
-            collider.transform.position = Vector3.zero;
+            collider.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
             collider.GetComponent<Collider>().isTrigger = false;
         }
         if (gunScript.weaponType == 2)
         {
-            if (secondaryWeapon == null)
+            if (secondaryWeapon != null)
                 return;
 
             primaryWeapon = collider;
-            collider.transform.SetParent(primaryWeaponPlace);
-            collider.transform.position = Vector3.zero;
+            collider.transform.SetParent(secondaryWeaponPlace);
+            collider.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
             collider.GetComponent<Collider>().isTrigger = false;
         }
         if (gunScript.weaponType == 3)
         {
-            if (meleeWeapon == null)
+            if (meleeWeapon != null)
                 return;
 
             primaryWeapon = collider;
-            collider.transform.SetParent(primaryWeaponPlace);
-            collider.transform.position = Vector3.zero;
+            collider.transform.SetParent(meleeWeaponPlace);
+            collider.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
             collider.GetComponent<Collider>().isTrigger = false;
         }

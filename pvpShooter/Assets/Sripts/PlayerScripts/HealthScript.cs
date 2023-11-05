@@ -10,6 +10,8 @@ public class HealthScript : MonoBehaviour
 
     public void Start()
     {
+        view = GetComponent<PhotonView>();
+
         if (!view.IsMine)
             return;
     }
