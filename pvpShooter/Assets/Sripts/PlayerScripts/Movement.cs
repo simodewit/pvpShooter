@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
     
     public void Update()
     {
+        view = GetComponent<PhotonView>();
+
         if (!view.IsMine)
             return;
 

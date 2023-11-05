@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPlace: {fileID: 1185139980}
-  view: {fileID: 1882780685}
+  view: {fileID: 0}
 --- !u!114 &1882780685
 MonoBehaviour:
   m_ObjectHideFlags: 0
