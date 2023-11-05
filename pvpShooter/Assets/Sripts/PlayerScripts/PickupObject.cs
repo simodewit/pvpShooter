@@ -36,7 +36,7 @@ public class PickupObject : MonoBehaviour
         }
 
         collider = other.gameObject;
-        view.RPC("PickUp", RpcTarget.All);
+        PickUp();
     }
 
     [PunRPC]
@@ -52,33 +52,45 @@ public class PickupObject : MonoBehaviour
             if (primaryWeapon != null)
                 return;
 
-            primaryWeapon = collider;
-            collider.transform.SetParent(primaryWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
-            gunScript.enabled = true;
-            collider.GetComponent<Collider>().isTrigger = false;
+            view.RPC("PrimaryWeaponPlace", RpcTarget.All);
         }
         if (gunScript.weaponType == 2)
         {
             if (secondaryWeapon != null)
                 return;
 
-            primaryWeapon = collider;
-            collider.transform.SetParent(secondaryWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
-            gunScript.enabled = true;
-            collider.GetComponent<Collider>().isTrigger = false;
+            view.RPC("SecondaryWeaponPlace", RpcTarget.All);
         }
         if (gunScript.weaponType == 3)
         {
             if (meleeWeapon != null)
                 return;
 
-            primaryWeapon = collider;
-            collider.transform.SetParent(meleeWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
-            gunScript.enabled = true;
-            collider.GetComponent<Collider>().isTrigger = false;
+            view.RPC("MeleeWeaponPlace", RpcTarget.All);
         }
+    }
+
+    public void PrimaryWeaponPlace()
+    {
+        primaryWeapon = collider;
+        collider.transform.SetParent(primaryWeaponPlace);
+        collider.transform.localPosition = Vector3.zero;
+        gunScript.enabled = true;
+    }
+
+    public void SecondaryWeaponPlace()
+    {
+        secondaryWeapon = collider;
+        collider.transform.SetParent(secondaryWeaponPlace);
+        collider.transform.localPosition = Vector3.zero;
+        gunScript.enabled = true;
+    }
+
+    public void MeleeWeaponPlace()
+    {
+        meleeWeapon = collider;
+        collider.transform.SetParent(meleeWeaponPlace);
+        collider.transform.localPosition = Vector3.zero;
+        gunScript.enabled = true;
     }
 }
