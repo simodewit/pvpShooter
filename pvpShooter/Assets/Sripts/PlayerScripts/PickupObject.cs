@@ -70,6 +70,7 @@ public class PickupObject : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void PrimaryWeaponPlace()
     {
         primaryWeapon = collider;
@@ -78,6 +79,7 @@ public class PickupObject : MonoBehaviour
         gunScript.enabled = true;
     }
 
+    [PunRPC]
     public void SecondaryWeaponPlace()
     {
         secondaryWeapon = collider;
@@ -86,6 +88,7 @@ public class PickupObject : MonoBehaviour
         gunScript.enabled = true;
     }
 
+    [PunRPC]
     public void MeleeWeaponPlace()
     {
         meleeWeapon = collider;
