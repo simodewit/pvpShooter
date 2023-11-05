@@ -12,6 +12,8 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Start()
     {
+        view = GetComponent<PhotonView>();
+
         HostJoinCode();
     }
 
