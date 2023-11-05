@@ -1,3 +1,4 @@
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class Movement : MonoBehaviour
     public Camera cam;
     public Rigidbody rb;
     public JumpCheck jumpCheckOnEmpty;
+    public PhotonView view;
 
     //private variables
     Vector3 walkMovement;
@@ -22,6 +24,9 @@ public class Movement : MonoBehaviour
     
     public void Update()
     {
+        if (!view.IsMine)
+            return;
+
         WalkingMovement();
         Jumping();
         MouseMovement();
