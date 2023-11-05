@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3444203798906801032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3163165682168973845}
+  m_Layer: 0
+  m_Name: GunPlace
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3163165682168973845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3444203798906801032}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.361, y: 0.257, z: 0.599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3818152615713250003}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4725329369535304034
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,9 +257,11 @@ GameObject:
   - component: {fileID: 3864906073080620157}
   - component: {fileID: 8250940153031430022}
   - component: {fileID: 3949275032856700319}
-  - component: {fileID: 8550932495132488115}
   - component: {fileID: -2459096115455318315}
   - component: {fileID: 1110782963753910764}
+  - component: {fileID: 8550932495132488115}
+  - component: {fileID: -3145835146489726410}
+  - component: {fileID: -6364336055387608172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -251,6 +284,7 @@ Transform:
   m_Children:
   - {fileID: 4318812936984487591}
   - {fileID: 7024281763232655744}
+  - {fileID: 3163165682168973845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4693709624109448866
@@ -353,26 +387,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8550932495132488115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7734912808294056741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9b9b0e63b2d9e45a45c6cfb3f85c88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.7
-  sensitivity: 1.5
-  jumpStrength: 5
-  maxRotationUpAndDown: 60
-  cam: {fileID: 3201378899553850763}
-  rb: {fileID: 3949275032856700319}
-  jumpCheckOnEmpty: {fileID: 0}
-  view: {fileID: 0}
 --- !u!114 &-2459096115455318315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,3 +426,56 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &8550932495132488115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734912808294056741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba9b9b0e63b2d9e45a45c6cfb3f85c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 0.7
+  sensitivity: 1.5
+  jumpStrength: 5
+  maxRotationUpAndDown: 60
+  cam: {fileID: 3201378899553850763}
+  rb: {fileID: 3949275032856700319}
+  jumpCheckOnEmpty: {fileID: 0}
+  view: {fileID: 0}
+--- !u!114 &-3145835146489726410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734912808294056741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122dfd4fe8e824e4f8634eb802c0f276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  view: {fileID: 0}
+--- !u!114 &-6364336055387608172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7734912808294056741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a275783993767024cad52207080b0854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 0}
+  primaryWeapon: {fileID: 3444203798906801032}
+  secondaryWeapon: {fileID: 0}
+  meleeWeapon: {fileID: 0}
+  primaryWeaponPlace: {fileID: 0}
+  secondaryWeaponPlace: {fileID: 0}
+  meleeWeaponPlace: {fileID: 0}
