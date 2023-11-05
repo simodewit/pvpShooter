@@ -17,16 +17,10 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         if(hasSpawned)
             return;
 
-        HostJoinCode();
-    }
-
-    public void HostJoinCode()
-    {
         hasSpawned = true;
-        view.RPC("InstantiatePlayer", RpcTarget.All);
+        InstantiatePlayer();
     }
 
-    [PunRPC]
     public void InstantiatePlayer()
     {
         PhotonNetwork.Instantiate("Player", spawnPlace.position, new Quaternion(0, 0, 0, 0));
