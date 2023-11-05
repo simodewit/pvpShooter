@@ -27,7 +27,10 @@ public class Movement : MonoBehaviour
         view = GetComponent<PhotonView>();
 
         if (!view.IsMine)
+        {
+            cam.enabled = false;
             return;
+        }
 
         WalkingMovement();
         Jumping();
