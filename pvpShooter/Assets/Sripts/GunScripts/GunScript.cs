@@ -38,14 +38,14 @@ public class GunScript : MonoBehaviour
         {
             if(Input.GetMouseButton(0))
             {
-                view.RPC("Shoot", RpcTarget.All);
+                Shoot();
             }
         }
         else
         {
             if (Input.GetMouseButtonDown(0))
             {
-                view.RPC("Shoot", RpcTarget.All);
+                Shoot();
             }
         }
     }
