@@ -16,6 +16,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         view.RPC("InstantiatePlayer", RpcTarget.All);
     }
 
+    [PunRPC]
     public void InstantiatePlayer()
     {
         PhotonNetwork.Instantiate("Player", spawnPlace.position, new Quaternion(0, 0, 0, 0));
