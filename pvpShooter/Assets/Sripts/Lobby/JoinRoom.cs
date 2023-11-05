@@ -12,6 +12,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Start()
     {
+        print("spawns");
         HostJoinCode();
     }
 
