@@ -23,6 +23,6 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void InstantiatePlayer()
     {
-        PhotonNetwork.Instantiate("Player", spawnPlace.position, new Quaternion(0, 0, 0, 0));
+        PhotonNetwork.Instantiate("VRPlayer", spawnPlace.position, new Quaternion(0, 0, 0, 0));
     }
 }

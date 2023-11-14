@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScenes/SimonsTestScene.unity
     guid: d843359e2a706574ab102b431bc63709
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: fd87285cc5ca1ca4ca7206f22d60138b,
+      type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 3fb962458517b924c993c9a102028bae,
       type: 2}
