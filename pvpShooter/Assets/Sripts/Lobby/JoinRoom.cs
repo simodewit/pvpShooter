@@ -6,14 +6,11 @@ using Photon.Pun;
 public class JoinRoom : MonoBehaviourPunCallbacks
 {
     public Transform spawnPlace;
-    public PhotonView view;
 
     bool hasSpawned;
 
     public void Start()
     {
-        view = GetComponent<PhotonView>();
-
         if(hasSpawned)
             return;
 
