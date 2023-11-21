@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
@@ -16,8 +17,13 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public TextMeshProUGUI inputForJoiningRoom;
     public TextMeshProUGUI inputForCreatingRoom;
 
+    [Header("keyboard")]
+    public GameObject keyboard;
+
     bool onConnectionStart;
     bool firstInputInSplashScreen;
+    bool selectedJoin;
+    bool selectedCreate;
 
     public void Update()
     {
@@ -63,6 +69,47 @@ public class MainMenu : MonoBehaviourPunCallbacks
             return;
 
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
+    }
+
+    #endregion
+
+    #region Keyboard
+
+    public void DisableKeyboardJoin()
+    {
+        keyboard.SetActive(false);
+        selectedJoin = false;
+    }
+
+    public void DisableKeyboardCreate()
+    {
+        keyboard.SetActive(false);
+        selectedCreate = false;
+    }
+
+    public void EnableKeyboardJoin()
+    {
+        keyboard.SetActive(true);
+        selectedJoin = true;
+
+    }
+
+    public void EnableKeyboardCreate()
+    {
+        keyboard.SetActive(true);
+        selectedJoin = true;
+    }
+
+    public void Keyboard1()
+    {
+        if (selectedCreate)
+        {
+            inputForCreatingRoom.text += 1;
+        }
+        if (selectedJoin)
+        {
+            inputForJoiningRoom.text += 1;
+        }
     }
 
     #endregion
