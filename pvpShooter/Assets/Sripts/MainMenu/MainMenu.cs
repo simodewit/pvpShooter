@@ -20,6 +20,9 @@ public class MainMenu : MonoBehaviourPunCallbacks
     [Header("keyboard")]
     public GameObject keyboard;
 
+    [Header("debugging")]
+    public Debugger Debugger;
+
     bool onConnectionStart;
     bool firstInputInSplashScreen;
     bool selectedJoin;
@@ -37,6 +40,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
             PhotonNetwork.GameVersion = ("0.0.1");
             PhotonNetwork.ConnectUsingSettings();
             firstInputInSplashScreen = true;
+            Debugger.VrPrint("anykey");
         }
 
         if (onConnectionStart)
@@ -82,6 +86,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
     }
 
     public void DisableKeyboardCreate()
+    {
+        Debugger.CatchErrors(Aa);
+    }
+
+    public void Aa()
     {
         keyboard.SetActive(false);
         selectedCreate = false;
