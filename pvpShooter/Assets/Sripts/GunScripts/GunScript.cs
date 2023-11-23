@@ -2,9 +2,13 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class GunScript : MonoBehaviour
 {
+    #region variables
+
     [Header("Gun details (1 is primary, 2 is secondary, 3 is melee weapon)")]
     public int weaponType;
 
@@ -20,43 +24,59 @@ public class GunScript : MonoBehaviour
 
     [Header("refrences")]
     public Transform endOfBarrel;
-    public PhotonView view;
 
+    //private variables
+    PhotonView view;
     RaycastHit rayHit;
+
+    #endregion
+
+    #region start
 
     public void Start()
     {
         view = GetComponent<PhotonView>();
     }
 
-    public void Update()
+    #endregion
+
+    #region inputs
+
+    public void InputInteraction(CallbackContext c)
     {
-        if (!view.IsMine)
+        if(view.IsMine)
+        {
             return;
+        }
 
         if(automaticGun)
         {
-            if(Input.GetMouseButton(0))
+            if (c.started)
             {
                 Shoot();
             }
         }
         else
         {
-            if (Input.GetMouseButtonDown(0))
+            if(c.performed)
             {
                 Shoot();
             }
         }
     }
 
+    #endregion
+
+    #region shoot code
+
     [PunRPC]
     public void Shoot()
     {
         if (!view.IsMine)
+        {
             return;
+        }
 
-        print("shoot");
         if (Physics.Raycast(endOfBarrel.position, transform.forward, out rayHit, range))
         {
             if (splashDamage)
@@ -66,7 +86,9 @@ public class GunScript : MonoBehaviour
                 foreach(Collider hit in hits)
                 {
                     if (!hit.GetComponent<HealthScript>())
+                    {
                         return;
+                    }
 
                     float totalDamage;
 
@@ -87,7 +109,9 @@ public class GunScript : MonoBehaviour
             else
             {
                 if (!rayHit.transform.gameObject.GetComponent<HealthScript>())
+                {
                     return;
+                }
 
                 float totalDamage;
 
@@ -106,4 +130,6 @@ public class GunScript : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

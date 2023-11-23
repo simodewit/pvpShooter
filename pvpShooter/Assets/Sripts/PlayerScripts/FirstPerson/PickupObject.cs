@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PickupObject : MonoBehaviour
 {
-    public PhotonView view;
+    #region variables
 
     public GameObject primaryWeapon;
     public GameObject secondaryWeapon;
@@ -16,12 +16,21 @@ public class PickupObject : MonoBehaviour
     public Transform meleeWeaponPlace;
 
     GunScript gunScript;
-    GameObject collider;
+    GameObject colliderOfGameobject;
+    PhotonView view;
+
+    #endregion
+
+    #region start
 
     public void Start()
     {
         view = GetComponent<PhotonView>();
     }
+
+    #endregion
+
+    #region checking colision
 
     public void OnTriggerEnter(Collider other)
     {
@@ -30,55 +39,57 @@ public class PickupObject : MonoBehaviour
             return;
         }
 
-        collider = other.gameObject;
+        colliderOfGameobject = other.gameObject;
 
-        //print("rpc's");
-
-        //view.RPC("PickUp", RpcTarget.All);
         PickUp();
     }
+
+    #endregion
+
+    #region pickup code
 
     [PunRPC]
     public void PickUp()
     {
-        //print("recieved rpc");
-
-        //if (!view.IsMine)
-        //    return;
-
-        //print("is my code");
-
-        gunScript = collider.gameObject.GetComponent<GunScript>();
+        gunScript = colliderOfGameobject.gameObject.GetComponent<GunScript>();
 
         if(gunScript.weaponType == 1)
         {
             if (primaryWeapon != null)
+            {
                 return;
+            }
 
-            primaryWeapon = collider;
-            collider.transform.SetParent(primaryWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
+            primaryWeapon = colliderOfGameobject;
+            colliderOfGameobject.transform.SetParent(primaryWeaponPlace);
+            colliderOfGameobject.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
         }
         if (gunScript.weaponType == 2)
         {
             if (secondaryWeapon != null)
+            {
                 return;
+            }
 
-            secondaryWeapon = collider;
-            collider.transform.SetParent(secondaryWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
+            secondaryWeapon = colliderOfGameobject;
+            colliderOfGameobject.transform.SetParent(secondaryWeaponPlace);
+            colliderOfGameobject.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
         }
         if (gunScript.weaponType == 3)
         {
             if (meleeWeapon != null)
+            {
                 return;
+            }
 
-            meleeWeapon = collider;
-            collider.transform.SetParent(meleeWeaponPlace);
-            collider.transform.localPosition = Vector3.zero;
+            meleeWeapon = colliderOfGameobject;
+            colliderOfGameobject.transform.SetParent(meleeWeaponPlace);
+            colliderOfGameobject.transform.localPosition = Vector3.zero;
             gunScript.enabled = true;
         }
     }
+
+    #endregion
 }

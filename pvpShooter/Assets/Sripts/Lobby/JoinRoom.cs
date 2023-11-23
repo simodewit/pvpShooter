@@ -6,13 +6,14 @@ using Photon.Pun;
 public class JoinRoom : MonoBehaviourPunCallbacks
 {
     public Transform spawnPlace;
-
     bool hasSpawned;
 
     public void Start()
     {
         if(hasSpawned)
+        {
             return;
+        }
 
         hasSpawned = true;
         InstantiatePlayer();

@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 public class Debugger : MonoBehaviourPunCallbacks
 {
@@ -53,6 +55,14 @@ public class Debugger : MonoBehaviourPunCallbacks
     #endregion
 
     #region code for disabling and enabling the debug panel
+
+    public void InputInteraction(CallbackContext c)
+    {
+        if(c.started)
+        {
+            EnableDisablePanel();
+        }
+    }
 
     public void EnableDisablePanel()
     {

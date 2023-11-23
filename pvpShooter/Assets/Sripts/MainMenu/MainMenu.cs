@@ -8,6 +8,11 @@ using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
+    #region variables
+
+    [Header("name of scene to load")]
+    public string sceneName;
+
     [Header("Panels")]
     public GameObject splashScreenPanel;
     public GameObject mainMenuPanel;
@@ -23,15 +28,24 @@ public class MainMenu : MonoBehaviourPunCallbacks
     [Header("debugging")]
     public Debugger Debugger;
 
+    //private variables
     bool onConnectionStart;
     bool firstInputInSplashScreen;
     bool selectedJoin;
     bool selectedCreate;
 
+    #endregion
+
+    #region update
+
     public void Update()
     {
         SplashScreenCode();
     }
+
+    #endregion
+
+    #region splash screen code
 
     public void SplashScreenCode()
     {
@@ -50,6 +64,8 @@ public class MainMenu : MonoBehaviourPunCallbacks
         }
     }
 
+    #endregion
+
     #region Button Functions
 
     public void OnClickPlay()
@@ -61,7 +77,9 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public void OnClickJoinRoom()
     {
         if (inputForJoiningRoom.text == "")
+        {
             return;
+        }
 
         PhotonNetwork.JoinRoom(inputForJoiningRoom.text);
     }
@@ -69,7 +87,9 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public void OnClickCreateRoom()
     {
         if (inputForCreatingRoom.text == "")
+        {
             return;
+        }
 
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
     }
@@ -120,7 +140,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.LoadLevel("SimonsTestScene");
+        PhotonNetwork.LoadLevel(sceneName);
     }
 
     public override void OnConnectedToMaster()

@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthScript : MonoBehaviour
 {
     public int hp;
-    public PhotonView view;
+    PhotonView view;
 
     public void Start()
     {
@@ -16,7 +16,9 @@ public class HealthScript : MonoBehaviour
     public void Health(int damage)
     {
         if (!view.IsMine)
+        {
             return;
+        }
 
         hp -= damage;
         if(hp <= 0)
