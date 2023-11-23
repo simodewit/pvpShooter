@@ -15,7 +15,7 @@ public class Debugger : MonoBehaviourPunCallbacks
     public TextMeshProUGUI consoleUI;
 
     //timer variables
-    string timerInString;
+    string timerInString = "0.0.0";
     float time;
     int minutes;
     int seconds;
