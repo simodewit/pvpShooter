@@ -76,20 +76,20 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void OnClickJoinRoom()
     {
-        if (inputForJoiningRoom.text == "")
-        {
-            return;
-        }
+        //if (inputForJoiningRoom.text == "")
+        //{
+        //    return;
+        //}
 
         PhotonNetwork.JoinRoom(inputForJoiningRoom.text);
     }
 
     public void OnClickCreateRoom()
     {
-        if (inputForCreatingRoom.text == "")
-        {
-            return;
-        }
+        //if (inputForCreatingRoom.text == "")
+        //{
+        //    return;
+        //}
 
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
     }

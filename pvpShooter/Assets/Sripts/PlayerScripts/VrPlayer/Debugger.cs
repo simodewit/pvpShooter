@@ -56,7 +56,7 @@ public class Debugger : MonoBehaviourPunCallbacks
 
     #region code for disabling and enabling the debug panel
 
-    public void InputInteraction(CallbackContext c)
+    public void ToggleDebugger(CallbackContext c)
     {
         if(c.started)
         {
