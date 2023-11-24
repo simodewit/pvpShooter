@@ -91,6 +91,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
         //    return;
         //}
 
+        Debugger.CatchErrors(TempCode);
+    }
+
+    public void TempCode()
+    {
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
     }
 
