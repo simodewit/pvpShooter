@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public GameObject keyboard;
 
     [Header("debugging")]
-    public Debugger Debugger;
+    public Debugger debugger;
 
     //private variables
     bool onConnectionStart;
@@ -91,7 +91,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
         //    return;
         //}
 
-        Debugger.CatchErrors(TempCode);
+        debugger.CatchErrors(TempCode);
     }
 
     public void TempCode()
@@ -145,6 +145,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        debugger.VrPrint("loads scene");
         PhotonNetwork.LoadLevel(sceneName);
     }
 
