@@ -91,11 +91,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
         //    return;
         //}
 
-        debugger.CatchErrors(TempCode);
-    }
-
-    public void TempCode()
-    {
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
     }
 
@@ -145,7 +140,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        debugger.VrPrint("loads scene");
         PhotonNetwork.LoadLevel(sceneName);
     }
 
