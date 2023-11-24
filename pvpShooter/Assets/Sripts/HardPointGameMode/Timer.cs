@@ -82,7 +82,8 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                //game over
+                seconds = 0;
+                minutes = 0;
             }
         }
 
