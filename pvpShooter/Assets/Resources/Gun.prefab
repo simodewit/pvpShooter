@@ -141,7 +141,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2913501268806609824}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b16c8c9556124b4088844755d0332b6, type: 3}
   m_Name: 
@@ -154,6 +154,7 @@ MonoBehaviour:
   splashDamage: 0
   splashDamageRange: 0
   endOfBarrel: {fileID: 6776987682015608303}
+  asset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!114 &-6932682528955821722
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     public Transform spawnPlace;
     bool hasSpawned;
 
-    public void Start()
+    public void Awake()
     {
         if(hasSpawned)
         {

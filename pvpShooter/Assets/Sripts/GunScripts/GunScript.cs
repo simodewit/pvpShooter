@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class GunScript : MonoBehaviour
 {
@@ -24,44 +25,75 @@ public class GunScript : MonoBehaviour
 
     [Header("refrences")]
     public Transform endOfBarrel;
+    public ActionBasedControllerManager shootInputs;
 
     //private variables
     PhotonView view;
     RaycastHit rayHit;
+    XRGrabInteractable grabbing;
+
+    Debugger debugger;
 
     #endregion
 
-    #region start
+    #region start and update
+
+    public void Awake()
+    {
+        shootInputs = new ActionBasedControllerManager();
+    }
 
     public void Start()
     {
         view = GetComponent<PhotonView>();
+        debugger = GameObject.Find("DebugTool").GetComponent<Debugger>();
     }
 
     #endregion
 
     #region inputs
 
-    public void InputInteraction(CallbackContext c)
+    public void LeftShoot(InputAction.CallbackContext c)
     {
-        if(view.IsMine)
+        if(!view.IsMine)
         {
             return;
         }
 
-        if(automaticGun)
+        if (!grabbing.isHovered)
         {
-            if (c.started)
-            {
-                Shoot();
-            }
+            return;
+        }
+
+        if (automaticGun)
+        {
+            
         }
         else
         {
-            if(c.performed)
-            {
-                Shoot();
-            }
+
+        }
+    }
+
+    public void RightShoot(InputAction.CallbackContext c)
+    {
+        if (!view.IsMine)
+        {
+            return;
+        }
+
+        if (!grabbing.isHovered)
+        {
+            return;
+        }
+
+        if (automaticGun)
+        {
+
+        }
+        else
+        {
+
         }
     }
 
@@ -76,6 +108,8 @@ public class GunScript : MonoBehaviour
         {
             return;
         }
+
+        debugger.VrPrint("shoot");
 
         if (Physics.Raycast(endOfBarrel.position, transform.forward, out rayHit, range))
         {
