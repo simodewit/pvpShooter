@@ -76,62 +76,22 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void OnClickJoinRoom()
     {
-        //if (inputForJoiningRoom.text == "")
-        //{
-        //    return;
-        //}
+        if (inputForJoiningRoom.text == "")
+        {
+            inputForCreatingRoom.text = "1";
+        }
 
         PhotonNetwork.JoinRoom(inputForJoiningRoom.text);
     }
 
     public void OnClickCreateRoom()
     {
-        //if (inputForCreatingRoom.text == "")
-        //{
-        //    return;
-        //}
+        if (inputForCreatingRoom.text == "")
+        {
+            inputForCreatingRoom.text = "1";
+        }
 
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
-    }
-
-    #endregion
-
-    #region Keyboard
-
-    public void DisableKeyboardJoin()
-    {
-        keyboard.SetActive(false);
-        selectedJoin = false;
-    }
-
-    public void DisableKeyboardCreate()
-    {
-        keyboard.SetActive(false);
-        selectedCreate = false;
-    }
-
-    public void EnableKeyboardJoin()
-    {
-        keyboard.SetActive(true);
-        selectedJoin = true;
-    }
-
-    public void EnableKeyboardCreate()
-    {
-        keyboard.SetActive(true);
-        selectedJoin = true;
-    }
-
-    public void Keyboard1()
-    {
-        if (selectedCreate)
-        {
-            inputForCreatingRoom.text += 1;
-        }
-        if (selectedJoin)
-        {
-            inputForJoiningRoom.text += 1;
-        }
     }
 
     #endregion
