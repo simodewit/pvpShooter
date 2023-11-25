@@ -1408,6 +1408,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
+--- !u!114 &831128498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5577938709900773227, guid: c6104a6b907a5c04696cc517ff130967,
+    type: 3}
+  m_PrefabInstance: {fileID: 1659017939}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d00ee56e4c9d3478619769441ae5ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &834198869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,6 +2379,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -26201845330156535, guid: c6104a6b907a5c04696cc517ff130967,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 131852520018874847, guid: c6104a6b907a5c04696cc517ff130967,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -2461,6 +2478,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: VRPlayerWithDebugger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225421938353011448, guid: c6104a6b907a5c04696cc517ff130967,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2815,7 +2837,7 @@ MonoBehaviour:
   inputForJoiningRoom: {fileID: 1439787192}
   inputForCreatingRoom: {fileID: 2044815069}
   keyboard: {fileID: 0}
-  debugger: {fileID: 0}
+  debugger: {fileID: 831128498}
 --- !u!114 &1947461503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3236,6 +3258,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2117455953}
   m_CullTransparentMesh: 1
+--- !u!1001 &1027872864001344836
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.016954
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.7559004
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.9949017
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 992486016516053599, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590755197552262968, guid: da75509dec201a943b142fc3ab4ee889,
+        type: 3}
+      propertyPath: m_Name
+      value: XR Interaction Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: da75509dec201a943b142fc3ab4ee889, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3245,3 +3335,4 @@ SceneRoots:
   - {fileID: 1947461501}
   - {fileID: 1411887285}
   - {fileID: 1659017939}
+  - {fileID: 1027872864001344836}

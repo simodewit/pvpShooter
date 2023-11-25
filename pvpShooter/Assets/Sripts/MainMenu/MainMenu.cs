@@ -31,8 +31,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     //private variables
     bool onConnectionStart;
     bool firstInputInSplashScreen;
-    bool selectedJoin;
-    bool selectedCreate;
+    bool temp;
 
     #endregion
 
@@ -91,6 +90,13 @@ public class MainMenu : MonoBehaviourPunCallbacks
             inputForCreatingRoom.text = "1";
         }
 
+        if (temp)
+        {
+            return;
+        }
+
+        temp = true;
+        debugger.VrPrint(inputForCreatingRoom.text);
         PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
     }
 
@@ -100,11 +106,14 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        debugger.VrPrint(sceneName);
         PhotonNetwork.LoadLevel(sceneName);
+        debugger.VrPrint("loaded next scene");
     }
 
     public override void OnConnectedToMaster()
     {
+        debugger.VrPrint("connected to servers");
         onConnectionStart = true;
     }
 
