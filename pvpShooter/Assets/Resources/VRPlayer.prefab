@@ -735,7 +735,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838192480896308316}
-  - component: {fileID: -7671939924243573868}
   m_Layer: 0
   m_Name: VRPlayer
   m_TagString: Untagged
@@ -760,22 +759,6 @@ Transform:
   - {fileID: 4490104228506164124}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7671939924243573868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6605014202172969871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &7045899127508811586
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,7 +773,6 @@ GameObject:
   - component: {fileID: 1519898402315127340}
   - component: {fileID: 2412019493427726163}
   - component: {fileID: 158560989072688161}
-  - component: {fileID: 4251400501561925538}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1460,22 +1442,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortAtRoot: 0
---- !u!114 &4251400501561925538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7045899127508811586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &8114081625010490597
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,7 +1456,6 @@ GameObject:
   - component: {fileID: 7206009390715392728}
   - component: {fileID: 6950438365565104557}
   - component: {fileID: 4014996908220717271}
-  - component: {fileID: 1631989500091577708}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -2160,22 +2125,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_SortAtRoot: 0
---- !u!114 &1631989500091577708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8114081625010490597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
-  m_UseLocal: 1
 --- !u!1 &8761270844834671112
 GameObject:
   m_ObjectHideFlags: 0
