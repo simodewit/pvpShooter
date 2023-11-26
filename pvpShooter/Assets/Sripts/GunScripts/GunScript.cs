@@ -25,23 +25,17 @@ public class GunScript : MonoBehaviour
 
     [Header("refrences")]
     public Transform endOfBarrel;
-    public ActionBasedControllerManager shootInputs;
 
     //private variables
     PhotonView view;
     RaycastHit rayHit;
-    XRGrabInteractable grabbing;
+    bool hasFired;
 
     Debugger debugger;
 
     #endregion
 
     #region start and update
-
-    public void Awake()
-    {
-        shootInputs = new ActionBasedControllerManager();
-    }
 
     public void Start()
     {
@@ -53,48 +47,30 @@ public class GunScript : MonoBehaviour
 
     #region inputs
 
-    public void LeftShoot(InputAction.CallbackContext c)
+    public void Inputs()
     {
         if(!view.IsMine)
         {
             return;
         }
 
-        if (!grabbing.isHovered)
-        {
-            return;
-        }
-
         if (automaticGun)
         {
-            
+            Shoot();
         }
         else
         {
-
+            if(!hasFired)
+            {
+                Shoot();
+                hasFired = true;
+            }
         }
     }
 
-    public void RightShoot(InputAction.CallbackContext c)
+    public void StopInput()
     {
-        if (!view.IsMine)
-        {
-            return;
-        }
-
-        if (!grabbing.isHovered)
-        {
-            return;
-        }
-
-        if (automaticGun)
-        {
-
-        }
-        else
-        {
-
-        }
+        hasFired = false;
     }
 
     #endregion
