@@ -26,12 +26,13 @@ public class GunScript : MonoBehaviour
     [Header("refrences")]
     public Transform endOfBarrel;
 
-    //private variables
-    PhotonView view;
-    RaycastHit rayHit;
-    bool hasFired;
+    [Header("bullet info")]
+    public string bulletName;
+    public float bulletSpeed;
 
+    //private variables
     Debugger debugger;
+    PhotonView view;
 
     #endregion
 
@@ -39,38 +40,19 @@ public class GunScript : MonoBehaviour
 
     public void Start()
     {
-        view = GetComponent<PhotonView>();
-        debugger = GameObject.Find("DebugTool").GetComponent<Debugger>();
+        Refrences();
     }
 
     #endregion
 
-    #region inputs
+    #region refrences
 
-    public void Inputs()
+    public void Refrences()
     {
-        if(!view.IsMine)
-        {
-            return;
-        }
-
-        if (automaticGun)
-        {
-            Shoot();
-        }
-        else
-        {
-            if(!hasFired)
-            {
-                Shoot();
-                hasFired = true;
-            }
-        }
-    }
-
-    public void StopInput()
-    {
-        hasFired = false;
+        view = GetComponent<PhotonView>();
+        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        debugger = GameObject.Find("DebugTool").GetComponent<Debugger>();
+        grabbable.activated.AddListener(Shoot);
     }
 
     #endregion
@@ -78,67 +60,14 @@ public class GunScript : MonoBehaviour
     #region shoot code
 
     [PunRPC]
-    public void Shoot()
+    public void Shoot(ActivateEventArgs arg)
     {
-        if (!view.IsMine)
-        {
-            return;
-        }
-
         debugger.VrPrint("shoot");
 
-        if (Physics.Raycast(endOfBarrel.position, transform.forward, out rayHit, range))
-        {
-            if (splashDamage)
-            {
-                Collider[] hits = Physics.OverlapSphere(rayHit.point, splashDamageRange);
+        GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.localPosition, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed, ForceMode.Force);
 
-                foreach(Collider hit in hits)
-                {
-                    if (!hit.GetComponent<HealthScript>())
-                    {
-                        return;
-                    }
-
-                    float totalDamage;
-
-                    if(decreasingDamageByRange)
-                    {
-                        float distance = Vector3.Distance(rayHit.point, hit.transform.position);
-                        float distanceInPercentages = distance / splashDamageRange * 100;
-                        totalDamage = damage / 100 * distanceInPercentages;
-                    }
-                    else
-                    {
-                        totalDamage = damage;
-                    }
-
-                    hit.GetComponent<HealthScript>().Health((int)totalDamage);
-                }
-            }
-            else
-            {
-                if (!rayHit.transform.gameObject.GetComponent<HealthScript>())
-                {
-                    return;
-                }
-
-                float totalDamage;
-
-                if (decreasingDamageByRange)
-                {
-                    float distance = Vector3.Distance(endOfBarrel.position, rayHit.point);
-                    float distanceInPercentages = distance / range * 100;
-                    totalDamage = damage / 100 * distanceInPercentages;
-                }
-                else
-                {
-                    totalDamage = damage;
-                }
-
-                rayHit.transform.gameObject.GetComponent<HealthScript>().Health((int)totalDamage);
-            }
-        }
+        debugger.VrPrint(bullet.name);
     }
 
     #endregion

@@ -2270,6 +2270,7 @@ GameObject:
   - component: {fileID: 158560989072688161}
   - component: {fileID: 8382052408947660673}
   - component: {fileID: 4931372522304013239}
+  - component: {fileID: 8774099788683674589}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -2660,6 +2661,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8774099788683674589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7045899127508811586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0848d125e63b243b7ba0747016878c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ray: {fileID: 1755893100604981563}
+  gameobjectWithDetails: SceneDetails
 --- !u!1 &8114081625010490597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2688,7 @@ GameObject:
   - component: {fileID: 4014996908220717271}
   - component: {fileID: 3623466568674557550}
   - component: {fileID: 3697549567472719857}
+  - component: {fileID: 3290657261170933854}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -3064,6 +3080,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3290657261170933854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8114081625010490597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0848d125e63b243b7ba0747016878c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ray: {fileID: 612855109544778700}
+  gameobjectWithDetails: SceneDetails
 --- !u!1 &8273377563881324766
 GameObject:
   m_ObjectHideFlags: 0

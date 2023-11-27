@@ -23,16 +23,4 @@ public class InteractionSwitch : MonoBehaviour
             sceneDescriptions.enabled = false;
         }
     }
-
-    public void SwitchInteractors(CallbackContext c)
-    {
-        if(ray.activeSelf)
-        {
-            ray.SetActive(false);
-        }
-        else
-        {
-            ray.SetActive(true);
-        }
-    }
 }
