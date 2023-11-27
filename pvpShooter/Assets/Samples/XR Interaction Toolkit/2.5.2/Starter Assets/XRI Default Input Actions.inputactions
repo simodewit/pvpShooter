@@ -689,7 +689,7 @@
                     "id": "33754c03-48ec-46ef-9bc6-22ed6bfdd8e8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 },
                 {
@@ -832,9 +832,9 @@
                     "name": "",
                     "id": "487f4f2e-9e9b-49aa-b0f2-4037a24624f5",
                     "path": "<XRController>{LeftHand}/{TriggerButton}",
-                    "interactions": "Hold",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
-                    "groups": "Generic XR Controller",
+                    "groups": "Generic XR Controller;Continuous Move",
                     "action": "Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -1628,9 +1628,9 @@
                     "name": "",
                     "id": "fa59aed1-ae0b-4074-a58c-294b85f46228",
                     "path": "<XRController>{RightHand}/{TriggerButton}",
-                    "interactions": "Hold",
+                    "interactions": "Press",
                     "processors": "",
-                    "groups": "Generic XR Controller",
+                    "groups": "Generic XR Controller;Continuous Move",
                     "action": "Activate",
                     "isComposite": false,
                     "isPartOfComposite": false

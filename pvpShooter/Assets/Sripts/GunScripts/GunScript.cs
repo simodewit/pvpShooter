@@ -18,6 +18,7 @@ public class GunScript : MonoBehaviour
     public float damage;
     public bool decreasingDamageByRange;
     public bool automaticGun;
+    public float shootInterval;
 
     [Header("SplashDamage")]
     public bool splashDamage;
@@ -34,6 +35,11 @@ public class GunScript : MonoBehaviour
     Debugger debugger;
     PhotonView view;
 
+    bool hasShot;
+    bool canShoot;
+
+    float timer;
+
     #endregion
 
     #region start and update
@@ -41,6 +47,11 @@ public class GunScript : MonoBehaviour
     public void Start()
     {
         Refrences();
+    }
+
+    public void Update()
+    {
+        Automatic();
     }
 
     #endregion
@@ -62,12 +73,56 @@ public class GunScript : MonoBehaviour
     [PunRPC]
     public void Shoot(ActivateEventArgs arg)
     {
-        debugger.VrPrint("shoot");
+        if(automaticGun)
+        {
+            if(canShoot)
+            {
+                canShoot = false;
+            }
+            else
+            {
+                canShoot = true;
+            }
+        }
+        else
+        {
+            if (hasShot)
+            {
+                hasShot = false;
+            }
+            else
+            {
+                Bullet();
+                hasShot = true;
+            }
+        }
+    }
+    
+    public void Automatic()
+    {
+        debugger.VrPrint(timer.ToString());
+        if (canShoot)
+        {
+            debugger.VrPrint("auto");
+            timer -= Time.deltaTime;
 
-        GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.localPosition, Quaternion.identity);
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed, ForceMode.Force);
+            if(timer <= 0)
+            {
+                debugger.VrPrint("shoot");
+                timer = shootInterval;
+                Bullet();
+            }
+        }
+        else
+        {
+            timer = 0;
+        }
+    }
 
-        debugger.VrPrint(bullet.name);
+    public void Bullet()
+    {
+        GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
+        bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
     }
 
     #endregion

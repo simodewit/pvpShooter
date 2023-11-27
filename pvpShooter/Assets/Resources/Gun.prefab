@@ -183,12 +183,13 @@ MonoBehaviour:
   range: 30
   damage: 10
   decreasingDamageByRange: 0
-  automaticGun: 0
+  automaticGun: 1
+  shootInterval: 0.5
   splashDamage: 0
   splashDamageRange: 0
   endOfBarrel: {fileID: 6776987682015608303}
   bulletName: Bullet
-  bulletSpeed: 5
+  bulletSpeed: 20
 --- !u!114 &-6932682528955821722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 1
+  m_MovementType: 0
   m_VelocityDamping: 1
   m_VelocityScale: 1
   m_AngularVelocityDamping: 1
