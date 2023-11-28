@@ -1,28 +1,26 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit;
-using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class GunScript : MonoBehaviour
 {
     #region variables
 
-    [Header("Gun details (1 is primary, 2 is secondary, 3 is melee weapon)")]
+    [Header("Gun type (1 is primary, 2 is secondary, 3 is melee weapon)")]
     public int weaponType;
 
-    [Header("General conditions")]
-    public float range;
-    public float damage;
-    public bool decreasingDamageByRange;
+    [Header("Gun details")]
+    public bool semiAuto;
+    public bool burst;
     public bool automaticGun;
+    public int totalBurstShots;
     public float shootInterval;
 
-    [Header("SplashDamage")]
-    public bool splashDamage;
-    public float splashDamageRange;
+    [Header("General conditions")]
+    public int damage;
+    public bool hasToDecrease;
+    public float decreasingDistance;
+    public float decreasingFactor;
 
     [Header("refrences")]
     public Transform endOfBarrel;
@@ -31,12 +29,11 @@ public class GunScript : MonoBehaviour
     public string bulletName;
     public float bulletSpeed;
 
-    //private variables
-    Debugger debugger;
     PhotonView view;
 
-    bool hasShot;
     bool canShoot;
+    bool hasShot;
+    int totalShots;
 
     float timer;
 
@@ -51,7 +48,7 @@ public class GunScript : MonoBehaviour
 
     public void Update()
     {
-        Automatic();
+        Shoot();
     }
 
     #endregion
@@ -62,8 +59,8 @@ public class GunScript : MonoBehaviour
     {
         view = GetComponent<PhotonView>();
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
-        debugger = GameObject.Find("DebugTool").GetComponent<Debugger>();
-        grabbable.activated.AddListener(Shoot);
+        grabbable.activated.AddListener(StartInput);
+        grabbable.deactivated.AddListener(StopInput);
     }
 
     #endregion
@@ -71,58 +68,68 @@ public class GunScript : MonoBehaviour
     #region shoot code
 
     [PunRPC]
-    public void Shoot(ActivateEventArgs arg)
+    public void StartInput(ActivateEventArgs arg)
     {
-        if(automaticGun)
-        {
-            if(canShoot)
-            {
-                canShoot = false;
-            }
-            else
-            {
-                canShoot = true;
-            }
-        }
-        else
-        {
-            if (hasShot)
-            {
-                hasShot = false;
-            }
-            else
-            {
-                Bullet();
-                hasShot = true;
-            }
-        }
+        canShoot = true;
+    }
+
+    public void StopInput(DeactivateEventArgs arg)
+    {
+        canShoot = false;
     }
     
-    public void Automatic()
+    public void Shoot()
     {
-        debugger.VrPrint(timer.ToString());
         if (canShoot)
         {
-            debugger.VrPrint("auto");
-            timer -= Time.deltaTime;
-
-            if(timer <= 0)
+            if (semiAuto)
             {
-                debugger.VrPrint("shoot");
-                timer = shootInterval;
-                Bullet();
+                if (!hasShot)
+                {
+                    Bullet();
+                    hasShot = true;
+                }
+
+            }
+            else if(burst)
+            {
+                timer -= Time.deltaTime;
+
+                if(totalShots < totalBurstShots && timer <= 0)
+                {
+                    totalShots += 1;
+                    timer = shootInterval;
+                    Bullet();
+                }
+            }
+            else if (automaticGun)
+            {
+                timer -= Time.deltaTime;
+
+                if (timer <= 0)
+                {
+                    timer = shootInterval;
+                    Bullet();
+                }
             }
         }
         else
         {
             timer = 0;
+            totalShots = 0;
+            hasShot = false;
         }
     }
 
     public void Bullet()
     {
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
+
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
+        bullet.GetComponent<BulletScript>().damage = damage;
+        bullet.GetComponent<BulletScript>().hasToDecrease = hasToDecrease;
+        bullet.GetComponent<BulletScript>().decreasingDistance = decreasingDistance;
+        bullet.GetComponent<BulletScript>().decreasingFactor = decreasingFactor;
     }
 
     #endregion
