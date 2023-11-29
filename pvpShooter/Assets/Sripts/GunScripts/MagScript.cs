@@ -15,6 +15,8 @@ public class MagScript : MonoBehaviour
     public float snapDistance;
     public string attachPointName;
 
+    Debugger debug;
+
     //privates
     Rigidbody rb;
     GunScript gun;
@@ -28,46 +30,54 @@ public class MagScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
     }
 
     #endregion
 
     #region pickup code
 
-    //public void PickupMag(SelectEnterEventArgs arg)
-    //{
-    //    gun.mag = null;
-    //    transform.parent = null;
-    //    gun = null;
-    //    rb.useGravity = true;
-    //    col.enabled = true;
-    //}
+    public void PickupMag(SelectEnterEventArgs arg)
+    {
+        debug.VrPrint("picks up mag");
+
+        gun.mag = null;
+        transform.parent = null;
+        gun = null;
+        rb.useGravity = true;
+        col.enabled = true;
+    }
 
     #endregion
 
     #region drop mag code
 
-    //public void LetGoOfMag(SelectExitEventArgs arg)
-    //{
-    //    Collider[] colliders = Physics.OverlapSphere(transform.position, seekDistance, layer);
+    public void LetGoOfMag(SelectExitEventArgs arg)
+    {
+        debug.VrPrint("drops mag");
 
-    //    foreach (var collider in colliders)
-    //    {
-    //        if(collider.GetComponent<GunScript>() != null)
-    //        {
-    //            float distance = Vector3.Distance(transform.position, collider.gameObject.GetNamedChild(attachPointName).transform.position);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, seekDistance, layer);
 
-    //            if (distance < snapDistance && collider.GetComponent<GunScript>().mag == null)
-    //            {
-    //                collider.GetComponent<GunScript>().mag = gameObject.GetComponent<MagScript>();
-    //                gun = collider.GetComponent<GunScript>();
-    //                transform.parent = collider.gameObject.GetNamedChild(attachPointName).transform;
-    //                rb.useGravity = false;
-    //                col.enabled = false;
-    //            }
-    //        }
-    //    }
-    //}
+        foreach (var collider in colliders)
+        {
+            if (collider.GetComponent<GunScript>() != null)
+            {
+                float distance = Vector3.Distance(transform.position, collider.gameObject.GetNamedChild(attachPointName).transform.position);
+
+                if (distance < snapDistance && collider.GetComponent<GunScript>().mag == null)
+                {
+                    debug.VrPrint("attaches mag");
+
+                    collider.GetComponent<GunScript>().mag = gameObject.GetComponent<MagScript>();
+                    gun = collider.GetComponent<GunScript>();
+                    transform.parent = collider.gameObject.GetNamedChild(attachPointName).transform;
+                    rb.useGravity = false;
+                    col.enabled = false;
+                }
+            }
+        }
+    }
 
     #endregion
 }

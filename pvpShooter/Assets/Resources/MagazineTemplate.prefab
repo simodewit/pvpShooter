@@ -326,7 +326,7 @@ MonoBehaviour:
   bullets: 30
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1
   seekDistance: 5
   snapDistance: 1
   attachPointName: MagAttachPoint

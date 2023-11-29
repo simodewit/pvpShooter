@@ -2,6 +2,8 @@ using Photon.Pun;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEngine.InputSystem.InputAction;
 
 public class Debugger : MonoBehaviourPunCallbacks
@@ -12,6 +14,7 @@ public class Debugger : MonoBehaviourPunCallbacks
     public GameObject UiPanel;
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI consoleUI;
+    public ScrollRect scroll;
 
     //timer variables
     string timerInString = "0.0.0";
@@ -80,21 +83,25 @@ public class Debugger : MonoBehaviourPunCallbacks
     public void VrPrint(string s)
     {
         consoleUI.text += timerInString + ": " + s + "<br>";
+        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableInt(int i)
     {
         consoleUI.text += timerInString + ": " + i.ToString() + "<br>";
+        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableFloat(float f)
     {
         consoleUI.text += timerInString + ": " + f.ToString() + "<br>";
+        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableBool(bool b)
     {
         consoleUI.text += timerInString + ": " + b.ToString() + "<br>";
+        scroll.verticalScrollbar.value = 0;
     }
 
     public void CatchErrors(Action function)
@@ -106,6 +113,7 @@ public class Debugger : MonoBehaviourPunCallbacks
         catch (Exception e)
         {
             consoleUI.text += timerInString + ": " + e.Message + "<br>";
+            scroll.verticalScrollbar.value = 0;
         }
     }
 

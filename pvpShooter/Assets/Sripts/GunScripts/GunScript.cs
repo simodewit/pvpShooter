@@ -16,9 +16,9 @@ public class GunScript : MonoBehaviour
     public int totalBurstShots;
     public float shootInterval;
 
-    //[Header("interactions")]
-    //public int ammo;
-    //public MagScript mag;
+    [Header("interactions")]
+    public int ammo;
+    public MagScript mag;
 
     [Header("General conditions")]
     public int damage;
@@ -32,6 +32,8 @@ public class GunScript : MonoBehaviour
     [Header("bullet info")]
     public string bulletName;
     public float bulletSpeed;
+
+    Debugger debug;
 
     //view
     PhotonView view;
@@ -51,6 +53,8 @@ public class GunScript : MonoBehaviour
     public void Start()
     {
         Refrences();
+
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
     }
 
     public void Update()
@@ -89,14 +93,16 @@ public class GunScript : MonoBehaviour
     {
         if (canShoot)
         {
-            //if (mag == null)
-            //{
-            //    return;
-            //}
-            //if(mag.bullets == 0)
-            //{
-            //    return;
-            //}
+            if (mag == null)
+            {
+                debug.VrPrint("doesnt have mag");
+                return;
+            }
+            if (mag.bullets == 0)
+            {
+                debug.VrPrint("mag doesnt have bullets");
+                return;
+            }
 
             if (semiAuto)
             {
@@ -139,7 +145,9 @@ public class GunScript : MonoBehaviour
 
     public void Bullet()
     {
-        //mag.bullets -= 1;
+        debug.VrPrint("shoot");
+
+        mag.bullets -= 1;
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
 
