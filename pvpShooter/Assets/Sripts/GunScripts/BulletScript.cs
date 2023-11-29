@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
     #region variables
 
+    [Header("gets this info from gun")]
     public int damage;
     public bool hasToDecrease;
     public float decreasingDistance;
     public float decreasingFactor;
 
+    //privates
     Vector3 startPoint;
 
     #endregion
 
-    #region start and update
+    #region start
 
     public void Start()
     {
@@ -25,7 +25,7 @@ public class BulletScript : MonoBehaviour
     #endregion
 
     #region collision check
-
+    
     public void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<HealthScript>() != null)

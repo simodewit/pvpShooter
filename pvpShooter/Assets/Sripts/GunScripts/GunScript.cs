@@ -33,12 +33,15 @@ public class GunScript : MonoBehaviour
     public string bulletName;
     public float bulletSpeed;
 
+    //view
     PhotonView view;
 
+    //privates
     bool canShoot;
     bool hasShot;
     int totalShots;
 
+    //timer
     float timer;
 
     #endregion
@@ -86,14 +89,14 @@ public class GunScript : MonoBehaviour
     {
         if (canShoot)
         {
-            if (mag == null)
-            {
-                return;
-            }
-            if(mag.bullets == 0)
-            {
-                return;
-            }
+            //if (mag == null)
+            //{
+            //    return;
+            //}
+            //if(mag.bullets == 0)
+            //{
+            //    return;
+            //}
 
             if (semiAuto)
             {

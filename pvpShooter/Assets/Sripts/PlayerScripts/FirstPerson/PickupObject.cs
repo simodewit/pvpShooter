@@ -1,20 +1,21 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PickupObject : MonoBehaviour
 {
     #region variables
 
+    [Header("weapon that is holstered")]
     public GameObject primaryWeapon;
     public GameObject secondaryWeapon;
     public GameObject meleeWeapon;
 
+    [Header("placeToHolster")]
     public Transform primaryWeaponPlace;
     public Transform secondaryWeaponPlace;
     public Transform meleeWeaponPlace;
 
+    //privates
     GunScript gunScript;
     GameObject colliderOfGameobject;
     PhotonView view;

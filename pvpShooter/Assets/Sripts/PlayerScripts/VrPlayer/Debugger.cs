@@ -1,10 +1,7 @@
 using Photon.Pun;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using static UnityEngine.InputSystem.InputAction;
 
 public class Debugger : MonoBehaviourPunCallbacks
@@ -34,13 +31,13 @@ public class Debugger : MonoBehaviourPunCallbacks
 
     #endregion
 
-    #region timer for the time tracking
+    #region timer
 
     void Timer()
     {
         time += Time.deltaTime;
 
-        miliseconds = ((int)(time * 100) % 100);
+        miliseconds = (int)(time * 100) % 100;
         if (time >= 60)
         {
             time -= 60;

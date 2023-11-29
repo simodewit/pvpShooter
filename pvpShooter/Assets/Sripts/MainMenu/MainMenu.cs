@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.InputSystem;
 
 public class MainMenu : MonoBehaviourPunCallbacks
 {
@@ -19,14 +15,9 @@ public class MainMenu : MonoBehaviourPunCallbacks
     public GameObject createOrJoinRoomPanel;
 
     [Header("UI elements")]
-    public TextMeshProUGUI inputForJoiningRoom;
-    public TextMeshProUGUI inputForCreatingRoom;
-
-    [Header("keyboard")]
+    public TextMeshProUGUI JoinRoomInput;
+    public TextMeshProUGUI CreateRoomInput;
     public GameObject keyboard;
-
-    [Header("debugging")]
-    public Debugger debugger;
 
     //private variables
     bool onConnectionStart;
@@ -75,19 +66,21 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public void OnClickJoinRoom()
     {
-        if (inputForJoiningRoom.text == "")
+        if (JoinRoomInput.text == "")
         {
-            inputForCreatingRoom.text = "1";
+            CreateRoomInput.text = "1";
+            //normaly this should be a return but for testing purposes this is now giving a name
         }
 
-        PhotonNetwork.JoinRoom(inputForJoiningRoom.text);
+        PhotonNetwork.JoinRoom(JoinRoomInput.text);
     }
 
     public void OnClickCreateRoom()
     {
-        if (inputForCreatingRoom.text == "")
+        if (CreateRoomInput.text == "")
         {
-            inputForCreatingRoom.text = "1";
+            CreateRoomInput.text = "1";
+            //normaly this should be a return but for testing purposes this is now giving a name
         }
 
         if (temp)
@@ -96,8 +89,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
         }
 
         temp = true;
-        debugger.VrPrint(inputForCreatingRoom.text);
-        PhotonNetwork.CreateRoom(inputForCreatingRoom.text);
+        PhotonNetwork.CreateRoom(CreateRoomInput.text);
     }
 
     #endregion
@@ -106,14 +98,11 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        debugger.VrPrint(sceneName);
         PhotonNetwork.LoadLevel(sceneName);
-        debugger.VrPrint("loaded next scene");
     }
 
     public override void OnConnectedToMaster()
     {
-        debugger.VrPrint("connected to servers");
         onConnectionStart = true;
     }
 

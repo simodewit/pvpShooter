@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-using static UnityEngine.InputSystem.InputAction;
 
 public class InteractionSwitch : MonoBehaviour
 {
+    [Header("refrences")]
     public XRDirectInteractor grabInter;
     public GameObject ray;
     public string gameobjectWithDetails;
 
+    //privates
     SceneDetails sceneDescriptions;
 
     public void Start()

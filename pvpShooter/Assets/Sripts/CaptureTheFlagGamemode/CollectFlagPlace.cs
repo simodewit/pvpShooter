@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class CollectFlagPlace : MonoBehaviour
 {
+    [Header("refrences")]
     public bool teamA;
     public string flagPrefabName;
     public TextMeshProUGUI counter;

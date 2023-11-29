@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -26,16 +24,12 @@ public class Timer : MonoBehaviour
 
     #endregion
 
-    #region start
+    #region start and update
 
     public void Start()
     {
         ConvertTime(0, waitingSeconds);
     }
-
-    #endregion
-
-    #region update
 
     public void Update()
     {

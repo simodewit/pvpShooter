@@ -1,26 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class MagScript : MonoBehaviour
 {
+    #region variables
+
+    [Header("refrences")]
     public int bullets;
     public LayerMask layer;
+
+    [Header("snapOnCode")]
     public float seekDistance;
     public float snapDistance;
     public string attachPointName;
 
+    //privates
     Rigidbody rb;
     GunScript gun;
     Collider col;
+
+    #endregion
+
+    #region start
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
     }
+
+    #endregion
+
+    #region pickup code
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
@@ -30,6 +42,10 @@ public class MagScript : MonoBehaviour
         rb.useGravity = true;
         col.enabled = true;
     }
+
+    #endregion
+
+    #region drop mag code
 
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
@@ -52,4 +68,6 @@ public class MagScript : MonoBehaviour
             }
         }
     }
+
+    #endregion
 }

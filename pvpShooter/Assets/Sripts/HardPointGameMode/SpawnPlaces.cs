@@ -1,10 +1,10 @@
 using Photon.Pun;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnPlaces : MonoBehaviour
 {
+    #region variables
+
     [Header("name of the player prefab")]
     public string playerPrefabName;
 
@@ -12,8 +12,13 @@ public class SpawnPlaces : MonoBehaviour
     public Transform spawnPlaceTeamA;
     public Transform spawnPlaceTeamB;
 
+    //privates
     bool teamA;
     bool hasSpawned;
+
+    #endregion
+
+    #region start
 
     public void Start()
     {
@@ -32,6 +37,10 @@ public class SpawnPlaces : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region you died code
+
     public void Died(Transform playerTransform)
     {
         if (teamA)
@@ -43,4 +52,6 @@ public class SpawnPlaces : MonoBehaviour
             playerTransform.position = spawnPlaceTeamA.position;
         }
     }
+
+    #endregion
 }
