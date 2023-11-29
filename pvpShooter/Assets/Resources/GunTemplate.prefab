@@ -217,13 +217,12 @@ MonoBehaviour:
   automaticGun: 0
   totalBurstShots: 3
   shootInterval: 0.3
-  ammo: 0
   damage: 30
   hasToDecrease: 0
   decreasingDistance: 0
   decreasingFactor: 0
   endOfBarrel: {fileID: 6776987682015608303}
-  bulletName: Bullet
+  bulletName: BulletTemplate
   bulletSpeed: 30
 --- !u!114 &-6932682528955821722
 MonoBehaviour:
