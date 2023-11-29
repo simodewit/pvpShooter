@@ -16,6 +16,10 @@ public class GunScript : MonoBehaviour
     public int totalBurstShots;
     public float shootInterval;
 
+    [Header("interactions")]
+    public int ammo;
+    public MagScript mag;
+
     [Header("General conditions")]
     public int damage;
     public bool hasToDecrease;
@@ -82,6 +86,15 @@ public class GunScript : MonoBehaviour
     {
         if (canShoot)
         {
+            if (mag == null)
+            {
+                return;
+            }
+            if(mag.bullets == 0)
+            {
+                return;
+            }
+
             if (semiAuto)
             {
                 if (!hasShot)
@@ -123,6 +136,8 @@ public class GunScript : MonoBehaviour
 
     public void Bullet()
     {
+        mag.bullets -= 1;
+
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
 
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;

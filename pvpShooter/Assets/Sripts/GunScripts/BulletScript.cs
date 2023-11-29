@@ -37,6 +37,7 @@ public class BulletScript : MonoBehaviour
                 if(distance <= decreasingDistance)
                 {
                     damage -= (int)((distance -= decreasingDistance) * decreasingFactor);
+                    other.GetComponent<HealthScript>().Health(damage);
                 }
                 else
                 {
