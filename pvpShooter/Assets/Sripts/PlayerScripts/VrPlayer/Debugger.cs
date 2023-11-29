@@ -1,4 +1,3 @@
-using Photon.Pun;
 using System;
 using TMPro;
 using UnityEngine;
@@ -6,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using static UnityEngine.InputSystem.InputAction;
 
-public class Debugger : MonoBehaviourPunCallbacks
+public class Debugger : MonoBehaviour
 {
     #region variables
 
@@ -23,6 +22,8 @@ public class Debugger : MonoBehaviourPunCallbacks
     int seconds;
     int miliseconds;
 
+    bool canScroll;
+
     #endregion
 
     #region update
@@ -30,6 +31,7 @@ public class Debugger : MonoBehaviourPunCallbacks
     private void Update()
     {
         Timer();
+        ScrollDown();
     }
 
     #endregion
@@ -83,25 +85,31 @@ public class Debugger : MonoBehaviourPunCallbacks
     public void VrPrint(string s)
     {
         consoleUI.text += timerInString + ": " + s + "<br>";
-        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableInt(int i)
     {
         consoleUI.text += timerInString + ": " + i.ToString() + "<br>";
-        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableFloat(float f)
     {
         consoleUI.text += timerInString + ": " + f.ToString() + "<br>";
-        scroll.verticalScrollbar.value = 0;
     }
 
     public void ShowVariableBool(bool b)
     {
         consoleUI.text += timerInString + ": " + b.ToString() + "<br>";
-        scroll.verticalScrollbar.value = 0;
+    }
+
+    public void ShowVariableVector2(Vector2 v)
+    {
+        consoleUI.text += timerInString + ": " + v.ToString() + "<br>";
+    }
+
+    public void ShowVariableVector3(Vector3 v)
+    {
+        consoleUI.text += timerInString + ": " + v.ToString() + "<br>";
     }
 
     public void CatchErrors(Action function)
@@ -113,7 +121,30 @@ public class Debugger : MonoBehaviourPunCallbacks
         catch (Exception e)
         {
             consoleUI.text += timerInString + ": " + e.Message + "<br>";
+        }
+    }
+
+    #endregion
+
+    #region scrollInputs
+
+    public void ScrollDown()
+    {
+        if (!canScroll)
+        {
             scroll.verticalScrollbar.value = 0;
+        }
+    }
+
+    public void OnValueChange(Vector2 v)
+    {
+        if(v.x > 0)
+        {
+            canScroll = true;
+        }
+        else
+        {
+            canScroll = false;
         }
     }
 

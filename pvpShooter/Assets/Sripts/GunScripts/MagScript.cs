@@ -40,13 +40,14 @@ public class MagScript : MonoBehaviour
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        debug.VrPrint("picks up mag");
+        if (gun != null)
+        {
+            gun.mag = null;
+            gun = null;
+        }
 
-        gun.mag = null;
-        transform.parent = null;
-        gun = null;
+        transform.SetParent(null);
         rb.useGravity = true;
-        col.enabled = true;
     }
 
     #endregion
@@ -55,8 +56,6 @@ public class MagScript : MonoBehaviour
 
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
-        debug.VrPrint("drops mag");
-
         Collider[] colliders = Physics.OverlapSphere(transform.position, seekDistance, layer);
 
         foreach (var collider in colliders)
@@ -67,13 +66,11 @@ public class MagScript : MonoBehaviour
 
                 if (distance < snapDistance && collider.GetComponent<GunScript>().mag == null)
                 {
-                    debug.VrPrint("attaches mag");
-
-                    collider.GetComponent<GunScript>().mag = gameObject.GetComponent<MagScript>();
                     gun = collider.GetComponent<GunScript>();
-                    transform.parent = collider.gameObject.GetNamedChild(attachPointName).transform;
+                    gun.mag = gameObject.GetComponent<MagScript>();
+                    transform.SetParent(gun.gameObject.GetNamedChild(attachPointName).transform);
+                    transform.localPosition = Vector3.zero;
                     rb.useGravity = false;
-                    col.enabled = false;
                 }
             }
         }

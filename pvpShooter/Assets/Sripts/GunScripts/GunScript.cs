@@ -95,12 +95,10 @@ public class GunScript : MonoBehaviour
         {
             if (mag == null)
             {
-                debug.VrPrint("doesnt have mag");
                 return;
             }
             if (mag.bullets == 0)
             {
-                debug.VrPrint("mag doesnt have bullets");
                 return;
             }
 
@@ -145,8 +143,6 @@ public class GunScript : MonoBehaviour
 
     public void Bullet()
     {
-        debug.VrPrint("shoot");
-
         mag.bullets -= 1;
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
