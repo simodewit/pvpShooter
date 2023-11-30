@@ -22,9 +22,11 @@ public class MagScript : MonoBehaviour
     GunScript gun;
     Collider col;
 
+    bool isAttached;
+
     #endregion
 
-    #region start
+    #region start and update
 
     public void Start()
     {
@@ -32,6 +34,16 @@ public class MagScript : MonoBehaviour
         col = GetComponent<Collider>();
 
         debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+    }
+
+    public void Update()
+    {
+        if(isAttached)
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+            transform.localScale = Vector3.one;
+        }
     }
 
     #endregion
@@ -48,6 +60,7 @@ public class MagScript : MonoBehaviour
 
         transform.SetParent(null);
         rb.useGravity = true;
+        isAttached = false;
     }
 
     #endregion
@@ -66,6 +79,7 @@ public class MagScript : MonoBehaviour
 
                 if (distance < snapDistance && collider.GetComponent<GunScript>().mag == null)
                 {
+                    isAttached = true;
                     gun = collider.GetComponent<GunScript>();
                     gun.mag = gameObject.GetComponent<MagScript>();
                     transform.SetParent(gun.gameObject.GetNamedChild(attachPointName).transform);
