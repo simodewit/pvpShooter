@@ -9,84 +9,51 @@ public class MagScript : MonoBehaviour
     [Header("refrences")]
     public int bullets;
     public LayerMask layer;
-
-    [Header("snapOnCode")]
-    public float seekDistance;
-    public float snapDistance;
-    public string attachPointName;
-
-    Debugger debug;
+    public string tagName;
 
     //privates
-    Rigidbody rb;
-    GunScript gun;
-    Collider col;
-
-    bool isAttached;
+    bool collidesWithGun;
+    GameObject gun;
 
     #endregion
 
-    #region start and update
+    #region checks collision
 
-    public void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        rb = GetComponent<Rigidbody>();
-        col = GetComponent<Collider>();
-
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+        if (other.tag == tagName)
+        {
+            collidesWithGun = true;
+            gun = other.gameObject;
+        }
     }
 
-    public void Update()
+    public void OnTriggerExit(Collider other)
     {
-        if(isAttached)
+        if (other.tag == tagName)
         {
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
-            transform.localScale = Vector3.one;
+            collidesWithGun = false;
+            gun = other.gameObject;
         }
     }
 
     #endregion
 
-    #region pickup code
+    #region pickup and drop
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        if (gun != null)
+        if (transform.parent != null)
         {
-            gun.mag = null;
-            gun = null;
+            transform.parent = null;
         }
-
-        transform.SetParent(null);
-        rb.useGravity = true;
-        isAttached = false;
     }
-
-    #endregion
-
-    #region drop mag code
 
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, seekDistance, layer);
-
-        foreach (var collider in colliders)
+        if (collidesWithGun)
         {
-            if (collider.GetComponent<GunScript>() != null)
-            {
-                float distance = Vector3.Distance(transform.position, collider.gameObject.GetNamedChild(attachPointName).transform.position);
-
-                if (distance < snapDistance && collider.GetComponent<GunScript>().mag == null)
-                {
-                    isAttached = true;
-                    gun = collider.GetComponent<GunScript>();
-                    gun.mag = gameObject.GetComponent<MagScript>();
-                    transform.SetParent(gun.gameObject.GetNamedChild(attachPointName).transform);
-                    transform.localPosition = Vector3.zero;
-                    rb.useGravity = false;
-                }
-            }
+            transform.SetParent(gun.transform);
         }
     }
 

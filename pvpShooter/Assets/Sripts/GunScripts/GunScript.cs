@@ -16,10 +16,6 @@ public class GunScript : MonoBehaviour
     public int totalBurstShots;
     public float shootInterval;
 
-    [Header("interactions")]
-    public int ammo;
-    public MagScript mag;
-
     [Header("General conditions")]
     public int damage;
     public bool hasToDecrease;
@@ -33,7 +29,9 @@ public class GunScript : MonoBehaviour
     public string bulletName;
     public float bulletSpeed;
 
-    Debugger debug;
+    [Header("interactions")]
+    public int ammo;
+    public MagScript mag;
 
     //view
     PhotonView view;
@@ -53,8 +51,6 @@ public class GunScript : MonoBehaviour
     public void Start()
     {
         Refrences();
-
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
     }
 
     public void Update()
