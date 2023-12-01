@@ -15,6 +15,19 @@ public class MagScript : MonoBehaviour
     bool collidesWithGun;
     GameObject gun;
 
+    Debugger debug;
+    Rigidbody rb;
+
+    #endregion
+
+    #region start
+
+    public void Start()
+    {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+        rb = GetComponent<Rigidbody>();
+    }
+
     #endregion
 
     #region checks collision
@@ -33,7 +46,7 @@ public class MagScript : MonoBehaviour
         if (other.tag == tagName)
         {
             collidesWithGun = false;
-            gun = other.gameObject;
+            gun = null;
         }
     }
 
@@ -41,19 +54,40 @@ public class MagScript : MonoBehaviour
 
     #region pickup and drop
 
-    public void PickupMag(SelectEnterEventArgs arg)
-    {
-        if (transform.parent != null)
-        {
-            transform.parent = null;
-        }
-    }
-
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
         if (collidesWithGun)
         {
+            debug.VrPrint("lets go");
+
+            rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.SetParent(gun.transform);
+
+            gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
+
+            debug.VrPrint(transform.parent.name);
+        }
+        else
+        {
+            transform.parent = null;
+            rb.constraints = RigidbodyConstraints.None;
+        }
+    }
+
+    public void PickupMag(SelectEnterEventArgs arg)
+    {
+        //if (transform.parent != null)
+        //{
+        //    rb.constraints = RigidbodyConstraints.None;
+        //    transform.parent = null;
+
+        //    gun.GetComponentInParent<GunScript>().mag = null;
+        //}
+
+        if (rb.constraints == RigidbodyConstraints.FreezeAll)
+        {
+            rb.constraints = RigidbodyConstraints.None;
+            gun.GetComponentInParent<GunScript>().mag = null;
         }
     }
 

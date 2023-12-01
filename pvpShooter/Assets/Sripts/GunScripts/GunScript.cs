@@ -30,7 +30,6 @@ public class GunScript : MonoBehaviour
     public float bulletSpeed;
 
     [Header("interactions")]
-    public int ammo;
     public MagScript mag;
 
     //view
