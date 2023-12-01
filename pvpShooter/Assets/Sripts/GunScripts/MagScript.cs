@@ -15,7 +15,6 @@ public class MagScript : MonoBehaviour
     bool collidesWithGun;
     GameObject gun;
 
-    Debugger debug;
     Rigidbody rb;
 
     #endregion
@@ -24,7 +23,6 @@ public class MagScript : MonoBehaviour
 
     public void Start()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -58,14 +56,11 @@ public class MagScript : MonoBehaviour
     {
         if (collidesWithGun)
         {
-            debug.VrPrint("lets go");
-
             rb.constraints = RigidbodyConstraints.FreezeAll;
             transform.SetParent(gun.transform);
 
+            transform.localPosition = Vector3.zero;
             gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
-
-            debug.VrPrint(transform.parent.name);
         }
         else
         {
@@ -76,14 +71,6 @@ public class MagScript : MonoBehaviour
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        //if (transform.parent != null)
-        //{
-        //    rb.constraints = RigidbodyConstraints.None;
-        //    transform.parent = null;
-
-        //    gun.GetComponentInParent<GunScript>().mag = null;
-        //}
-
         if (rb.constraints == RigidbodyConstraints.FreezeAll)
         {
             rb.constraints = RigidbodyConstraints.None;

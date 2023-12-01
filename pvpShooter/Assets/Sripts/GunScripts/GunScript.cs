@@ -35,10 +35,12 @@ public class GunScript : MonoBehaviour
     //view
     PhotonView view;
 
-    //privates
+    //check for shooting
     bool canShoot;
     bool hasShot;
     int totalShots;
+
+    public Chamber chamber;
 
     //timer
     float timer;
@@ -83,7 +85,7 @@ public class GunScript : MonoBehaviour
     {
         canShoot = false;
     }
-    
+
     public void Shoot()
     {
         if (canShoot)
@@ -93,6 +95,12 @@ public class GunScript : MonoBehaviour
                 return;
             }
             if (mag.bullets == 0)
+            {
+                chamber.isChambered = false;
+                return;
+            }
+
+            if (!chamber.isChambered)
             {
                 return;
             }
