@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -14,8 +15,9 @@ public class MagScript : MonoBehaviour
     //privates
     bool collidesWithGun;
     GameObject gun;
-
     Rigidbody rb;
+
+    Debugger debug;
 
     #endregion
 
@@ -24,6 +26,7 @@ public class MagScript : MonoBehaviour
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
     }
 
     #endregion
@@ -54,28 +57,44 @@ public class MagScript : MonoBehaviour
 
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
-        if (collidesWithGun)
+        debug.ErrorFinder(Check);
+    }
+
+    public void Check()
+    {
+        if (collidesWithGun && gun.GetComponentInParent<GunScript>().mag == null)
         {
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            debug.Print("1 if");
+
+            rb.constraints = RigidbodyConstraints.FreezePosition;
             transform.SetParent(gun.transform);
 
+            transform.localRotation = Quaternion.identity;
             transform.localPosition = Vector3.zero;
+
             gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
         }
         else
         {
-            transform.parent = null;
+            debug.Print("1 else");
+
             rb.constraints = RigidbodyConstraints.None;
+            transform.parent = null;
         }
     }
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        if (rb.constraints == RigidbodyConstraints.FreezeAll)
-        {
-            rb.constraints = RigidbodyConstraints.None;
-            gun.GetComponentInParent<GunScript>().mag = null;
-        }
+        debug.ErrorFinder(Check2);
+    }
+
+    public void Check2()
+    {
+        debug.Print("2");
+
+        rb.constraints = RigidbodyConstraints.None;
+        transform.parent = null;
+        gun.GetComponentInParent<GunScript>().mag = null;
     }
 
     #endregion

@@ -2,8 +2,6 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static UnityEngine.InputSystem.InputAction;
 
 public class Debugger : MonoBehaviour
 {
@@ -56,63 +54,39 @@ public class Debugger : MonoBehaviour
 
     #endregion
 
-    #region code for disabling and enabling the debug panel
-
-    public void ToggleDebugger(CallbackContext c)
-    {
-        if(c.started)
-        {
-            EnableDisablePanel();
-        }
-    }
-
-    public void EnableDisablePanel()
-    {
-        if(UiPanel.activeSelf)
-        {
-            UiPanel.SetActive(false);
-        }
-        else
-        {
-            UiPanel.SetActive(true);
-        }
-    }
-
-    #endregion
-
     #region functions to use in code
 
-    public void VrPrint(string s)
+    public void Print(string s)
     {
         consoleUI.text += timerInString + ": " + s + "<br>";
     }
 
-    public void ShowVariableInt(int i)
+    public void IntPrint(int i)
     {
         consoleUI.text += timerInString + ": " + i.ToString() + "<br>";
     }
 
-    public void ShowVariableFloat(float f)
+    public void FloatPrint(float f)
     {
         consoleUI.text += timerInString + ": " + f.ToString() + "<br>";
     }
 
-    public void ShowVariableBool(bool b)
+    public void BoolPrint(bool b)
     {
         consoleUI.text += timerInString + ": " + b.ToString() + "<br>";
     }
 
-    public void ShowVariableVector2(Vector2 v)
+    public void Vector2Print(Vector2 v)
     {
         consoleUI.text += timerInString + ": " + v.ToString() + "<br>";
     }
 
-    public void ShowVariableVector3(Vector3 v)
+    public void Vector3Print(Vector3 v)
     {
         consoleUI.text += timerInString + ": " + v.ToString() + "<br>";
     }
 
-    public void CatchErrors(Action function)
+    public void ErrorFinder(Action function)
     {
         try
         {

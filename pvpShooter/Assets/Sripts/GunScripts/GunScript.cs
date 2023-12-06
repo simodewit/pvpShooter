@@ -36,9 +36,9 @@ public class GunScript : MonoBehaviour
     PhotonView view;
 
     //check for shooting
-    bool canShoot;
-    bool hasShot;
-    int totalShots;
+    bool triggerInput;
+    bool bulletIsShot;
+    int burstShots;
 
     public Chamber chamber;
 
@@ -73,54 +73,39 @@ public class GunScript : MonoBehaviour
 
     #endregion
 
-    #region shoot code
+    #region input code
 
     [PunRPC]
     public void StartInput(ActivateEventArgs arg)
     {
-        canShoot = true;
+        triggerInput = true;
     }
 
     public void StopInput(DeactivateEventArgs arg)
     {
-        canShoot = false;
+        triggerInput = false;
     }
+
+    #endregion
+
+    #region shoot code
 
     public void Shoot()
     {
-        if (canShoot)
+        if (triggerInput && mag.bullets != 0)
         {
-            if (mag == null)
+            if (semiAuto && !bulletIsShot)
             {
-                return;
-            }
-            if (mag.bullets == 0)
-            {
-                chamber.isChambered = false;
-                return;
-            }
-
-            if (!chamber.isChambered)
-            {
-                return;
-            }
-
-            if (semiAuto)
-            {
-                if (!hasShot)
-                {
-                    Bullet();
-                    hasShot = true;
-                }
-
+                Bullet();
+                bulletIsShot = true;
             }
             else if(burst)
             {
                 timer -= Time.deltaTime;
 
-                if(totalShots < totalBurstShots && timer <= 0)
+                if(burstShots < totalBurstShots && timer <= 0)
                 {
-                    totalShots += 1;
+                    burstShots += 1;
                     timer = shootInterval;
                     Bullet();
                 }
@@ -139,8 +124,8 @@ public class GunScript : MonoBehaviour
         else
         {
             timer = 0;
-            totalShots = 0;
-            hasShot = false;
+            burstShots = 0;
+            bulletIsShot = false;
         }
     }
 
