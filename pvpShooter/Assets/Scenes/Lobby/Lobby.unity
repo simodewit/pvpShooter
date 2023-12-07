@@ -1393,7 +1393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.1254902, b: 1, a: 0.74509805}
+  color: {r: 0, g: 0.1254902, b: 1, a: 1}
   panelColor: {r: 0, g: 0.1254902, b: 1, a: 0.39215687}
   team: {fileID: 1877035922}
   teamPanel: {fileID: 421980873}
@@ -2923,7 +2923,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0, g: 0.9806142, b: 1, a: 1}
+    m_SelectedColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2968,15 +2968,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b8a60f6431d6372438c2d9410d6a63ce, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3443,7 +3443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0.7882353, a: 0.74509805}
+  color: {r: 1, g: 0, b: 0.7882353, a: 1}
   panelColor: {r: 1, g: 0, b: 0.78823537, a: 0.39215687}
   team: {fileID: 1877035922}
   teamPanel: {fileID: 421980873}
@@ -3726,7 +3726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 1, b: 0.050980393, a: 0.74509805}
+  color: {r: 0, g: 1, b: 0.050980393, a: 1}
   panelColor: {r: 0, g: 1, b: 0.050980397, a: 0.39215687}
   team: {fileID: 1946430512}
   teamPanel: {fileID: 1899811121}
@@ -3980,7 +3980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 1, b: 0.050980393, a: 0.74509805}
+  color: {r: 0, g: 1, b: 0.050980393, a: 1}
   panelColor: {r: 0, g: 1, b: 0.050980397, a: 0.39215687}
   team: {fileID: 1877035922}
   teamPanel: {fileID: 421980873}
@@ -4385,8 +4385,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4919,7 +4919,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0, g: 0.98039216, b: 1, a: 1}
+    m_SelectedColor: {r: 0.27450982, g: 0.27450982, b: 0.27450982, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -4964,15 +4964,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.1254902, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: b8a60f6431d6372438c2d9410d6a63ce, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5158,7 +5158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0.7882353, a: 0.74509805}
+  color: {r: 1, g: 0, b: 0.7882353, a: 1}
   panelColor: {r: 1, g: 0, b: 0.78823537, a: 0.39215687}
   team: {fileID: 1946430512}
   teamPanel: {fileID: 1899811121}
@@ -5441,7 +5441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 0.74509805}
+  color: {r: 1, g: 0, b: 0, a: 1}
   panelColor: {r: 1, g: 0, b: 0, a: 0.39215687}
   team: {fileID: 1946430512}
   teamPanel: {fileID: 1899811121}
@@ -5939,6 +5939,8 @@ MonoBehaviour:
   player: {fileID: 0}
   team1Panel: {fileID: 421980874}
   team2Panel: {fileID: 1899811122}
+  team1: {fileID: 1877035924}
+  team2: {fileID: 1946430514}
 --- !u!1 &1830736071
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,7 +5992,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.9098039, b: 0, a: 0.74509805}
+  color: {r: 1, g: 0.9098039, b: 0, a: 1}
   panelColor: {r: 1, g: 0.909804, b: 0, a: 0.39215687}
   team: {fileID: 1946430512}
   teamPanel: {fileID: 1899811121}
@@ -6284,7 +6286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0.1254902, b: 1, a: 0.74509805}
+  color: {r: 0, g: 0.1254902, b: 1, a: 1}
   panelColor: {r: 0, g: 0.1254902, b: 1, a: 0.39215687}
   team: {fileID: 1946430512}
   teamPanel: {fileID: 1899811121}
@@ -6478,7 +6480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.74509805}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6554,7 +6556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0, b: 0, a: 0.74509805}
+  color: {r: 1, g: 0, b: 0, a: 1}
   panelColor: {r: 1, g: 0, b: 0, a: 0.39215687}
   team: {fileID: 1877035922}
   teamPanel: {fileID: 421980873}
@@ -7158,7 +7160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.1254902, b: 1, a: 0.74509805}
+  m_Color: {r: 0, g: 0.1254902, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7621,7 +7623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ddd1756c6a47e54ab33da1a015914b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 1, g: 0.9098039, b: 0, a: 0.74509805}
+  color: {r: 1, g: 0.9098039, b: 0, a: 1}
   panelColor: {r: 1, g: 0.909804, b: 0, a: 0.39215687}
   team: {fileID: 1877035922}
   teamPanel: {fileID: 421980873}
@@ -7787,8 +7789,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

@@ -12,5 +12,13 @@ public class ChangeTeamColor : MonoBehaviour
     {
         team.GetComponent<Image>().color = color;
         teamPanel.GetComponent<Image>().color = panelColor;
+        foreach (Transform child in teamPanel.transform)
+        {
+            Image childImage = child.GetComponent<Image>();
+            if (childImage != null)
+            {
+                childImage.color = color;
+            }
+        }
     }
 }
