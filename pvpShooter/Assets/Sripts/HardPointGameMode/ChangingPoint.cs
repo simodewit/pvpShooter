@@ -56,7 +56,6 @@ public class ChangingPoint : MonoBehaviour
 #region all the info
 
 [SerializeField]
-
 public class TimesForPointChange
 {
     [Header("format for time is (minutes:seconds). example = 2:30, or 4:50, or 12:30")]

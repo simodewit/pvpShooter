@@ -2,7 +2,7 @@ using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class GunScript : MonoBehaviour
+public class GunScript : MonoBehaviourPunCallbacks
 {
     #region variables
 
@@ -66,7 +66,9 @@ public class GunScript : MonoBehaviour
     public void Refrences()
     {
         view = GetComponent<PhotonView>();
+
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+
         grabbable.activated.AddListener(StartInput);
         grabbable.deactivated.AddListener(StopInput);
     }
@@ -96,7 +98,7 @@ public class GunScript : MonoBehaviour
         {
             if (semiAuto && !bulletIsShot)
             {
-                Bullet();
+                view.RPC("Bullet", RpcTarget.All);
                 bulletIsShot = true;
             }
             else if(burst)
@@ -107,7 +109,7 @@ public class GunScript : MonoBehaviour
                 {
                     burstShots += 1;
                     timer = shootInterval;
-                    Bullet();
+                    view.RPC("Bullet", RpcTarget.All);
                 }
             }
             else if (automaticGun)
@@ -117,7 +119,7 @@ public class GunScript : MonoBehaviour
                 if (timer <= 0)
                 {
                     timer = shootInterval;
-                    Bullet();
+                    view.RPC("Bullet", RpcTarget.All);
                 }
             }
         }
@@ -129,6 +131,7 @@ public class GunScript : MonoBehaviour
         }
     }
 
+    [PunRPC]
     public void Bullet()
     {
         mag.bullets -= 1;

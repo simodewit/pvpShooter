@@ -262,8 +262,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74e89b13511b65b44abffd4253a34394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistance: 0
-  speed: 0
+  action:
+    m_Name: Action
+    m_Id: 8ad9e574-0688-4b6a-985a-8577e55124f7
+    m_Asset: {fileID: 0}
+    m_Actions: []
+    m_Bindings: []
 --- !u!114 &338837210545160525
 MonoBehaviour:
   m_ObjectHideFlags: 0

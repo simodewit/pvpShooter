@@ -1,9 +1,8 @@
-using Unity.VisualScripting;
-using Unity.XR.CoreUtils;
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class MagScript : MonoBehaviour
+public class MagScript : MonoBehaviourPunCallbacks
 {
     #region variables
 
