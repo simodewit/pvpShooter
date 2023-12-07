@@ -169,6 +169,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
   point: {fileID: 0}
+  times:
+  - timeToSpawn: 4:50
+    placesToSpawn:
+    - {fileID: 1257087659}
+    - {fileID: 495643472}
+    - {fileID: 956333942}
+    - {fileID: 1495312404}
+    hasCompleted: 0
 --- !u!1 &280547435
 GameObject:
   m_ObjectHideFlags: 0

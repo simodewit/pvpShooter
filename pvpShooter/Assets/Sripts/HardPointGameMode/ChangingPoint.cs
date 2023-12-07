@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ChangingPoint : MonoBehaviour
@@ -8,7 +9,6 @@ public class ChangingPoint : MonoBehaviour
     public Timer timer;
     public GameObject point;
 
-    [Header("respawn info. 1st one is for initial spawn on the beginning of the game")]
     public TimesForPointChange[] times;
 
     #endregion
@@ -31,7 +31,7 @@ public class ChangingPoint : MonoBehaviour
 
     public void FirstRandomize()
     {
-        int index = Random.Range(0, times[0].placesToSpawn.Length);
+        int index = UnityEngine.Random.Range(0, times[0].placesToSpawn.Length);
 
         point.transform.position = times[0].placesToSpawn[index].position;
         times[0].hasCompleted = true;
@@ -43,7 +43,7 @@ public class ChangingPoint : MonoBehaviour
         {
             if (!time.hasCompleted && time.timeToSpawn == timer.text.text)
             {
-                int index = Random.Range(0, time.placesToSpawn.Length);
+                int index = UnityEngine.Random.Range(0, time.placesToSpawn.Length);
                 point.transform.position = time.placesToSpawn[index].position;
                 time.hasCompleted = true;
             }
@@ -53,9 +53,7 @@ public class ChangingPoint : MonoBehaviour
     #endregion
 }
 
-#region all the info
-
-[SerializeField]
+[Serializable]
 public class TimesForPointChange
 {
     [Header("format for time is (minutes:seconds). example = 2:30, or 4:50, or 12:30")]
@@ -67,5 +65,3 @@ public class TimesForPointChange
     [Header("code related dont touch")]
     public bool hasCompleted;
 }
-
-#endregion

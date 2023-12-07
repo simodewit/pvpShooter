@@ -66,6 +66,7 @@ public class MagScript : MonoBehaviourPunCallbacks
             debug.Print("1 if");
 
             rb.constraints = RigidbodyConstraints.FreezePosition;
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
             transform.SetParent(gun.transform);
 
             transform.localRotation = Quaternion.identity;
@@ -79,21 +80,25 @@ public class MagScript : MonoBehaviourPunCallbacks
 
             rb.constraints = RigidbodyConstraints.None;
             transform.parent = null;
+
+            if (gun.GetComponentInParent<GunScript>().mag != null)
+            {
+                gun.GetComponentInParent<GunScript>().mag = null;
+            }
         }
     }
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        debug.ErrorFinder(Check2);
-    }
-
-    public void Check2()
-    {
         debug.Print("2");
 
         rb.constraints = RigidbodyConstraints.None;
         transform.parent = null;
-        gun.GetComponentInParent<GunScript>().mag = null;
+
+        if (gun.GetComponentInParent<GunScript>().mag != null)
+        {
+            gun.GetComponentInParent<GunScript>().mag = null;
+        }
     }
 
     #endregion

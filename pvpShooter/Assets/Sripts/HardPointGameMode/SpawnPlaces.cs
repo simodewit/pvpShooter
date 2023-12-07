@@ -13,6 +13,8 @@ public class SpawnPlaces : MonoBehaviour
     public Transform spawnPlaceTeamB;
 
     //privates
+    float timer;
+
     bool teamA;
     bool hasSpawned;
 
@@ -49,7 +51,7 @@ public class SpawnPlaces : MonoBehaviour
         }
         else
         {
-            playerTransform.position = spawnPlaceTeamA.position;
+            playerTransform.position = spawnPlaceTeamB.position;
         }
     }
 

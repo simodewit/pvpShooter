@@ -40,10 +40,10 @@ public class GunScript : MonoBehaviourPunCallbacks
     bool bulletIsShot;
     int burstShots;
 
-    public Chamber chamber;
-
     //timer
     float timer;
+
+    Debugger debug;
 
     #endregion
 
@@ -51,6 +51,7 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Start()
     {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         Refrences();
     }
 
@@ -134,6 +135,8 @@ public class GunScript : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Bullet()
     {
+        debug.Print("shoot");
+
         mag.bullets -= 1;
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
