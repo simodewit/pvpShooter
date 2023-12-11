@@ -31,6 +31,7 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     [Header("interactions")]
     public MagScript mag;
+    public bool isChambered;
 
     //view
     PhotonView view;
@@ -51,7 +52,6 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         Refrences();
     }
 
@@ -66,6 +66,8 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Refrences()
     {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+
         view = GetComponent<PhotonView>();
 
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
@@ -95,8 +97,14 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if (triggerInput && mag.bullets != 0)
+        if (mag == null)
         {
+            return;
+        }
+
+        if (triggerInput && mag.bullets != 0 && isChambered)
+        {
+
             if (semiAuto && !bulletIsShot)
             {
                 view.RPC("Bullet", RpcTarget.All);
@@ -135,9 +143,12 @@ public class GunScript : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Bullet()
     {
-        debug.Print("shoot");
-
         mag.bullets -= 1;
+
+        if (mag.bullets < 0)
+        {
+            isChambered = false;
+        }
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
 

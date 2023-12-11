@@ -16,16 +16,22 @@ public class MagScript : MonoBehaviourPunCallbacks
     GameObject gun;
     Rigidbody rb;
 
-    Debugger debug;
-
     #endregion
 
-    #region start
+    #region start and update
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+    }
+
+    public void Update()
+    {
+        if (transform.parent != null)
+        {
+            transform.localPosition = Vector3.zero;
+            transform.localRotation = Quaternion.identity;
+        }
     }
 
     #endregion
@@ -56,48 +62,46 @@ public class MagScript : MonoBehaviourPunCallbacks
 
     public void LetGoOfMag(SelectExitEventArgs arg)
     {
-        debug.ErrorFinder(Check);
-    }
-
-    public void Check()
-    {
-        if (collidesWithGun && gun.GetComponentInParent<GunScript>().mag == null)
+        if (gun != null)
         {
-            debug.Print("1 if");
+            if (collidesWithGun && gun.GetComponentInParent<GunScript>().mag == null)
+            {
+                transform.SetParent(gun.transform);
 
-            transform.SetParent(gun.transform);
+                transform.localRotation = Quaternion.identity;
+                transform.localPosition = Vector3.zero;
 
-            transform.localRotation = Quaternion.identity;
-            transform.localPosition = Vector3.zero;
+                rb.constraints = RigidbodyConstraints.FreezeAll;
 
-            rb.constraints = RigidbodyConstraints.FreezeAll;
-
-            gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
+                gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
+            }
         }
         else
         {
-            debug.Print("1 else");
-
             rb.constraints = RigidbodyConstraints.None;
             transform.parent = null;
 
-            if (gun.GetComponentInParent<GunScript>().mag != null)
+            if (gun != null)
             {
-                gun.GetComponentInParent<GunScript>().mag = null;
+                if (gun.GetComponentInParent<GunScript>().mag != null)
+                {
+                    gun.GetComponentInParent<GunScript>().mag = null;
+                }
             }
         }
     }
 
     public void PickupMag(SelectEnterEventArgs arg)
     {
-        debug.Print("2");
-
         rb.constraints = RigidbodyConstraints.None;
         transform.parent = null;
 
-        if (gun.GetComponentInParent<GunScript>().mag != null)
+        if (gun != null)
         {
-            gun.GetComponentInParent<GunScript>().mag = null;
+            if (gun.GetComponentInParent<GunScript>().mag != null)
+            {
+                gun.GetComponentInParent<GunScript>().mag = null;
+            }
         }
     }
 

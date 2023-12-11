@@ -14,12 +14,15 @@ public class Chamber : MonoBehaviour
     XRIDefaultInputActions action;
     bool leftActivated;
     bool rightActivated;
-    bool hasHand;
 
     Vector3 startPos;
+    Vector3 worldPos;
 
     Collider leftHand;
     Collider rightHand;
+    GunScript gun;
+
+    Debugger debug;
 
     #endregion
 
@@ -27,6 +30,9 @@ public class Chamber : MonoBehaviour
 
     public void Start()
     {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+
+        gun = transform.parent.transform.parent.GetComponent<GunScript>();
         startPos = transform.localPosition;
 
         action = new XRIDefaultInputActions();
@@ -60,14 +66,22 @@ public class Chamber : MonoBehaviour
         {
             leftActivated = true;
         }
-        else if (action.XRIRightHandInteraction.Select.IsPressed())
+        else
+        {
+            leftActivated = false;
+            leftHand = null;
+            rightHand = null;
+        }
+
+        if (action.XRIRightHandInteraction.Select.IsPressed())
         {
             rightActivated = true;
         }
         else
         {
-            leftActivated = false;
             rightActivated = false;
+            leftHand = null;
+            rightHand = null;
         }
     }
 
@@ -80,20 +94,11 @@ public class Chamber : MonoBehaviour
         if (other.tag == leftHandTag)
         {
             leftHand = other;
-            hasHand = true;
         }
         if (other.tag == rightHandTag)
         {
-            leftHand = other;
-            hasHand = true;
+            rightHand = other;
         }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        leftHand = null;
-        rightHand = null;
-        hasHand = false;
     }
 
     #endregion
@@ -102,26 +107,41 @@ public class Chamber : MonoBehaviour
 
     public void Pickup()
     {
-        if(!hasHand)
-        {
-            return;
-        }
-
+        worldPos = transform.parent.transform.position;
         Vector3 endPos = new Vector3();
 
         if (leftHand != null && leftActivated)
         {
-             leftHand.transform.InverseTransformPoint(endPos);
+            endPos.z = -Vector3.Distance(worldPos, leftHand.transform.position);
         }
         else if(rightHand != null && rightActivated)
         {
-            rightHand.transform.InverseTransformPoint(endPos);
+            endPos.z = -Vector3.Distance(worldPos, rightHand.transform.position);
+        }
+        else
+        {
+            endPos.z = startPos.z;
         }
 
         endPos.x = startPos.x;
         endPos.y = startPos.y;
 
-        transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, speed);
+        if (endPos.z < -maxDistance)
+        {
+            endPos.z = maxDistance;
+        }
+        if (endPos.z > startPos.z)
+        {
+            endPos.z = -maxDistance;
+
+            if (gun.mag != null && gun.mag.bullets != 0)
+            {
+                gun.isChambered = true;
+            }
+        }
+
+        transform.localPosition = endPos;
+        transform.localRotation = Quaternion.identity;
     }
 
     #endregion

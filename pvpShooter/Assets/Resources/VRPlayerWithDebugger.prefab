@@ -1204,7 +1204,7 @@ GameObject:
   - component: {fileID: 8633151092411180950}
   m_Layer: 0
   m_Name: PlaceHolder
-  m_TagString: Hand
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1756,7 +1756,7 @@ GameObject:
   - component: {fileID: 5026504940428503215}
   m_Layer: 0
   m_Name: PlaceHolder
-  m_TagString: Hand
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
