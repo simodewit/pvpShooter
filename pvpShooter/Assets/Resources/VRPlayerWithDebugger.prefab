@@ -1201,10 +1201,10 @@ GameObject:
   - component: {fileID: 351397613922899247}
   - component: {fileID: 7657659513709778279}
   - component: {fileID: 8266959476748350093}
-  - component: {fileID: 5287366943799464094}
+  - component: {fileID: 8633151092411180950}
   m_Layer: 0
   m_Name: PlaceHolder
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1274,7 +1274,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &5287366943799464094
+--- !u!135 &8633151092411180950
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1753,10 +1753,10 @@ GameObject:
   - component: {fileID: 7163390983987077861}
   - component: {fileID: 4085349346129678808}
   - component: {fileID: 7457928283819293250}
-  - component: {fileID: 1001412928600246901}
+  - component: {fileID: 5026504940428503215}
   m_Layer: 0
   m_Name: PlaceHolder
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1826,7 +1826,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1001412928600246901
+--- !u!135 &5026504940428503215
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2285,7 +2285,7 @@ GameObject:
   - component: {fileID: 8774099788683674589}
   m_Layer: 0
   m_Name: Right Controller
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2704,7 +2704,7 @@ GameObject:
   - component: {fileID: 3290657261170933854}
   m_Layer: 0
   m_Name: Left Controller
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

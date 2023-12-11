@@ -1,85 +1,128 @@
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 public class Chamber : MonoBehaviour
 {
+    #region variables
+
     [Header("all info")]
     public float speed;
     public float maxDistance;
+    public string leftHandTag;
+    public string rightHandTag;
 
     //privates
     XRIDefaultInputActions action;
-    bool hasActivated;
-    Vector3 startPos;
-    Collider hand;
+    bool leftActivated;
+    bool rightActivated;
+    bool hasHand;
 
-    Debugger debug;
+    Vector3 startPos;
+
+    Collider leftHand;
+    Collider rightHand;
+
+    #endregion
+
+    #region start and update
 
     public void Start()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
-
         startPos = transform.localPosition;
+
         action = new XRIDefaultInputActions();
+        action.Enable();
     }
 
     public void Update()
     {
-        if (action.XRILeftHandInteraction.Activate.IsPressed())
-        {
-            Pickup(hand);
-        }
-        else
-        {
-            hasActivated = false;
-        }
+        Input();
+        Pickup();
     }
 
-    public void Pickup(Collider other)
+    #endregion
+
+    #region input
+
+    public void OnEnable()
     {
-        if (other == null)
+        action = new XRIDefaultInputActions();
+        action.Enable();
+    }
+
+    public void OnDisable()
+    {
+        action.Disable();
+    }
+
+    public void Input()
+    {
+        if (action.XRILeftHandInteraction.Select.IsPressed())
         {
-            return;
+            leftActivated = true;
         }
-        if(other.GetComponent<XRGrabInteractable>() == null)
+        else if (action.XRIRightHandInteraction.Select.IsPressed())
         {
-            return;
-        }
-
-        debug.Print("Gets input and collision");
-
-        Vector3 endPos = new Vector3();
-
-        if (hasActivated)
-        {
-            endPos.x = startPos.x;
-            endPos.y = startPos.y;
-            endPos.z = other.transform.position.z;
+            rightActivated = true;
         }
         else
         {
-            endPos = startPos;
+            leftActivated = false;
+            rightActivated = false;
         }
-
-        if (endPos.z > startPos.z + maxDistance)
-        {
-            endPos.z = startPos.z + maxDistance;
-        }
-        else if (endPos.z < startPos.z)
-        {
-            endPos.z = startPos.z;
-        }
-
-        transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, speed);
     }
+
+    #endregion
+
+    #region collision
 
     public void OnTriggerEnter(Collider other)
     {
-        hand = other;
+        if (other.tag == leftHandTag)
+        {
+            leftHand = other;
+            hasHand = true;
+        }
+        if (other.tag == rightHandTag)
+        {
+            leftHand = other;
+            hasHand = true;
+        }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        hand = null;
+        leftHand = null;
+        rightHand = null;
+        hasHand = false;
     }
+
+    #endregion
+
+    #region pickup
+
+    public void Pickup()
+    {
+        if(!hasHand)
+        {
+            return;
+        }
+
+        Vector3 endPos = new Vector3();
+
+        if (leftHand != null && leftActivated)
+        {
+             leftHand.transform.InverseTransformPoint(endPos);
+        }
+        else if(rightHand != null && rightActivated)
+        {
+            rightHand.transform.InverseTransformPoint(endPos);
+        }
+
+        endPos.x = startPos.x;
+        endPos.y = startPos.y;
+
+        transform.localPosition = Vector3.Lerp(transform.localPosition, endPos, speed);
+    }
+
+    #endregion
 }

@@ -65,12 +65,12 @@ public class MagScript : MonoBehaviourPunCallbacks
         {
             debug.Print("1 if");
 
-            rb.constraints = RigidbodyConstraints.FreezePosition;
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
             transform.SetParent(gun.transform);
 
             transform.localRotation = Quaternion.identity;
             transform.localPosition = Vector3.zero;
+
+            rb.constraints = RigidbodyConstraints.FreezeAll;
 
             gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
         }
