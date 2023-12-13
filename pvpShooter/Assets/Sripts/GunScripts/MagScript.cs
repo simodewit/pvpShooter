@@ -16,12 +16,15 @@ public class MagScript : MonoBehaviourPunCallbacks
     GameObject gun;
     Rigidbody rb;
 
+    Debugger debug;
+
     #endregion
 
     #region start and update
 
     public void Start()
     {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         rb = GetComponent<Rigidbody>();
     }
 

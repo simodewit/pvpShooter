@@ -24,6 +24,8 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     [Header("refrences")]
     public Transform endOfBarrel;
+    public Collider meshCollider;
+    public XRGrabInteractable interactable;
 
     [Header("bullet info")]
     public string bulletName;
@@ -33,7 +35,6 @@ public class GunScript : MonoBehaviourPunCallbacks
     public MagScript mag;
     public bool isChambered;
 
-
     //check for shooting
     bool triggerInput;
     bool bulletIsShot;
@@ -41,6 +42,8 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     //timer
     float timer;
+
+    bool hasSwitched;
 
     Debugger debug;
 
@@ -56,6 +59,19 @@ public class GunScript : MonoBehaviourPunCallbacks
     public void Update()
     {
         Shoot();
+
+        if (interactable.isSelected && hasSwitched)
+        {
+            debug.Print("off");
+            hasSwitched = false;
+            meshCollider.enabled = false;
+        }
+        else if(!interactable.isSelected && !hasSwitched)
+        {
+            debug.Print("on");
+            hasSwitched = true;
+            meshCollider.enabled = true;
+        }
     }
 
     #endregion

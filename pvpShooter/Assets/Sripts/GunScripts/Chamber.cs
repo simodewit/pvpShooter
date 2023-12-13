@@ -64,7 +64,7 @@ public class Chamber : MonoBehaviour
 
     public void Input()
     {
-        if (action.XRILeftHandInteraction.Select.IsPressed())
+        if (action.XRILeftHandInteraction.Activate.IsPressed())
         {
             leftActivated = true;
         }
@@ -75,7 +75,7 @@ public class Chamber : MonoBehaviour
             rightHand = null;
         }
 
-        if (action.XRIRightHandInteraction.Select.IsPressed())
+        if (action.XRIRightHandInteraction.Activate.IsPressed())
         {
             rightActivated = true;
         }
