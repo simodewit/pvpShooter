@@ -4,40 +4,33 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class InteractionSwitch : MonoBehaviour
 {
     [Header("refrences")]
-    public XRDirectInteractor grabInter;
-    public GameObject ray;
-    public string gameobjectWithDetails;
+    public XRDirectInteractor grabInteractor;
+    public GameObject rayInteractor;
+    public GameObject leftHand;
+    public GameObject rightHand;
+    public float range;
 
-    //privates
-    SceneDetails sceneDescriptions;
+    RaycastHit leftHit;
+    RaycastHit rightHit;
 
-    public void Start()
+    public void Update()
     {
-        sceneDescriptions = GameObject.Find(gameobjectWithDetails).GetComponent<SceneDetails>();
-
-        if(sceneDescriptions.sceneStartsInUI)
-        {
-            grabInter.enabled = false;
-            ray.SetActive(true);
-        }
-        else
-        {
-            grabInter.enabled = true;
-            ray.SetActive(false);
-        }
+        Scan();
     }
 
-    public void Switch()
+    public void Scan()
     {
-        if(ray.activeSelf)
+        if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, range))
         {
-            grabInter.enabled = true;
-            ray.SetActive(false);
+            if (leftHit.transform.root.GetComponent<Canvas>())
+            {
+                grabInteractor.
+                rayInteractor.gameObject.SetActive(true);
+            }
         }
-        else
+        else if (Physics.Raycast(rightHand.transform.position, rightHand.transform.forward, out rightHit, range))
         {
-            grabInter.enabled = false;
-            ray.SetActive(true);
+
         }
     }
 }
