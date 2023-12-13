@@ -1175,7 +1175,7 @@ MonoBehaviour:
   text: {fileID: 394567276}
   greatness: Seconds
   propertyName: CapturePointInterval
-  roomProperties: {fileID: 980624689}
+  roomProperties: {fileID: 0}
 --- !u!114 &258864848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1541,7 +1541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5eb852eae90bc345bd78f87d6049934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 3
+  sceneIndex: 1
 --- !u!1001 &287132071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2590,13 +2590,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 472367784}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.97, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 7.195, y: 3.97, z: -9.422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &502546348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4012,7 +4012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &866829957
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4852,50 +4852,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whatTeam: 1
---- !u!1 &980624688
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 980624690}
-  - component: {fileID: 980624689}
-  m_Layer: 0
-  m_Name: RoomProperties
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &980624689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980624688}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e85ef768f81f44097a978818a4ee8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &980624690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980624688}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &993934926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5058,7 +5014,7 @@ MonoBehaviour:
   text: {fileID: 1942326708}
   greatness: K Points
   propertyName: MaxPoints
-  roomProperties: {fileID: 980624689}
+  roomProperties: {fileID: 0}
 --- !u!114 &1002957668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9018,7 +8974,7 @@ MonoBehaviour:
   text: {fileID: 1862544710}
   greatness: Minutes
   propertyName: GameLength
-  roomProperties: {fileID: 980624689}
+  roomProperties: {fileID: 0}
 --- !u!114 &1762727039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11657,7 +11613,7 @@ MonoBehaviour:
   text: {fileID: 1490522533}
   greatness: Seconds
   propertyName: PlayerRespawnTimer
-  roomProperties: {fileID: 980624689}
+  roomProperties: {fileID: 0}
 --- !u!114 &2095792300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12183,4 +12139,3 @@ SceneRoots:
   - {fileID: 725278985}
   - {fileID: 2265694233962546548}
   - {fileID: 1369881606}
-  - {fileID: 980624690}
