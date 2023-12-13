@@ -94,7 +94,6 @@ public class GunScript : MonoBehaviourPunCallbacks
     {
         if (mag == null && isChambered && triggerInput)
         {
-            debug.Print("last bullet");
             photonView.RPC("Bullet", RpcTarget.All);
             return;
         }
@@ -105,8 +104,6 @@ public class GunScript : MonoBehaviourPunCallbacks
 
         if (triggerInput && isChambered)
         {
-            debug.Print("should shoot");
-
             if (semiAuto && !bulletIsShot)
             {
                 photonView.RPC("Bullet", RpcTarget.All);

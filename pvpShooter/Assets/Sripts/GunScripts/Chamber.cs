@@ -139,9 +139,8 @@ public class Chamber : MonoBehaviour
             endPos.z = startPos.z;
         }
 
-        if (gun.mag != null && gun.mag.bullets != 0 && endPos.z < -distanceForLoad)
+        if (gun.mag != null && gun.mag.bullets != 0 && endPos.z < -distanceForLoad && !gun.isChambered)
         {
-            debug.Print("chamberes");
             gun.isChambered = true;
             gun.mag.bullets -= 1;
         }
