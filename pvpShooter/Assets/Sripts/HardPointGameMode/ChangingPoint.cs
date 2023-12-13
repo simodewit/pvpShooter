@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class ChangingPoint : MonoBehaviour
@@ -7,9 +6,12 @@ public class ChangingPoint : MonoBehaviour
 
     [Header("refrences")]
     public Timer timer;
+    public float timeInterval;
     public GameObject point;
+    public Transform[] places;
 
-    public TimesForPointChange[] times;
+    float time;
+    bool started;
 
     #endregion
 
@@ -17,11 +19,12 @@ public class ChangingPoint : MonoBehaviour
 
     public void Start()
     {
-        FirstRandomize();
+        //ask interval
     }
 
     public void Update()
     {
+        FirstRandomize();
         Randomize();
     }
 
@@ -31,37 +34,30 @@ public class ChangingPoint : MonoBehaviour
 
     public void FirstRandomize()
     {
-        int index = UnityEngine.Random.Range(0, times[0].placesToSpawn.Length);
+        if (timer.startGame && !started)
+        {
+            int index = UnityEngine.Random.Range(0, places.Length);
+            point.transform.position = places[index].position;
 
-        point.transform.position = times[0].placesToSpawn[index].position;
-        times[0].hasCompleted = true;
+            started = true;
+            time = timeInterval;
+        }
     }
 
     public void Randomize()
     {
-        foreach(var time in times)
+        if (time <= 0)
         {
-            if (!time.hasCompleted && time.timeToSpawn == timer.text.text)
-            {
-                int index = UnityEngine.Random.Range(0, time.placesToSpawn.Length);
-                point.transform.position = time.placesToSpawn[index].position;
-                time.hasCompleted = true;
-            }
+            time = timeInterval;
+
+            int index = UnityEngine.Random.Range(0, places.Length);
+            point.transform.position = places[index].position;
+        }
+        else
+        {
+            time -= Time.deltaTime;
         }
     }
 
     #endregion
-}
-
-[Serializable]
-public class TimesForPointChange
-{
-    [Header("format for time is (minutes:seconds). example = 2:30, or 4:50, or 12:30")]
-    public string timeToSpawn;
-
-    [Header("all the places the point can spawn on the time given above")]
-    public Transform[] placesToSpawn;
-
-    [Header("code related dont touch")]
-    public bool hasCompleted;
 }

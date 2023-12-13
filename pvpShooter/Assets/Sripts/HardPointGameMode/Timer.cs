@@ -44,7 +44,7 @@ public class Timer : MonoBehaviour
 
     public void GetsInfoFromRoom()
     {
-
+        //ask info
     }
 
     public void StartOfGame()
@@ -52,6 +52,8 @@ public class Timer : MonoBehaviour
         if (everybodyHasLoadedIn && waitingSeconds > 0)
         {
             waitingSeconds -= Time.deltaTime;
+
+            ConvertTime(0, waitingSeconds);
         }
 
         if (waitingSeconds <= 0)
@@ -78,12 +80,14 @@ public class Timer : MonoBehaviour
             if (minutes > 0)
             {
                 minutes -= 1;
-                seconds = 61;
+                seconds = 60;
             }
             else
             {
                 seconds = 0;
                 minutes = 0;
+
+                //sould end the game or go in kill cam
             }
         }
 
@@ -96,22 +100,32 @@ public class Timer : MonoBehaviour
 
     public void ConvertTime(float minutes, float seconds)
     {
-        if(minutes >= 10 && seconds >= 10)
+        if (minutes >= 10)
         {
-            timeInString = minutes.ToString() + ":" + seconds.ToString();
+            timeInString += minutes;
         }
-        if (minutes >= 10 && seconds <= 10)
+        else if (minutes < 10)
         {
-            timeInString = minutes.ToString() + ":0" + seconds.ToString();
+            timeInString += "0" + minutes;
         }
-        if (minutes <= 10 && seconds >= 10)
+
+        timeInString += ":";
+
+        if (seconds < 10)
         {
-            timeInString = "0" + minutes.ToString() + ":" + seconds.ToString();
-        }
-        if (minutes <= 10 && seconds <= 10)
+            timeInString += "0" + (int)seconds;
+        } 
+        else if (seconds > 59)
         {
-            timeInString = "0" + minutes.ToString() + ":0" + seconds.ToString();
+            timeInString += "59";
         }
+        else
+        {
+            timeInString += (int)seconds;
+        }
+
+        text.text = timeInString;
+        timeInString = "";
     }
 
     #endregion
