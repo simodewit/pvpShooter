@@ -2282,7 +2282,7 @@ GameObject:
   - component: {fileID: 158560989072688161}
   - component: {fileID: 8382052408947660673}
   - component: {fileID: 4931372522304013239}
-  - component: {fileID: 8774099788683674589}
+  - component: {fileID: 4068025080061041815}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Hand
@@ -2673,7 +2673,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8774099788683674589
+--- !u!114 &4068025080061041815
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2685,9 +2685,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0848d125e63b243b7ba0747016878c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabInter: {fileID: 8382052408947660673}
-  ray: {fileID: 1755893100604981563}
-  gameobjectWithDetails: SceneDetails
+  grabInteractor: {fileID: 8382052408947660673}
+  rayInteractor: {fileID: 1755893100604981563}
+  range: 7.5
 --- !u!1 &8114081625010490597
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,7 +2701,7 @@ GameObject:
   - component: {fileID: 4014996908220717271}
   - component: {fileID: 3623466568674557550}
   - component: {fileID: 3697549567472719857}
-  - component: {fileID: 3290657261170933854}
+  - component: {fileID: 4290287139301303674}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Hand
@@ -3093,7 +3093,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3290657261170933854
+--- !u!114 &4290287139301303674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3105,9 +3105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e0848d125e63b243b7ba0747016878c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabInter: {fileID: 3623466568674557550}
-  ray: {fileID: 612855109544778700}
-  gameobjectWithDetails: SceneDetails
+  grabInteractor: {fileID: 3623466568674557550}
+  rayInteractor: {fileID: 612855109544778700}
+  range: 7.5
 --- !u!1 &8273377563881324766
 GameObject:
   m_ObjectHideFlags: 0

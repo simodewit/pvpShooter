@@ -6,12 +6,9 @@ public class InteractionSwitch : MonoBehaviour
     [Header("refrences")]
     public XRDirectInteractor grabInteractor;
     public GameObject rayInteractor;
-    public GameObject leftHand;
-    public GameObject rightHand;
     public float range;
 
-    RaycastHit leftHit;
-    RaycastHit rightHit;
+    RaycastHit hit;
 
     public void Update()
     {
@@ -20,17 +17,18 @@ public class InteractionSwitch : MonoBehaviour
 
     public void Scan()
     {
-        if (Physics.Raycast(leftHand.transform.position, leftHand.transform.forward, out leftHit, range))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, range))
         {
-            if (leftHit.transform.root.GetComponent<Canvas>())
+            if (hit.transform.root.GetComponent<Canvas>())
             {
-                grabInteractor.
-                rayInteractor.gameObject.SetActive(true);
+                grabInteractor.enabled = false;
+                rayInteractor.SetActive(true);
             }
         }
-        else if (Physics.Raycast(rightHand.transform.position, rightHand.transform.forward, out rightHit, range))
+        else
         {
-
+            rayInteractor.SetActive(false);
+            grabInteractor.enabled = true;
         }
     }
 }

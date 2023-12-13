@@ -28,6 +28,7 @@ public class Timer : MonoBehaviour
 
     public void Start()
     {
+        GetsInfoFromRoom();
         ConvertTime(0, waitingSeconds);
     }
 
@@ -41,9 +42,14 @@ public class Timer : MonoBehaviour
 
     #region start of game
 
+    public void GetsInfoFromRoom()
+    {
+
+    }
+
     public void StartOfGame()
     {
-        if (everybodyHasLoadedIn)
+        if (everybodyHasLoadedIn && waitingSeconds > 0)
         {
             waitingSeconds -= Time.deltaTime;
         }
