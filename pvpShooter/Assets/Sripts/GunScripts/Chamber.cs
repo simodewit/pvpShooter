@@ -7,6 +7,8 @@ public class Chamber : MonoBehaviour
     [Header("all info")]
     public float speed;
     public float maxDistance;
+    public float distanceForLoad;
+
     public string leftHandTag;
     public string rightHandTag;
 
@@ -66,7 +68,7 @@ public class Chamber : MonoBehaviour
         {
             leftActivated = true;
         }
-        else
+        else if(leftActivated)
         {
             leftActivated = false;
             leftHand = null;
@@ -77,7 +79,7 @@ public class Chamber : MonoBehaviour
         {
             rightActivated = true;
         }
-        else
+        else if(rightActivated)
         {
             rightActivated = false;
             leftHand = null;
@@ -112,11 +114,13 @@ public class Chamber : MonoBehaviour
 
         if (leftHand != null && leftActivated)
         {
-            endPos.z = -Vector3.Distance(worldPos, leftHand.transform.position);
+            transform.position = Vector3.Slerp(worldPos, leftHand.transform.position, speed);
+            endPos.z = transform.localPosition.z;
         }
         else if(rightHand != null && rightActivated)
         {
-            endPos.z = -Vector3.Distance(worldPos, rightHand.transform.position);
+            transform.position = Vector3.Slerp(worldPos, rightHand.transform.position, speed);
+            endPos.z = transform.localPosition.z;
         }
         else
         {
@@ -125,19 +129,21 @@ public class Chamber : MonoBehaviour
 
         endPos.x = startPos.x;
         endPos.y = startPos.y;
-
+        
         if (endPos.z < -maxDistance)
         {
-            endPos.z = maxDistance;
+            endPos.z = -maxDistance;
         }
         if (endPos.z > startPos.z)
         {
-            endPos.z = -maxDistance;
+            endPos.z = startPos.z;
+        }
 
-            if (gun.mag != null && gun.mag.bullets != 0)
-            {
-                gun.isChambered = true;
-            }
+        if (gun.mag != null && gun.mag.bullets != 0 && endPos.z < -distanceForLoad)
+        {
+            debug.Print("chamberes");
+            gun.isChambered = true;
+            gun.mag.bullets -= 1;
         }
 
         transform.localPosition = endPos;

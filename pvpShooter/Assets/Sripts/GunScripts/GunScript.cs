@@ -33,8 +33,6 @@ public class GunScript : MonoBehaviourPunCallbacks
     public MagScript mag;
     public bool isChambered;
 
-    //view
-    PhotonView view;
 
     //check for shooting
     bool triggerInput;
@@ -67,9 +65,6 @@ public class GunScript : MonoBehaviourPunCallbacks
     public void Refrences()
     {
         debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
-
-        view = GetComponent<PhotonView>();
-
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
 
         grabbable.activated.AddListener(StartInput);
@@ -97,17 +92,24 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if (mag == null)
+        if (mag == null && isChambered && triggerInput)
+        {
+            debug.Print("last bullet");
+            photonView.RPC("Bullet", RpcTarget.All);
+            return;
+        }
+        else if (mag == null)
         {
             return;
         }
 
-        if (triggerInput && mag.bullets != 0 && isChambered)
+        if (triggerInput && isChambered)
         {
+            debug.Print("should shoot");
 
             if (semiAuto && !bulletIsShot)
             {
-                view.RPC("Bullet", RpcTarget.All);
+                photonView.RPC("Bullet", RpcTarget.All);
                 bulletIsShot = true;
             }
             else if(burst)
@@ -118,7 +120,7 @@ public class GunScript : MonoBehaviourPunCallbacks
                 {
                     burstShots += 1;
                     timer = shootInterval;
-                    view.RPC("Bullet", RpcTarget.All);
+                    photonView.RPC("Bullet", RpcTarget.All);
                 }
             }
             else if (automaticGun)
@@ -128,7 +130,7 @@ public class GunScript : MonoBehaviourPunCallbacks
                 if (timer <= 0)
                 {
                     timer = shootInterval;
-                    view.RPC("Bullet", RpcTarget.All);
+                    photonView.RPC("Bullet", RpcTarget.All);
                 }
             }
         }
@@ -143,11 +145,21 @@ public class GunScript : MonoBehaviourPunCallbacks
     [PunRPC]
     public void Bullet()
     {
-        mag.bullets -= 1;
-
-        if (mag.bullets < 0)
+        if (mag == null)
         {
             isChambered = false;
+        }
+        else
+        {
+            if (mag.bullets == 1)
+            {
+                isChambered = false;
+                mag.bullets -= 1;
+            }
+            else
+            {
+                mag.bullets -= 1;
+            }
         }
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
