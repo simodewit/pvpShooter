@@ -962,6 +962,7 @@ MonoBehaviour:
   endOfBarrel: {fileID: 2829000978037232380}
   meshCollider: {fileID: 8180044278137986902}
   interactable: {fileID: 8013039382839880523}
+  ammoScreen: {fileID: 4226520094357191621}
   bulletName: BulletTemplate
   bulletSpeed: 30
   mag: {fileID: 0}
