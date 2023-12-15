@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: -8318335003799717570}
   - component: {fileID: 3437006026234252028}
   - component: {fileID: 5849877724140566446}
-  - component: {fileID: 8180044278137986902}
+  - component: {fileID: 6862457531892264360}
   m_Layer: 0
   m_Name: AK74
   m_TagString: Untagged
@@ -960,7 +960,7 @@ MonoBehaviour:
   decreasingDistance: 0
   decreasingFactor: 0
   endOfBarrel: {fileID: 2829000978037232380}
-  meshCollider: {fileID: 8180044278137986902}
+  meshCollider: {fileID: 6862457531892264360}
   interactable: {fileID: 8013039382839880523}
   ammoScreen: {fileID: 4226520094357191621}
   bulletName: BulletTemplate
@@ -1253,8 +1253,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.051701315, y: 0.05, z: -0.15}
   m_Center: {x: 0.0011320608, y: 0.056964308, z: 0.36}
---- !u!64 &8180044278137986902
-MeshCollider:
+--- !u!65 &6862457531892264360
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1271,10 +1271,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6018658318901207596, guid: c42c119fbd77dcb4e80ee75e8838e258, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.051701315, y: 0.1, z: 1.0038221}
+  m_Center: {x: 0.0011320608, y: 0.09, z: 0.1843147}
 --- !u!1 &6560171798137733589
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ TagManager:
   - Hand
   - LeftHand
   - RightHand
+  - UItag
   layers:
   - Default
   - TransparentFX

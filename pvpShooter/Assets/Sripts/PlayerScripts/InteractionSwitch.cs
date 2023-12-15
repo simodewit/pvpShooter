@@ -6,38 +6,23 @@ public class InteractionSwitch : MonoBehaviour
     [Header("refrences")]
     public XRDirectInteractor grabInteractor;
     public GameObject rayInteractor;
-    public float range;
-    public LayerMask layer;
+    public string ColliderTag;
 
-    RaycastHit hit;
-    Debugger debug;
-
-    public void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
-    }
-
-    public void Update()
-    {
-        Scan();
-    }
-
-    public void Scan()
-    {
-        if (Physics.Raycast(transform.position, transform.forward, out hit, range, layer))
+        if (other.tag == ColliderTag)
         {
-            debug.Print(hit.transform.name);
+            grabInteractor.enabled = false;
+            rayInteractor.SetActive(true);
+        }
+    }
 
-            if (hit.transform.root.GetComponent<Canvas>())
-            {
-                grabInteractor.enabled = false;
-                rayInteractor.SetActive(true);
-            }
-            else
-            {
-                rayInteractor.SetActive(false);
-                grabInteractor.enabled = true;
-            }
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.tag == ColliderTag)
+        {
+            rayInteractor.SetActive(false);
+            grabInteractor.enabled = true;
         }
     }
 }
