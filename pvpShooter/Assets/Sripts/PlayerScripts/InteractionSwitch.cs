@@ -8,6 +8,12 @@ public class InteractionSwitch : MonoBehaviour
     public GameObject rayInteractor;
     public string ColliderTag;
 
+    public void Start()
+    {
+        rayInteractor.SetActive(false);
+        grabInteractor.enabled = true;
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag == ColliderTag)
