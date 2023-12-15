@@ -78,14 +78,7 @@ public class MagScript : MonoBehaviourPunCallbacks
 
                 gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
 
-                if (gun.GetComponent<GunScript>().isChambered)
-                {
-                    gun.GetComponent<GunScript>().ammoScreen.text = (bullets + 1).ToString();
-                }
-                else
-                {
-                    gun.GetComponent<GunScript>().ammoScreen.text = bullets.ToString();
-                }
+               
             }
         }
         else
@@ -110,14 +103,6 @@ public class MagScript : MonoBehaviourPunCallbacks
 
         if (gun != null)
         {
-            if (gun.GetComponent<GunScript>().isChambered)
-            {
-                gun.GetComponent<GunScript>().ammoScreen.text = "1";
-            }
-            else
-            {
-                gun.GetComponent<GunScript>().ammoScreen.text="0";
-            }
             if (gun.GetComponentInParent<GunScript>().mag != null)
             {
                 gun.GetComponentInParent<GunScript>().mag = null;

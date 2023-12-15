@@ -61,7 +61,7 @@ public class GunScript : MonoBehaviourPunCallbacks
     public void Update()
     {
         Shoot();
-
+        CheckMag();
         if (interactable.isSelected && hasSwitched)
         {
             debug.Print("off");
@@ -157,25 +157,48 @@ public class GunScript : MonoBehaviourPunCallbacks
         }
     }
 
+    public void CheckMag()
+    {
+        if (isChambered)
+        {
+            if (mag == null)
+            {
+                ammoScreen.text = "1";
+            }
+            else
+            {
+                ammoScreen.text = (mag.bullets + 1).ToString();
+            }
+        }
+        else
+        {
+            if (mag == null)
+            {
+                ammoScreen.text = "0";
+            }
+            else
+            {
+                ammoScreen.text = mag.bullets.ToString();
+            }
+        }
+    }
+
     [PunRPC]
     public void Bullet()
     {
         if (mag == null)
         {
             isChambered = false;
-            ammoScreen.text = "0";
         }
         else
         {
             if (mag.bullets == 0)
             {
                 isChambered = false;
-                ammoScreen.text = "0";
             }
             else
             {
                 mag.bullets -= 1;
-                ammoScreen.text = (mag.bullets + 1).ToString();
             }
         }
 
