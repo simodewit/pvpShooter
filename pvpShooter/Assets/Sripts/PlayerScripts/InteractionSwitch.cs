@@ -9,6 +9,12 @@ public class InteractionSwitch : MonoBehaviour
     public float range;
 
     RaycastHit hit;
+    Debugger debug;
+
+    public void Start()
+    {
+        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
+    }
 
     public void Update()
     {
@@ -21,6 +27,7 @@ public class InteractionSwitch : MonoBehaviour
         {
             if (hit.transform.root.GetComponent<Canvas>())
             {
+                debug.Print("on");
                 grabInteractor.enabled = false;
                 rayInteractor.SetActive(true);
             }

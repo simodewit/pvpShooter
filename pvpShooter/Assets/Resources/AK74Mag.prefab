@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 7818958386970566323}
   - component: {fileID: 8345623684996800504}
   - component: {fileID: 5274717315871055305}
-  - component: {fileID: 6521672781800166141}
   - component: {fileID: 4616149968645954449}
+  - component: {fileID: 2402736570465068815}
   m_Layer: 0
   m_Name: AK74Mag
   m_TagString: Untagged
@@ -163,27 +163,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6521672781800166141
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7735241016515493137}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.031188138, y: 0.18173242, z: 0.12}
-  m_Center: {x: 0.000000003259629, y: -0.09086621, z: 0.033791523}
 --- !u!114 &4616149968645954449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 2402736570465068815}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -360,3 +340,25 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
+--- !u!64 &2402736570465068815
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7735241016515493137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8648244123810634802, guid: c42c119fbd77dcb4e80ee75e8838e258, type: 3}

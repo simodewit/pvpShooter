@@ -1592,7 +1592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 1527323947}
   waitingSeconds: 10
-  minutes: 0
+  minutes: 5
   seconds: 10
   everybodyHasLoadedIn: 0
   startGame: 0

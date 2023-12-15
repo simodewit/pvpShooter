@@ -19,7 +19,7 @@ public class ChangingPoint : MonoBehaviour
 
     public void Start()
     {
-        //ask interval
+        timeInterval = (float) GameObject.FindObjectOfType<RoomProperties>()._myRoomProperties[""];
     }
 
     public void Update()

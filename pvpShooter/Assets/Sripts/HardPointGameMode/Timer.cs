@@ -1,7 +1,8 @@
+using Photon.Pun;
 using TMPro;
 using UnityEngine;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviourPunCallbacks
 {
     #region variables
 
@@ -21,6 +22,9 @@ public class Timer : MonoBehaviour
 
     //private variables
     string timeInString;
+    bool hasLoadedIn;
+    int loadedPlayers;
+    int totalPlayersToLoad;
 
     #endregion
 
@@ -44,7 +48,26 @@ public class Timer : MonoBehaviour
 
     public void GetsInfoFromRoom()
     {
-        //ask info
+        totalPlayersToLoad = (int) GameObject.FindObjectOfType<RoomProperties>()._myRoomProperties[""];
+
+        if (!hasLoadedIn)
+        {
+            hasLoadedIn = true;
+            photonView.RPC("StartGame", RpcTarget.All);
+        }
+
+        minutes = (int) GameObject.FindObjectOfType<RoomProperties>()._myRoomProperties[""];
+        seconds = 0;
+    }
+
+    public void StartGame()
+    {
+        loadedPlayers += 1;
+
+        if (totalPlayersToLoad == loadedPlayers)
+        {
+            startGame = true;
+        }
     }
 
     public void StartOfGame()
