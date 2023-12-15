@@ -13,7 +13,7 @@ public class Debugger : MonoBehaviourPunCallbacks
     public TextMeshProUGUI timeUI;
     public TextMeshProUGUI consoleUI;
     public ScrollRect scroll;
-
+    public static Debugger debugger;
     //timer variables
     string timerInString = "0.0.0";
     float time;
@@ -26,7 +26,17 @@ public class Debugger : MonoBehaviourPunCallbacks
     #endregion
 
     #region update
-
+    private void Awake()
+    {
+        if(debugger == null)
+        {
+            debugger = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Update()
     {
         Timer();

@@ -6,7 +6,8 @@ public class InteractionSwitch : MonoBehaviour
     [Header("refrences")]
     public XRDirectInteractor grabInteractor;
     public GameObject rayInteractor;
-    public string ColliderTag;
+    public LayerMask layer;
+    public string colliderTag;
 
     public void Start()
     {
@@ -14,18 +15,25 @@ public class InteractionSwitch : MonoBehaviour
         grabInteractor.enabled = true;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void Update()
     {
-        if (other.tag == ColliderTag)
+        bool hasCollided = new bool();
+        Collider[] a = Physics.OverlapSphere(transform.position, 1);
+
+        foreach (var col in a)
+        {
+            if (!hasCollided && col.tag == colliderTag)
+            {
+                hasCollided = true;
+            }
+        }
+
+        if (hasCollided)
         {
             grabInteractor.enabled = false;
             rayInteractor.SetActive(true);
         }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (other.tag == ColliderTag)
+        else
         {
             rayInteractor.SetActive(false);
             grabInteractor.enabled = true;
