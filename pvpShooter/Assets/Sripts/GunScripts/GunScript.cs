@@ -26,6 +26,7 @@ public class GunScript : MonoBehaviourPunCallbacks
     public Transform endOfBarrel;
     public Collider meshCollider;
     public XRGrabInteractable interactable;
+    public TMPro.TMP_Text ammoScreen;
 
     [Header("bullet info")]
     public string bulletName;
@@ -54,6 +55,7 @@ public class GunScript : MonoBehaviourPunCallbacks
     public void Start()
     {
         Refrences();
+        ammoScreen.text = "0";
     }
 
     public void Update()
@@ -161,17 +163,19 @@ public class GunScript : MonoBehaviourPunCallbacks
         if (mag == null)
         {
             isChambered = false;
+            ammoScreen.text = "0";
         }
         else
         {
-            if (mag.bullets == 1)
+            if (mag.bullets == 0)
             {
                 isChambered = false;
-                mag.bullets -= 1;
+                ammoScreen.text = "0";
             }
             else
             {
                 mag.bullets -= 1;
+                ammoScreen.text = (mag.bullets + 1).ToString();
             }
         }
 
