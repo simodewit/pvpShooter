@@ -2688,6 +2688,9 @@ MonoBehaviour:
   grabInteractor: {fileID: 8382052408947660673}
   rayInteractor: {fileID: 1755893100604981563}
   range: 20
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8114081625010490597
 GameObject:
   m_ObjectHideFlags: 0
@@ -3108,6 +3111,9 @@ MonoBehaviour:
   grabInteractor: {fileID: 3623466568674557550}
   rayInteractor: {fileID: 612855109544778700}
   range: 20
+  layer:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8273377563881324766
 GameObject:
   m_ObjectHideFlags: 0
