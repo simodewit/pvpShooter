@@ -68,8 +68,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         if (JoinRoomInput.text == "")
         {
-            CreateRoomInput.text = "1";
-            //normaly this should be a return but for testing purposes this is now giving a name
+            return;
         }
 
         PhotonNetwork.JoinRoom(JoinRoomInput.text);
@@ -79,8 +78,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         if (CreateRoomInput.text == "")
         {
-            CreateRoomInput.text = "1";
-            //normaly this should be a return but for testing purposes this is now giving a name
+            return;
         }
 
         if (temp)
