@@ -8152,7 +8152,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1310944808}
         m_TargetAssemblyTypeName: Backspace, Assembly-CSharp
         m_MethodName: OnButtonClick
         m_Mode: 1
