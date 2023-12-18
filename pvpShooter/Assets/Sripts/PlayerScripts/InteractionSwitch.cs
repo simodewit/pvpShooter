@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -8,6 +9,7 @@ public class InteractionSwitch : MonoBehaviour
     public GameObject rayInteractor;
     public LayerMask layer;
     public string colliderTag;
+    public GameObject box;
 
     public void Start()
     {
@@ -25,18 +27,30 @@ public class InteractionSwitch : MonoBehaviour
             if (!hasCollided && col.tag == colliderTag)
             {
                 hasCollided = true;
+                box = col.gameObject;
             }
         }
 
-        if (hasCollided)
+        if (PhotonNetwork.IsMasterClient)
         {
-            grabInteractor.enabled = false;
-            rayInteractor.SetActive(true);
+            if (hasCollided)
+            {
+                grabInteractor.enabled = false;
+                rayInteractor.SetActive(true);
+            }
+            else
+            {
+                rayInteractor.SetActive(false);
+                grabInteractor.enabled = true;
+            }
         }
         else
         {
-            rayInteractor.SetActive(false);
-            grabInteractor.enabled = true;
+            if (box != null)
+            {
+                Destroy(box);
+                box = null;
+            }
         }
     }
 }
