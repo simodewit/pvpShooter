@@ -19,6 +19,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         photonView.RPC("ChangeButtons", RpcTarget.All);
     }
 
+    [PunRPC]
     public void ChangeButtons()
     {
         if (PhotonNetwork.PlayerList.Length % 2 == 0)
