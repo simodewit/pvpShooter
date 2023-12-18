@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 6378155546118135433}
   - component: {fileID: 3575605318916925483}
   m_Layer: 0
-  m_Name: AK74Mag
+  m_Name: AK47Mag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -381,7 +381,8 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 3575605318916925483}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
