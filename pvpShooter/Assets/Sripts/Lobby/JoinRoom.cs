@@ -6,8 +6,6 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     public string playerPrefabName;
     public Transform spawnPlace;
 
-    bool hasSpawned;
-
     public void Awake()
     {
         if (!photonView.IsMine)
@@ -15,12 +13,6 @@ public class JoinRoom : MonoBehaviourPunCallbacks
             return;
         }
 
-        if(hasSpawned)
-        {
-            return;
-        }
-
-        hasSpawned = true;
         InstantiatePlayer();
     }
 
