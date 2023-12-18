@@ -33,6 +33,11 @@ public class InteractionSwitch : MonoBehaviour
 
         if (!PhotonNetwork.InRoom || PhotonNetwork.IsMasterClient)
         {
+            if (!box.activeInHierarchy)
+            {
+                box.SetActive(true);
+            }
+
             if (hasCollided)
             {
                 grabInteractor.enabled = false;
@@ -46,9 +51,9 @@ public class InteractionSwitch : MonoBehaviour
         }
         else
         {
-            if (box != null)
+            if (box.activeInHierarchy)
             {
-                Destroy(box);
+                box.SetActive(false);
                 box = null;
             }
         }

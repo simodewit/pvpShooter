@@ -34,7 +34,6 @@ public class JoinRoom : MonoBehaviourPunCallbacks
             spawnedButton.transform.SetParent(team2.transform, true);
         }
 
-
         spawnedButton.transform.rotation = new Quaternion(0, 0, 0, 0);
         spawnedButton.transform.localScale = Vector3.one;
         spawnedButton = null;
