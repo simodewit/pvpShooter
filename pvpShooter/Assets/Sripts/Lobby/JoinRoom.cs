@@ -16,8 +16,12 @@ public class JoinRoom : MonoBehaviourPunCallbacks
             PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
         }
 
+        photonView.RPC("ChangeButtons", RpcTarget.All);
+    }
 
-        if (PhotonNetwork.PlayerList.Length%2 == 0)
+    public void ChangeButtons()
+    {
+        if (PhotonNetwork.PlayerList.Length % 2 == 0)
         {
             spawnedButton = PhotonNetwork.Instantiate(playerButtonName, team1.transform.position, new Quaternion(0, 0, 0, 0));
             spawnedButton.transform.SetParent(team1.transform, true);
@@ -29,7 +33,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         }
 
 
-        spawnedButton.transform.rotation = new Quaternion(0,0,0,0);
+        spawnedButton.transform.rotation = new Quaternion(0, 0, 0, 0);
         spawnedButton.transform.localScale = Vector3.one;
         spawnedButton = null;
     }
