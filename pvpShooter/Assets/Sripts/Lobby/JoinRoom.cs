@@ -7,10 +7,16 @@ public class JoinRoom : MonoBehaviourPunCallbacks
     public string playerPrefabName, playerButtonName;
     public Transform spawnPlace;
     public GameObject spawnedButton;
+    bool hasSpawned;
 
     public void Awake()
     {
-        PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
+        if (!hasSpawned)
+        {
+            PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
+        }
+
+
         if (PhotonNetwork.PlayerList.Length%2 == 0)
         {
             spawnedButton = PhotonNetwork.Instantiate(playerButtonName, team1.transform.position, new Quaternion(0, 0, 0, 0));
@@ -21,7 +27,10 @@ public class JoinRoom : MonoBehaviourPunCallbacks
             spawnedButton = PhotonNetwork.Instantiate(playerButtonName, team2.transform.position, new Quaternion(0, 0, 0, 0));
             spawnedButton.transform.SetParent(team2.transform, true);
         }
+
+
         spawnedButton.transform.rotation = new Quaternion(0,0,0,0);
         spawnedButton.transform.localScale = Vector3.one;
+        spawnedButton = null;
     }
 }
