@@ -64,13 +64,11 @@ public class GunScript : MonoBehaviourPunCallbacks
         CheckMag();
         if (interactable.isSelected && hasSwitched)
         {
-            debug.Print("off");
             hasSwitched = false;
             meshCollider.enabled = false;
         }
         else if(!interactable.isSelected && !hasSwitched)
         {
-            debug.Print("on");
             hasSwitched = true;
             meshCollider.enabled = true;
         }
