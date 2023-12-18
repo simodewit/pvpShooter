@@ -11,7 +11,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
-        if (!hasSpawned)
+        if (photonView.IsMine)
         {
             PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
             hasSpawned = true;
