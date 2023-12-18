@@ -8,16 +8,6 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
-        InstantiatePlayer();
-    }
-
-    public void InstantiatePlayer()
-    {
         PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
     }
 }
