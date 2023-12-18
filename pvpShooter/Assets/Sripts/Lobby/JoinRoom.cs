@@ -14,6 +14,7 @@ public class JoinRoom : MonoBehaviourPunCallbacks
         if (!hasSpawned)
         {
             PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
+            hasSpawned = true;
         }
 
         photonView.RPC("ChangeButtons", RpcTarget.All);
