@@ -31,7 +31,7 @@ public class InteractionSwitch : MonoBehaviour
             }
         }
 
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.InRoom && PhotonNetwork.IsMasterClient)
         {
             if (hasCollided)
             {
