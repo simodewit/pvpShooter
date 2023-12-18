@@ -1,6 +1,8 @@
+using Photon.Pun;
+using System;
 using UnityEngine;
 
-public class BulletScript : MonoBehaviour
+public class BulletScript : MonoBehaviourPunCallbacks
 {
     #region variables
 

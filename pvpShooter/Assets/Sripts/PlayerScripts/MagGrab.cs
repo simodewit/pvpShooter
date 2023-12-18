@@ -14,6 +14,11 @@ public class MagGrab : MonoBehaviourPunCallbacks
 
     public void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if (!handCollides && !hasMagSpawned)
         {
             hasMagSpawned = true;

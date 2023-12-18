@@ -110,6 +110,11 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if (mag == null && isChambered && triggerInput)
         {
             photonView.RPC("Bullet", RpcTarget.All);

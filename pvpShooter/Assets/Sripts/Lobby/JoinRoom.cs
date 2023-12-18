@@ -10,6 +10,11 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         if(hasSpawned)
         {
             return;
