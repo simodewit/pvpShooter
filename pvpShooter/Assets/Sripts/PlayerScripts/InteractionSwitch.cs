@@ -33,7 +33,7 @@ public class InteractionSwitch : MonoBehaviour
 
         if (!PhotonNetwork.InRoom || PhotonNetwork.IsMasterClient)
         {
-            if (!box.activeInHierarchy)
+            if (box != null && !box.activeInHierarchy)
             {
                 box.SetActive(true);
             }
@@ -51,7 +51,7 @@ public class InteractionSwitch : MonoBehaviour
         }
         else
         {
-            if (box.activeInHierarchy)
+            if (box != null && box.activeInHierarchy)
             {
                 box.SetActive(false);
                 box = null;
