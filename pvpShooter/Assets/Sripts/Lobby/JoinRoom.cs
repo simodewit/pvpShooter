@@ -11,13 +11,19 @@ public class JoinRoom : MonoBehaviourPunCallbacks
 
     public void Awake()
     {
+        // The instantiate first happend in the if statment pohotonview.ismine but it didnt work so i changed it
+        // Simon needs to look at this
+        PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
         if (photonView.IsMine)
         {
-            PhotonNetwork.Instantiate(playerPrefabName, spawnPlace.position, new Quaternion(0, 0, 0, 0));
+            
             hasSpawned = true;
         }
 
-        photonView.RPC("ChangeButtons", RpcTarget.All);
+        if (team1 != null)
+        {
+            photonView.RPC("ChangeButtons", RpcTarget.All);
+        }
     }
 
     [PunRPC]
