@@ -1010,6 +1010,7 @@ MonoBehaviour:
   decreasingFactor: 0
   endOfBarrel: {fileID: 2829000978037232380}
   meshCollider: {fileID: 6862457531892264360}
+  grabCollider: {fileID: 163106276289749221}
   interactable: {fileID: 8013039382839880523}
   ammoScreen: {fileID: 4226520094357191621}
   bulletName: AK47Bullet
