@@ -2795,6 +2795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 838192480896308316}
   - component: {fileID: 1072853694057895655}
+  - component: {fileID: 1633605053970056773}
   m_Layer: 0
   m_Name: VRPlayerWithDebugger
   m_TagString: Untagged
@@ -2841,6 +2842,21 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &1633605053970056773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6605014202172969871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5824cc7f64b67954ab802432cedd9f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 6037668888846348422}
+  rightController: {fileID: 7045899127508811586}
+  leftController: {fileID: 8114081625010490597}
 --- !u!1 &6872677560215175675
 GameObject:
   m_ObjectHideFlags: 0
