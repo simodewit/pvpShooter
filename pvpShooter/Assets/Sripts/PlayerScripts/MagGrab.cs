@@ -12,6 +12,11 @@ public class MagGrab : MonoBehaviourPunCallbacks
     bool hasMagSpawned;
     GameObject mag;
 
+    public void Start()
+    {
+        photonView.RPC("SpawnMag", RpcTarget.All);
+    }
+
     public void Update()
     {
         if (!photonView.IsMine)

@@ -27,28 +27,28 @@ public class BulletScript : MonoBehaviourPunCallbacks
     #endregion
 
     #region collision check
-    
-    public void OnTriggerEnter(Collider other)
+
+    public void OnCollisionEnter(Collision collision)
     {
-        if(other.GetComponent<HealthScript>() != null)
+        if (collision.gameObject.GetComponent<HealthScript>() != null)
         {
-            if(hasToDecrease)
+            if (hasToDecrease)
             {
                 float distance = Vector3.Distance(startPoint, transform.position);
 
-                if(distance <= decreasingDistance)
+                if (distance <= decreasingDistance)
                 {
                     damage -= (int)((distance -= decreasingDistance) * decreasingFactor);
-                    other.GetComponent<HealthScript>().Health(damage);
+                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
                 else
                 {
-                    other.GetComponent<HealthScript>().Health(damage);
+                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
             }
             else
             {
-                other.GetComponent<HealthScript>().Health(damage);
+                collision.gameObject.GetComponent<HealthScript>().Health(damage);
             }
         }
 

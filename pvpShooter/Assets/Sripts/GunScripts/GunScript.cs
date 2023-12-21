@@ -210,6 +210,7 @@ public class GunScript : MonoBehaviourPunCallbacks
 
         GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
 
+        bullet.transform.rotation = transform.rotation;
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
         bullet.GetComponent<BulletScript>().damage = damage;
         bullet.GetComponent<BulletScript>().hasToDecrease = hasToDecrease;
