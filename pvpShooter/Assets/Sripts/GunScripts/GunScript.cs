@@ -25,6 +25,7 @@ public class GunScript : MonoBehaviourPunCallbacks
     [Header("refrences")]
     public Transform endOfBarrel;
     public Collider meshCollider;
+    public Collider grabCollider;
     public XRGrabInteractable interactable;
     public TMPro.TMP_Text ammoScreen;
 
@@ -66,11 +67,13 @@ public class GunScript : MonoBehaviourPunCallbacks
         {
             hasSwitched = false;
             meshCollider.enabled = false;
+            grabCollider.enabled = false;
         }
         else if(!interactable.isSelected && !hasSwitched)
         {
             hasSwitched = true;
             meshCollider.enabled = true;
+            grabCollider.enabled = true;
         }
     }
 
