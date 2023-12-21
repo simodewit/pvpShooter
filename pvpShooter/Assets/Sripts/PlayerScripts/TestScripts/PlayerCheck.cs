@@ -3,17 +3,13 @@ using UnityEngine;
 
 public class PlayerCheck : MonoBehaviourPunCallbacks
 {
-    public GameObject cam;
-    public GameObject leftController;
-    public GameObject rightController;
+    public GameObject XrRig;
 
     public void Start()
     {
         if (!photonView.IsMine)
         {
-            cam.SetActive(false);
-            leftController.SetActive(false);
-            rightController.SetActive(false);
+            XrRig.SetActive(false);
         }
     }
 }
