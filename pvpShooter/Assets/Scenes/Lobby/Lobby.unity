@@ -9867,6 +9867,7 @@ MonoBehaviour:
   team2Panel: {fileID: 1899811122}
   team1: {fileID: 1877035924}
   team2: {fileID: 1946430514}
+  playerProperties: []
 --- !u!1 &1772752004
 GameObject:
   m_ObjectHideFlags: 0

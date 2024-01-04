@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class PlayerTeam : MonoBehaviour
 {
-    public Button switchTeam;
+    public SwitchTeam switchTeam;
     public int whatTeam;
 
     public void Awake()
     {
-        switchTeam = FindAnyObjectByType<SwitchTeam>().GetComponent<Button>();
+        switchTeam = FindAnyObjectByType<SwitchTeam>();
+    }
+    public void Start()
+    {
+        switchTeam = FindAnyObjectByType<SwitchTeam>();
     }
     public void SelectPlayer()
     {
