@@ -8682,12 +8682,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86d9822d94fc24e4aac5c9776d0e7eff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Lobby
+  sceneName: SimonsTestScene
   splashScreenPanel: {fileID: 369251408}
   mainMenuPanel: {fileID: 442482935}
-  JoinRoomInput: {fileID: 0}
-  CreateRoomInput: {fileID: 0}
-  keyboard: {fileID: 0}
 --- !u!114 &1947461503
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1362,8 +1362,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc4beac3390a0a44ab55e75c93a9020b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefabName: VRPlayerWithDebugger
+  team1: {fileID: 0}
+  team2: {fileID: 0}
+  playerPrefab: {fileID: 6605014202172969871, guid: c6104a6b907a5c04696cc517ff130967,
+    type: 3}
+  playerButtonName: 
   spawnPlace: {fileID: 1185139980}
+  spawnedButton: {fileID: 0}
 --- !u!1 &1202569976
 GameObject:
   m_ObjectHideFlags: 0
