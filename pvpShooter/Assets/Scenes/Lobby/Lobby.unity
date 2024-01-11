@@ -1617,7 +1617,6 @@ MonoBehaviour:
   text: {fileID: 394567276}
   greatness: Seconds
   propertyName: CapturePointInterval
-  roomProperties: {fileID: 0}
 --- !u!114 &258864848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5394,7 +5393,6 @@ MonoBehaviour:
   text: {fileID: 1942326708}
   greatness: K Points
   propertyName: MaxPoints
-  roomProperties: {fileID: 0}
 --- !u!114 &1002957668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9616,7 +9614,6 @@ MonoBehaviour:
   text: {fileID: 1862544710}
   greatness: Minutes
   propertyName: GameLength
-  roomProperties: {fileID: 0}
 --- !u!114 &1762727039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9867,7 +9864,6 @@ MonoBehaviour:
   team2Panel: {fileID: 1899811122}
   team1: {fileID: 1877035924}
   team2: {fileID: 1946430514}
-  playerProperties: []
 --- !u!1 &1772752004
 GameObject:
   m_ObjectHideFlags: 0
@@ -12634,7 +12630,6 @@ MonoBehaviour:
   text: {fileID: 1490522533}
   greatness: Seconds
   propertyName: PlayerRespawnTimer
-  roomProperties: {fileID: 0}
 --- !u!114 &2095792300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13036,6 +13031,12 @@ PrefabInstance:
       propertyPath: team2
       value: 
       objectReference: {fileID: 1899811121}
+    - target: {fileID: 2340525419905321524, guid: e7ec27a5b5e1e1d4d83fbff38b4c3405,
+        type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 6605014202172969871, guid: c6104a6b907a5c04696cc517ff130967,
+        type: 3}
     - target: {fileID: 2340525419905321524, guid: e7ec27a5b5e1e1d4d83fbff38b4c3405,
         type: 3}
       propertyPath: playerButtonName

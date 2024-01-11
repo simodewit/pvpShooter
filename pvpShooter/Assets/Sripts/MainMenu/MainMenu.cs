@@ -13,11 +13,6 @@ public class MainMenu : MonoBehaviour
     public GameObject splashScreenPanel;
     public GameObject mainMenuPanel;
 
-    [Header("UI elements")]
-    public TextMeshProUGUI JoinRoomInput;
-    public TextMeshProUGUI CreateRoomInput;
-    public GameObject keyboard;
-
     //private variables
     bool firstInputInSplashScreen;
 
