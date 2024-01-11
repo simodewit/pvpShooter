@@ -27,6 +27,7 @@ public class GunScript : MonoBehaviour
     public Collider grabCollider;
     public XRGrabInteractable interactable;
     public TMPro.TMP_Text ammoScreen;
+    public ParticleSystem shootParticle;
 
     [Header("bullet info")]
     public GameObject bulletPrefab;
@@ -181,6 +182,7 @@ public class GunScript : MonoBehaviour
 
     public void Bullet()
     {
+        shootParticle.Play();
         if (mag == null)
         {
             isChambered = false;
