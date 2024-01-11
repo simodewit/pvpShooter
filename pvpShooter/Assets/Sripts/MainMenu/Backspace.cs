@@ -11,5 +11,4 @@ public class Backspace : MonoBehaviour
     {
         selectedInputField.text = selectedInputField.text.Remove(selectedInputField.text.Length -1);
     }
-
 }

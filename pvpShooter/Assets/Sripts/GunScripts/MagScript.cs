@@ -1,8 +1,7 @@
-using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class MagScript : MonoBehaviourPunCallbacks
+public class MagScript : MonoBehaviour
 {
     #region variables
 
@@ -16,15 +15,12 @@ public class MagScript : MonoBehaviourPunCallbacks
     GameObject gun;
     Rigidbody rb;
 
-    Debugger debug;
-
     #endregion
 
     #region start and update
 
     public void Start()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -77,8 +73,6 @@ public class MagScript : MonoBehaviourPunCallbacks
                 rb.constraints = RigidbodyConstraints.FreezeAll;
 
                 gun.GetComponentInParent<GunScript>().mag = gameObject.GetComponent<MagScript>();
-
-               
             }
         }
         else

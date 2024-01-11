@@ -17,11 +17,6 @@ public class ChangingPoint : MonoBehaviour
 
     #region start and update
 
-    public void Start()
-    {
-        timeInterval = (float) GameObject.FindObjectOfType<RoomProperties>()._myRoomProperties[""];
-    }
-
     public void Update()
     {
         FirstRandomize();
@@ -36,7 +31,7 @@ public class ChangingPoint : MonoBehaviour
     {
         if (timer.startGame && !started)
         {
-            int index = UnityEngine.Random.Range(0, places.Length);
+            int index = Random.Range(0, places.Length);
             point.transform.position = places[index].position;
 
             started = true;
@@ -50,7 +45,7 @@ public class ChangingPoint : MonoBehaviour
         {
             time = timeInterval;
 
-            int index = UnityEngine.Random.Range(0, places.Length);
+            int index = Random.Range(0, places.Length);
             point.transform.position = places[index].position;
         }
         else

@@ -24,16 +24,12 @@ public class Chamber : MonoBehaviour
     Collider rightHand;
     GunScript gun;
 
-    Debugger debug;
-
     #endregion
 
     #region start and update
 
     public void Start()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
-
         gun = transform.parent.transform.parent.GetComponent<GunScript>();
         startPos = transform.localPosition;
 

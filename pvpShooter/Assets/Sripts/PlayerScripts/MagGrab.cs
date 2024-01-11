@@ -1,12 +1,11 @@
-using Photon.Pun;
 using UnityEngine;
 
-public class MagGrab : MonoBehaviourPunCallbacks
+public class MagGrab : MonoBehaviour
 {
     public string leftHandTag;
     public string rightHandTag;
 
-    public string magName;
+    public GameObject magPrefab;
 
     bool handCollides;
     bool hasMagSpawned;
@@ -14,26 +13,21 @@ public class MagGrab : MonoBehaviourPunCallbacks
 
     public void Start()
     {
-        photonView.RPC("SpawnMag", RpcTarget.All);
+        SpawnMag();
     }
 
     public void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
         if (!handCollides && !hasMagSpawned)
         {
             hasMagSpawned = true;
-            photonView.RPC("SpawnMag", RpcTarget.All);
+            SpawnMag();
         }
     }
 
     public void SpawnMag()
     {
-        mag = PhotonNetwork.Instantiate(magName, transform.position, Quaternion.identity);
+        mag = Instantiate(magPrefab, transform.position, Quaternion.identity);
         mag.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
     }
 

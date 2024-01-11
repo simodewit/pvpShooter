@@ -1,4 +1,3 @@
-using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -31,31 +30,15 @@ public class InteractionSwitch : MonoBehaviour
             }
         }
 
-        if (!PhotonNetwork.InRoom || PhotonNetwork.IsMasterClient)
+        if (hasCollided)
         {
-            if (box != null && !box.activeInHierarchy)
-            {
-                box.SetActive(true);
-            }
-
-            if (hasCollided)
-            {
-                grabInteractor.enabled = false;
-                rayInteractor.SetActive(true);
-            }
-            else
-            {
-                rayInteractor.SetActive(false);
-                grabInteractor.enabled = true;
-            }
+            grabInteractor.enabled = false;
+            rayInteractor.SetActive(true);
         }
         else
         {
-            if (box != null && box.activeInHierarchy)
-            {
-                box.SetActive(false);
-                box = null;
-            }
+            rayInteractor.SetActive(false);
+            grabInteractor.enabled = true;
         }
     }
 }

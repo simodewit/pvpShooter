@@ -1,8 +1,7 @@
-using Photon.Pun;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class GunScript : MonoBehaviourPunCallbacks
+public class GunScript : MonoBehaviour
 {
     #region variables
 
@@ -30,7 +29,7 @@ public class GunScript : MonoBehaviourPunCallbacks
     public TMPro.TMP_Text ammoScreen;
 
     [Header("bullet info")]
-    public string bulletName;
+    public GameObject bulletPrefab;
     public float bulletSpeed;
 
     [Header("interactions")]
@@ -46,8 +45,6 @@ public class GunScript : MonoBehaviourPunCallbacks
     float timer;
 
     bool hasSwitched;
-
-    Debugger debug;
 
     #endregion
 
@@ -83,7 +80,6 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Refrences()
     {
-        debug = GameObject.Find("DebugTool").GetComponent<Debugger>();
         XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
 
         grabbable.activated.AddListener(StartInput);
@@ -94,7 +90,6 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     #region input code
 
-    [PunRPC]
     public void StartInput(ActivateEventArgs arg)
     {
         triggerInput = true;
@@ -111,14 +106,9 @@ public class GunScript : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
-
         if (mag == null && isChambered && triggerInput)
         {
-            photonView.RPC("Bullet", RpcTarget.All);
+            Bullet();
             return;
         }
         else if (mag == null)
@@ -130,7 +120,7 @@ public class GunScript : MonoBehaviourPunCallbacks
         {
             if (semiAuto && !bulletIsShot)
             {
-                photonView.RPC("Bullet", RpcTarget.All);
+                Bullet();
                 bulletIsShot = true;
             }
             else if(burst)
@@ -141,7 +131,7 @@ public class GunScript : MonoBehaviourPunCallbacks
                 {
                     burstShots += 1;
                     timer = shootInterval;
-                    photonView.RPC("Bullet", RpcTarget.All);
+                    Bullet();
                 }
             }
             else if (automaticGun)
@@ -151,7 +141,7 @@ public class GunScript : MonoBehaviourPunCallbacks
                 if (timer <= 0)
                 {
                     timer = shootInterval;
-                    photonView.RPC("Bullet", RpcTarget.All);
+                    Bullet();
                 }
             }
         }
@@ -189,7 +179,6 @@ public class GunScript : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
     public void Bullet()
     {
         if (mag == null)
@@ -208,7 +197,7 @@ public class GunScript : MonoBehaviourPunCallbacks
             }
         }
 
-        GameObject bullet = PhotonNetwork.Instantiate(bulletName, endOfBarrel.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, endOfBarrel.position, Quaternion.identity);
 
         bullet.transform.rotation = transform.rotation;
         bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;

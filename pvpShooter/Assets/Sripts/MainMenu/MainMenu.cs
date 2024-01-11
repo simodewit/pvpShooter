@@ -1,8 +1,7 @@
 using UnityEngine;
-using Photon.Pun;
 using TMPro;
 
-public class MainMenu : MonoBehaviourPunCallbacks
+public class MainMenu : MonoBehaviour
 {
     #region variables
 
@@ -41,8 +40,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
     {
         if(Input.anyKey && !firstInputInSplashScreen)
         {
-            PhotonNetwork.GameVersion = ("0.0.1");
-            PhotonNetwork.ConnectUsingSettings();
             firstInputInSplashScreen = true;
         }
 
@@ -70,8 +67,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
         {
             return;
         }
-
-        PhotonNetwork.JoinRoom(JoinRoomInput.text);
     }
 
     public void OnClickCreateRoom()
@@ -87,21 +82,6 @@ public class MainMenu : MonoBehaviourPunCallbacks
         }
 
         temp = true;
-        PhotonNetwork.CreateRoom(CreateRoomInput.text);
-    }
-
-    #endregion
-
-    #region PUN code
-
-    public override void OnJoinedRoom()
-    {
-        PhotonNetwork.LoadLevel(sceneName);
-    }
-
-    public override void OnConnectedToMaster()
-    {
-        onConnectionStart = true;
     }
 
     #endregion
