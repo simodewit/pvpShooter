@@ -16,14 +16,11 @@ public class Timer : MonoBehaviour
     public float seconds;
 
     [Header("DO NOT TOUCH, code related")]
-    public bool everybodyHasLoadedIn;
     public bool startGame;
+    public bool endOfGame;
 
     //private variables
     string timeInString;
-    bool hasLoadedIn;
-    int loadedPlayers;
-    int totalPlayersToLoad;
 
     #endregion
 
@@ -44,19 +41,9 @@ public class Timer : MonoBehaviour
 
     #region start of game
 
-    public void StartGame()
-    {
-        loadedPlayers += 1;
-
-        if (totalPlayersToLoad == loadedPlayers)
-        {
-            startGame = true;
-        }
-    }
-
     public void StartOfGame()
     {
-        if (everybodyHasLoadedIn && waitingSeconds > 0)
+        if (waitingSeconds > 0)
         {
             waitingSeconds -= Time.deltaTime;
 
@@ -94,7 +81,7 @@ public class Timer : MonoBehaviour
                 seconds = 0;
                 minutes = 0;
 
-                //sould end the game or go in kill cam
+                endOfGame = true;
             }
         }
 
@@ -131,7 +118,7 @@ public class Timer : MonoBehaviour
             timeInString += (int)seconds;
         }
 
-        text.text = timeInString;
+        //text.text = timeInString;
         timeInString = "";
     }
 

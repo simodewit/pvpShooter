@@ -5,62 +5,79 @@ public class PointSystem : MonoBehaviour
 {
     #region variables
 
-    [Header("counters")]
-    public Counter counterTeamA;
-    public Counter counterTeamB;
+    public Counter counterPlayerTeam;
+    public Counter counterEnemieTeam;
+    public float timePerPoint;
+    public string playerTag;
 
-    [Header("tags")]
-    public string tagNameTeamA;
-    public string tagNameTeamB;
-
-    [Header("Points per second")]
-    public float points;
-
-    //lists
-    List<GameObject> teamA = new List<GameObject>();
-    List<GameObject> teamB = new List<GameObject>();
+    List<GameObject> allEnemies = new List<GameObject>();
+    bool player;
+    bool enemies;
+    float timer;
 
     #endregion
 
-    #region start and update
-
-    public void FixedUpdate()
+    public void Start()
     {
-        if (teamA.Count == 0 && teamB.Count != 0)
-        {
-            counterTeamA.points += points;
-        }
-        else if (teamA.Count != 0 && teamB.Count == 0)
-        {
-            counterTeamB.points += points;
-        }
+        //get the counters
     }
 
-    #endregion
+    public void Update()
+    {
+        if (allEnemies.Count == 0)
+        {
+            enemies = false;
+        }
+        else
+        {
+            enemies = true;
+        }
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = timePerPoint;
+        }
+
+        if (player && !enemies)
+        {
+            if (timer <= 0)
+            {
+                //counterPlayerTeam.points += 1;
+            }
+        }
+        if (!player && enemies)
+        {
+            if (timer <= 0)
+            {
+                //counterEnemieTeam.points += 1;
+            }
+        }
+    }
 
     #region collision
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.tag == tagNameTeamA)
+        if (other.tag == playerTag)
         {
-            teamA.Add(other.gameObject);
+            player = true;
         }
-        else if (other.tag == tagNameTeamB)
+        else
         {
-            teamB.Add(other.gameObject);
+            allEnemies.Add(other.gameObject);
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if (other.tag == tagNameTeamA)
+        if (other.tag == playerTag)
         {
-            teamA.Add(other.gameObject);
+            player = false;
         }
-        else if (other.tag == tagNameTeamB)
+        else
         {
-            teamB.Add(other.gameObject);
+            allEnemies.Remove(other.gameObject);
         }
     }
 
