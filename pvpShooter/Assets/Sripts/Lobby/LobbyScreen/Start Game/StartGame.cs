@@ -1,4 +1,3 @@
-using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +9,6 @@ public class StartGame : MonoBehaviour
 
     public void OnClick()
     {
-        PhotonNetwork.LoadLevel(sceneIndex);
+        
     }
 }

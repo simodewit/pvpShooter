@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,7 +12,6 @@ public class MainMenu : MonoBehaviour
     [Header("Panels")]
     public GameObject splashScreenPanel;
     public GameObject mainMenuPanel;
-    public GameObject createOrJoinRoomPanel;
 
     [Header("UI elements")]
     public TextMeshProUGUI JoinRoomInput;
@@ -19,9 +19,7 @@ public class MainMenu : MonoBehaviour
     public GameObject keyboard;
 
     //private variables
-    bool onConnectionStart;
     bool firstInputInSplashScreen;
-    bool temp;
 
     #endregion
 
@@ -34,54 +32,21 @@ public class MainMenu : MonoBehaviour
 
     #endregion
 
-    #region splash screen code
+    #region code
 
     public void SplashScreenCode()
     {
         if(Input.anyKey && !firstInputInSplashScreen)
         {
             firstInputInSplashScreen = true;
-        }
-
-        if (onConnectionStart)
-        {
             splashScreenPanel.SetActive(false);
             mainMenuPanel.SetActive(true);
-            onConnectionStart = false;
         }
     }
 
-    #endregion
-
-    #region Button Functions
-
-    public void OnClickPlay()
+    public void StartGame()
     {
-        mainMenuPanel.SetActive(false);
-        createOrJoinRoomPanel.SetActive(true);
-    }
-
-    public void OnClickJoinRoom()
-    {
-        if (JoinRoomInput.text == "")
-        {
-            return;
-        }
-    }
-
-    public void OnClickCreateRoom()
-    {
-        if (CreateRoomInput.text == "")
-        {
-            return;
-        }
-
-        if (temp)
-        {
-            return;
-        }
-
-        temp = true;
+        SceneManager.LoadScene(sceneName);
     }
 
     #endregion

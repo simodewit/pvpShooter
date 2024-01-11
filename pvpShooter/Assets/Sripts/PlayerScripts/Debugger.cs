@@ -1,10 +1,9 @@
-using Photon.Pun;
 using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Debugger : MonoBehaviourPunCallbacks
+public class Debugger : MonoBehaviour
 {
     #region variables
 
