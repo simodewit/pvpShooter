@@ -27,9 +27,9 @@ public class BulletScript : MonoBehaviour
 
     #region collision check
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.GetComponent<HealthScript>() != null)
+        if (other.gameObject.GetComponent<HealthScript>() != null)
         {
             if (hasToDecrease)
             {
@@ -38,16 +38,16 @@ public class BulletScript : MonoBehaviour
                 if (distance <= decreasingDistance)
                 {
                     damage -= (int)((distance -= decreasingDistance) * decreasingFactor);
-                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
+                    other.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
                 else
                 {
-                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
+                    other.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
             }
             else
             {
-                collision.gameObject.GetComponent<HealthScript>().Health(damage);
+                other.gameObject.GetComponent<HealthScript>().Health(damage);
             }
         }
 
