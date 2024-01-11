@@ -3676,7 +3676,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1947461502}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: OnClickPlay
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7754,7 +7754,7 @@ PrefabInstance:
     - target: {fileID: 8776184973273843730, guid: c6104a6b907a5c04696cc517ff130967,
         type: 3}
       propertyPath: m_Value
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8734,7 +8734,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68d6552bed280a438019e9f326f7c90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerProperties: {fileID: 0}
 --- !u!1 &1991226834
 GameObject:
   m_ObjectHideFlags: 0

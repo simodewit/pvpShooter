@@ -3,7 +3,6 @@ using System.ComponentModel;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.InputManagerEntry;
 
 public class AIScript : MonoBehaviour
 {
