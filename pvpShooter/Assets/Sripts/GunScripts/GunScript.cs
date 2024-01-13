@@ -199,14 +199,9 @@ public class GunScript : MonoBehaviour
             }
         }
 
-        GameObject bullet = Instantiate(bulletPrefab, endOfBarrel.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bulletPrefab, endOfBarrel.position, transform.rotation);
 
-        bullet.transform.rotation = transform.rotation;
-        bullet.GetComponent<Rigidbody>().velocity = transform.forward * bulletSpeed;
-        bullet.GetComponent<BulletScript>().damage = damage;
-        bullet.GetComponent<BulletScript>().hasToDecrease = hasToDecrease;
-        bullet.GetComponent<BulletScript>().decreasingDistance = decreasingDistance;
-        bullet.GetComponent<BulletScript>().decreasingFactor = decreasingFactor;
+
     }
 
     #endregion

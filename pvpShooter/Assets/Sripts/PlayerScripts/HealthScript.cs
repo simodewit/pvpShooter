@@ -51,19 +51,4 @@ public class HealthScript : MonoBehaviour
         }
     }
 
-    public void OnTriggerStay(Collider other)
-    {
-        if (isPlayer == true && other.GetComponent<PointSystem>())
-        {
-            isHealing = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        if (isPlayer == true && other.GetComponent<PointSystem>())
-        {
-            isHealing = false;
-        }
-    }
 }

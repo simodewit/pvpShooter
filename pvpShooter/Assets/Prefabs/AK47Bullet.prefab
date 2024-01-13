@@ -99,7 +99,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3376836148436897080}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.0000001
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -130,11 +130,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be21e468fc2534419b3b73bf2ed7810, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  hasToDecrease: 0
-  decreasingDistance: 0
-  decreasingFactor: 0
+  damage: 30
+  speed: 20
   timeToDie: 10
+  killTime: 0
 --- !u!65 &1285051988817853990
 BoxCollider:
   m_ObjectHideFlags: 0

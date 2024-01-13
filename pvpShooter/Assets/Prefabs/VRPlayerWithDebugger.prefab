@@ -4458,6 +4458,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot (character) FINAL fix 1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6141108c0cca7d441b06abe22185c1a7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6955195979363802772, guid: 6141108c0cca7d441b06abe22185c1a7,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
