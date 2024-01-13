@@ -11,6 +11,7 @@ public class BulletScript : MonoBehaviour
     public float decreasingDistance;
     public float decreasingFactor;
 
+    public float timeToDie, killTime;
     //privates
     Vector3 startPoint;
 
@@ -21,15 +22,16 @@ public class BulletScript : MonoBehaviour
     public void Start()
     {
         startPoint = transform.position;
+        killTime = timeToDie + Time.time;
     }
 
     #endregion
 
     #region collision check
 
-    public void OnTriggerEnter(Collider other)
+    public void OnCollisionEnter(Collider collision)
     {
-        if (other.gameObject.GetComponent<HealthScript>() != null)
+        if (collision.gameObject.GetComponent<HealthScript>() != null)
         {
             if (hasToDecrease)
             {
@@ -38,20 +40,28 @@ public class BulletScript : MonoBehaviour
                 if (distance <= decreasingDistance)
                 {
                     damage -= (int)((distance -= decreasingDistance) * decreasingFactor);
-                    other.gameObject.GetComponent<HealthScript>().Health(damage);
+                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
                 else
                 {
-                    other.gameObject.GetComponent<HealthScript>().Health(damage);
+                    collision.gameObject.GetComponent<HealthScript>().Health(damage);
                 }
             }
             else
             {
-                other.gameObject.GetComponent<HealthScript>().Health(damage);
+                collision.gameObject.GetComponent<HealthScript>().Health(damage);
             }
         }
 
         Destroy(gameObject);
+    }
+
+    public void Update()
+    {
+        if (killTime < Time.time)
+        {
+            Destroy(gameObject);
+        }
     }
 
     #endregion

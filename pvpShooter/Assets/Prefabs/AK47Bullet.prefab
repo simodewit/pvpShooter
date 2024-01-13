@@ -134,6 +134,7 @@ MonoBehaviour:
   hasToDecrease: 0
   decreasingDistance: 0
   decreasingFactor: 0
+  timeToDie: 10
 --- !u!65 &1285051988817853990
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ TagManager:
   - LeftHand
   - RightHand
   - UItag
+  - HealingZone
   layers:
   - Default
   - TransparentFX
