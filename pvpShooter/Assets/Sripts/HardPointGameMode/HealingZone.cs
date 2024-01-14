@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class HealingZone : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject player, xrRig;
 
     public void Start()
     {
         player = GameObject.FindWithTag("Player");
+        xrRig = GameObject.FindWithTag("XrRig");
     }
 
     public void OnTriggerEnter(Collider other)
     {
         print(other);
-        if (other.gameObject == player)
+        if (other.gameObject == xrRig)
         {
             player.GetComponent<HealthScript>().isHealing = true;
         }
@@ -22,7 +23,7 @@ public class HealingZone : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        if (other == player)
+        if (other.gameObject == xrRig)
         {
             player.GetComponent<HealthScript>().isHealing = false;
         }
