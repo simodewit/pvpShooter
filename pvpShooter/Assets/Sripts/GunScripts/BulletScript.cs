@@ -37,6 +37,16 @@ public class BulletScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.GetComponent<HeadShot>() != null)
+        {
+            print("Registered an headshot");
+            other.gameObject.GetComponent<HeadShot>().Hit();
+            Destroy(gameObject);
+        }
+    }
+
     public void Update()
     {
         if (killTime < Time.time)

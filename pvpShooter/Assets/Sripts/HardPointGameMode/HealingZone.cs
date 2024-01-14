@@ -14,7 +14,6 @@ public class HealingZone : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        print(other);
         if (other.gameObject == xrRig)
         {
             player.GetComponent<HealthScript>().isHealing = true;
