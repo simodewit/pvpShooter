@@ -6,11 +6,29 @@ public class HeadShot : MonoBehaviour
 {
     public GameObject entireEnemy;
     public GameObject deathParticle;
+    public AudioSource crowd, commentator;
+
+    public void Start()
+    {
+        crowd = GameObject.FindWithTag("Cheer").GetComponent<AudioSource>();
+        commentator = GameObject.FindWithTag("HS").GetComponent<AudioSource>();
+
+    }
     public void Hit()
     {
         print("Headshot");
-        FindAnyObjectByType<SpawnEnemy>().enemies.Remove(gameObject);
+        FindAnyObjectByType<SpawnEnemy>().enemies.Remove(transform.parent.gameObject);
         Instantiate(deathParticle, transform.position, transform.rotation);
         Destroy(entireEnemy);
+
+        if (commentator.isPlaying == false)
+        {
+            commentator.Play();
+
+        }
+        if (crowd.isPlaying == false)
+        {
+            crowd.Play();
+        }
     }
 }

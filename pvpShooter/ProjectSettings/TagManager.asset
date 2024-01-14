@@ -11,6 +11,8 @@ TagManager:
   - UItag
   - HealingZone
   - XrRig
+  - HS
+  - Cheer
   layers:
   - Default
   - TransparentFX

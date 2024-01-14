@@ -5,9 +5,14 @@ using UnityEngine.AI;
 public class ZombieLikeEnemy : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public Transform player;
 
     public void Start()
     {
-        agent.SetDestination(GameObject.FindWithTag("Player").transform.position); 
+        player = GameObject.FindWithTag("Player").transform;
+    }
+    public void Update()
+    {
+        agent.SetDestination(player.position); 
     }
 }
