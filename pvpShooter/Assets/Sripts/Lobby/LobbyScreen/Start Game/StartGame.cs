@@ -9,6 +9,6 @@ public class StartGame : MonoBehaviour
 
     public void OnClick()
     {
-        
+        SceneManager.LoadScene(sceneIndex);
     }
 }
