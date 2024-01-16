@@ -16,7 +16,6 @@ public class HeadShot : MonoBehaviour
     }
     public void Hit()
     {
-        print("Headshot");
         FindAnyObjectByType<SpawnEnemy>().enemies.Remove(transform.parent.gameObject);
         Instantiate(deathParticle, transform.position, transform.rotation);
         Destroy(entireEnemy);

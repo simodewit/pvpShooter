@@ -30,7 +30,6 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<HealthScript>() != null)
         {
-            Debug.Log("Enemy Hit");
             collision.gameObject.GetComponent<HealthScript>().Health(damage);
         }
 
@@ -41,7 +40,6 @@ public class BulletScript : MonoBehaviour
     {
         if (other.gameObject.GetComponent<HeadShot>() != null)
         {
-            print("Registered an headshot");
             other.gameObject.GetComponent<HeadShot>().Hit();
             Destroy(gameObject);
         }
