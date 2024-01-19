@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class HandAttack : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public int damage;
 
     public float hitCooldown;
