@@ -29,4 +29,5 @@ public class ZombieLikeEnemy : MonoBehaviour
             animator.SetTrigger("Attack");
         }
     }
+
 }

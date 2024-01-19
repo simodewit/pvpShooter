@@ -31,4 +31,9 @@ public class Spawns : MonoBehaviour
             isInList = false;
         }
     }
+
+    public void OnDrawGizmos()
+    {
+        
+    }
 }

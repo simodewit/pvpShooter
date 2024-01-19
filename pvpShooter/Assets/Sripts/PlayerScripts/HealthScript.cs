@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthScript : MonoBehaviour
 {
     public int hp;
     public bool isPlayer, isHealing;
     public GameObject deathEffects, hitEffects;
+    public Slider healthBar;
 
     public int healingAmount;
     public float healingInterval;
@@ -24,10 +26,15 @@ public class HealthScript : MonoBehaviour
         {
             Instantiate(hitEffects, transform.position, transform.rotation);
         }
+        else
+        {
+            healthBar.value = hp;
+        }
         if (hp <= 0)
         {
             if (isPlayer)
             {
+                print("Player Died at " + Time.time);
                 //GameOver
             }
             else
@@ -53,6 +60,7 @@ public class HealthScript : MonoBehaviour
                 hp += healingAmount;
             }
             timeStamp = Time.time + healingInterval;
+            healthBar.value = hp;
         }
     }
 

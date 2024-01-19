@@ -6,7 +6,7 @@ public class HeadShot : MonoBehaviour
 {
     public GameObject entireEnemy;
     public GameObject deathParticle;
-    public AudioSource crowd, commentator;
+    private AudioSource crowd, commentator;
 
     public void Start()
     {
