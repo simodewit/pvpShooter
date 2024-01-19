@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 4886112362102580435}
   m_CameraFloorOffsetObject: {fileID: 8761270844834671112}
   m_RequestedTrackingOriginMode: 1
-  m_CameraYOffset: 1.65
+  m_CameraYOffset: 2
 --- !u!114 &5351037932053850458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5180,6 +5180,7 @@ MonoBehaviour:
   isPlayer: 1
   isHealing: 0
   deathEffects: {fileID: 0}
+  hitEffects: {fileID: 0}
   healingAmount: 5
   healingInterval: 3
 --- !u!4 &3253318966030158866 stripped
