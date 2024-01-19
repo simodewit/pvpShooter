@@ -112,6 +112,8 @@ MonoBehaviour:
   isHealing: 0
   deathEffects: {fileID: 1784772841702986085, guid: 52c9856e057b641459e2487d22a2981d,
     type: 3}
+  hitEffects: {fileID: 2217496569226012337, guid: 6f7fcac7029c79b41af22762460c9cbe,
+    type: 3}
   healingAmount: 0
   healingInterval: 0
 --- !u!195 &6246282659332285832

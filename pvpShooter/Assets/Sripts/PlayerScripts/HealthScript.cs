@@ -4,7 +4,7 @@ public class HealthScript : MonoBehaviour
 {
     public int hp;
     public bool isPlayer, isHealing;
-    public GameObject deathEffects;
+    public GameObject deathEffects, hitEffects;
 
     public int healingAmount;
     public float healingInterval;
@@ -20,6 +20,10 @@ public class HealthScript : MonoBehaviour
     public void Health(int damage)
     {
         hp -= damage;
+        if (isPlayer == false)
+        {
+            Instantiate(hitEffects, transform.position, transform.rotation);
+        }
         if (hp <= 0)
         {
             if (isPlayer)
@@ -34,6 +38,7 @@ public class HealthScript : MonoBehaviour
             }
             Instantiate(deathEffects, transform.position, transform.rotation);
         }
+
     }
     public void HealPlayer()
     {
