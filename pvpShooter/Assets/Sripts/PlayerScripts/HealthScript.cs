@@ -34,16 +34,14 @@ public class HealthScript : MonoBehaviour
         {
             if (isPlayer)
             {
-                print("Player Died at " + Time.time);
                 //GameOver
             }
             else
             {
                 FindAnyObjectByType<SpawnEnemy>().enemies.Remove(gameObject);
-
+                Instantiate(deathEffects, transform.position, transform.rotation);
                 Destroy(gameObject);
             }
-            Instantiate(deathEffects, transform.position, transform.rotation);
         }
 
     }

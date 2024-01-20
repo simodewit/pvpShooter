@@ -8,8 +8,9 @@ public class JoinRoom : MonoBehaviour
     public Transform spawnPlace;
     public GameObject spawnedButton;
 
+    public float yRotationOffset;
     public void Awake()
     {
-        Instantiate(playerPrefab, spawnPlace.position, new Quaternion(0, 0, 0, 0));
+        Instantiate(playerPrefab, spawnPlace.position, new Quaternion(0, yRotationOffset, 0, 0));
     }
 }
