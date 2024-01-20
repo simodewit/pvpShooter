@@ -13,6 +13,7 @@ TagManager:
   - XrRig
   - HS
   - Cheer
+  - Win
   layers:
   - Default
   - TransparentFX
