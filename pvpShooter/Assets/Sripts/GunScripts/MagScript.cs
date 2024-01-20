@@ -12,7 +12,7 @@ public class MagScript : MonoBehaviour
 
     //privates
     bool collidesWithGun;
-    GameObject gun;
+    GameObject gun, magPlace;
     Rigidbody rb;
 
     #endregion
@@ -28,8 +28,11 @@ public class MagScript : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            transform.localPosition = Vector3.zero;
-            transform.localRotation = Quaternion.identity;
+            if (transform.parent.CompareTag("MagazineAttachPoint"))
+            {
+                transform.localPosition = Vector3.zero;
+                transform.localRotation = Quaternion.identity;
+            }
         }
     }
 

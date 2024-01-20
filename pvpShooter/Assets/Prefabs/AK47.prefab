@@ -178,7 +178,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -1013,6 +1013,8 @@ MonoBehaviour:
   interactable: {fileID: 8013039382839880523}
   ammoScreen: {fileID: 4226520094357191621}
   shootParticle: {fileID: 4861720865473364168}
+  shootSfx: {fileID: 4120742112321602316, guid: 52fd1d73713bd78489a5fb89bf5d2dc7,
+    type: 3}
   bulletPrefab: {fileID: 3376836148436897080, guid: 9d3e800748bf41c4ebce9f17ac80ed16,
     type: 3}
   bulletSpeed: 30

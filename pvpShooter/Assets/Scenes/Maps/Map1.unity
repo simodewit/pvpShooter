@@ -521,6 +521,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 10
   isInList: 1
+--- !u!1001 &175054602
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.951
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.402
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931490772508166883, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8988184203132659985, guid: 2fcf15b0597adba4dbb57a89d1864388,
+        type: 3}
+      propertyPath: m_Name
+      value: Bookshelf with gun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2fcf15b0597adba4dbb57a89d1864388, type: 3}
 --- !u!1 &199149958
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,7 +5142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 3376836148436897080, guid: 9d3e800748bf41c4ebce9f17ac80ed16,
     type: 3}
-  cooldown: 1
+  cooldown: 0.05
 --- !u!4 &2144560890
 Transform:
   m_ObjectHideFlags: 0
@@ -5084,7 +5152,7 @@ Transform:
   m_GameObject: {fileID: 2144560888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.81, y: 0.69, z: -22.37}
+  m_LocalPosition: {x: -0.391, y: 1.15, z: -15.458}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5223,3 +5291,4 @@ SceneRoots:
   - {fileID: 368702436}
   - {fileID: 1389367121}
   - {fileID: 8823458830932006111}
+  - {fileID: 175054602}
