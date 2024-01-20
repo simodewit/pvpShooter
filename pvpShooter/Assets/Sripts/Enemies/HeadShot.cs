@@ -7,15 +7,18 @@ public class HeadShot : MonoBehaviour
     public GameObject entireEnemy;
     public GameObject deathParticle;
     private AudioSource crowd, commentator;
+    private WinGameScript winGame;
 
     public void Start()
     {
         crowd = GameObject.FindWithTag("Cheer").GetComponent<AudioSource>();
         commentator = GameObject.FindWithTag("HS").GetComponent<AudioSource>();
-
+        winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
     }
     public void Hit()
     {
+        winGame.numbKills += 1;
+        winGame.OnKill();
         FindAnyObjectByType<SpawnEnemy>().enemies.Remove(entireEnemy.gameObject);
         Instantiate(deathParticle, transform.position, transform.rotation);
         Destroy(entireEnemy);

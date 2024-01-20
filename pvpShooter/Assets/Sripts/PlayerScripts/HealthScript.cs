@@ -7,10 +7,16 @@ public class HealthScript : MonoBehaviour
     public bool isPlayer, isHealing;
     public GameObject deathEffects, hitEffects;
     public Slider healthBar;
+    private WinGameScript winGame;
 
     public int healingAmount;
     public float healingInterval;
     private float timeStamp;
+
+    public void Start()
+    {
+        winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
+    }
 
     public void Update()
     {
@@ -38,6 +44,8 @@ public class HealthScript : MonoBehaviour
             }
             else
             {
+                winGame.numbKills += 1;
+                winGame.OnKill();
                 FindAnyObjectByType<SpawnEnemy>().enemies.Remove(gameObject);
                 Instantiate(deathEffects, transform.position, transform.rotation);
                 Destroy(gameObject);

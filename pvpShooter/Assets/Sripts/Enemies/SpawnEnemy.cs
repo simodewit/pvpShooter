@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnEnemy : MonoBehaviour
 {
     public float spawnInterval;
-    public int totalEnemies;
+    public int totalEnemies, maxSpawns, currentSpawns;
     public Timer time;
     public GameObject enemyPrefab;
     public List<GameObject> enemies = new List<GameObject>();
@@ -39,10 +39,11 @@ public class SpawnEnemy : MonoBehaviour
             canSpawn = true;
         }
 
-        if (enemies.Count < totalEnemies && canSpawn)
+        if (enemies.Count < totalEnemies && canSpawn && currentSpawns < maxSpawns)
         {
             int random = Random.Range(0, spawns.Count);
 
+            currentSpawns += 1;
             GameObject enemy = Instantiate(enemyPrefab, spawns[random].position , Quaternion.identity);
             enemies.Add(enemy);
 
