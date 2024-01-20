@@ -7794,30 +7794,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4866551169240882399, guid: c6104a6b907a5c04696cc517ff130967,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4866551169240882399, guid: c6104a6b907a5c04696cc517ff130967,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4866551169240882399, guid: c6104a6b907a5c04696cc517ff130967,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6605014202172969871, guid: c6104a6b907a5c04696cc517ff130967,
         type: 3}
       propertyPath: m_Name
       value: VRPlayerWithDebugger
-      objectReference: {fileID: 0}
-    - target: {fileID: 8776184973273843730, guid: c6104a6b907a5c04696cc517ff130967,
-        type: 3}
-      propertyPath: m_Value
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
