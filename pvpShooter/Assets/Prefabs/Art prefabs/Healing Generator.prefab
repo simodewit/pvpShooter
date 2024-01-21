@@ -92,6 +92,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5568371526223589888, guid: a544c146fcd958c40b3dfbd703abb1e3,
         type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -5568371526223589888, guid: a544c146fcd958c40b3dfbd703abb1e3,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -100,6 +105,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3009777f7c90f4845a29db9f9799d3be, type: 2}
+    - target: {fileID: -516098083770646512, guid: a544c146fcd958c40b3dfbd703abb1e3,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -516098083770646512, guid: a544c146fcd958c40b3dfbd703abb1e3,
         type: 3}
       propertyPath: m_StaticEditorFlags

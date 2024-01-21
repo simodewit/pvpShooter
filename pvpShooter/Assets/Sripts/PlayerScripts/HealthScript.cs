@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HealthScript : MonoBehaviour
 {
@@ -15,7 +16,10 @@ public class HealthScript : MonoBehaviour
 
     public void Start()
     {
-        winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
+        }
     }
 
     public void Update()
