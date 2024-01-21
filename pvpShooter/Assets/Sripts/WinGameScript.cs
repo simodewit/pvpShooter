@@ -23,6 +23,7 @@ public class WinGameScript : MonoBehaviour
             for (int i = 0; i < gameScreen.Length; i++)
             {
                 gameScreen[i].GetComponent<JumbotronScreen>().isWon = true;
+                gameScreen[i].GetComponent<JumbotronScreen>().youWonPanel.SetActive(true);
             }
         }
         for (int i = 0; i < gameScreen.Length; i++)

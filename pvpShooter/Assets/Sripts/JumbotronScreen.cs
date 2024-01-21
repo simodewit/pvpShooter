@@ -5,6 +5,7 @@ using TMPro;
 public class JumbotronScreen : MonoBehaviour
 {
     public TMP_Text time, killCount, headshotCount;
+    public GameObject youWonPanel;
 
     public bool isWon;
 
