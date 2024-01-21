@@ -6,14 +6,19 @@ public class JumbotronScreen : MonoBehaviour
 {
     public TMP_Text time, killCount, headshotCount;
     public GameObject youWonPanel;
+    private float currentTime;
 
     public bool isWon;
 
+    private void Start()
+    {
+        currentTime = 0;
+    }
     void Update()
     {
         if(isWon == false)
         {
-            float currentTime = Time.time;
+            currentTime += Time.deltaTime;
             int minutes = Mathf.FloorToInt(currentTime / 60);
             int seconds = Mathf.FloorToInt(currentTime % 60);
 
