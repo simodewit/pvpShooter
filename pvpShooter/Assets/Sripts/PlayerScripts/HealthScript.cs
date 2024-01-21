@@ -1,9 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 public class HealthScript : MonoBehaviour
 {
+    public VolumeProfile volume;
+    private ColorAdjustments colorAdjustments;
+
     public int hp;
     public bool isPlayer, isHealing;
     public GameObject deathEffects, hitEffects;
@@ -19,6 +23,16 @@ public class HealthScript : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
+        }
+        if (isPlayer)
+        {
+            if (volume != null)
+            {
+                volume.TryGet(out colorAdjustments);
+                {
+                    colorAdjustments.saturation.value = 0;
+                }
+            }
         }
     }
 
@@ -44,7 +58,10 @@ public class HealthScript : MonoBehaviour
         {
             if (isPlayer)
             {
-                //GameOver
+                volume.TryGet(out colorAdjustments);
+                {
+                    colorAdjustments.saturation.value = -100;
+                }
             }
             else
             {

@@ -2872,7 +2872,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -5637,6 +5637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122dfd4fe8e824e4f8634eb802c0f276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: {fileID: 11400000, guid: 77f5aa2083c853c49bdb76ffe318b91d, type: 2}
   hp: 100
   isPlayer: 1
   isHealing: 0
