@@ -9,7 +9,7 @@ public class HealthScript : MonoBehaviour
     private ColorAdjustments colorAdjustments;
 
     public int hp;
-    public bool isPlayer, isHealing;
+    public bool isPlayer, isHealing, playerdied;
     public GameObject deathEffects, hitEffects;
     public Slider healthBar;
     private WinGameScript winGame;
@@ -20,6 +20,7 @@ public class HealthScript : MonoBehaviour
 
     public void Start()
     {
+        playerdied = false;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
@@ -42,6 +43,11 @@ public class HealthScript : MonoBehaviour
         {
             HealPlayer();
         }
+        if (playerdied == true)
+        {
+            Invoke("ReturnToMainMenu", 5);
+            playerdied = false;
+        }
     }
     public void Health(int damage)
     {
@@ -62,6 +68,7 @@ public class HealthScript : MonoBehaviour
                 {
                     colorAdjustments.saturation.value = -100;
                 }
+                playerdied = true;
             }
             else
             {
@@ -89,6 +96,11 @@ public class HealthScript : MonoBehaviour
             timeStamp = Time.time + healingInterval;
             healthBar.value = hp;
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
 }
