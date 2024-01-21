@@ -18,6 +18,7 @@ public class HeadShot : MonoBehaviour
     public void Hit()
     {
         winGame.numbKills += 1;
+        winGame.numbHeadshot += 1;
         winGame.OnKill();
         FindAnyObjectByType<SpawnEnemy>().enemies.Remove(entireEnemy.gameObject);
         Instantiate(deathParticle, transform.position, transform.rotation);

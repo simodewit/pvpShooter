@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WinGameScript : MonoBehaviour
 {
-    public int numbKills;
+    public int numbKills, numbHeadshot;
     public SpawnEnemy enemySpawner;
+    public GameObject[] gameScreen;
 
     public void OnKill()
     {
@@ -19,8 +20,15 @@ public class WinGameScript : MonoBehaviour
         }
         if (numbKills == enemySpawner.maxSpawns)
         {
-            //Game won
-            print("Game won at " + Time.time + " With "+ numbKills + " kills.");
+            for (int i = 0; i < gameScreen.Length; i++)
+            {
+                gameScreen[i].GetComponent<JumbotronScreen>().isWon = true;
+            }
+        }
+        for (int i = 0; i < gameScreen.Length; i++)
+        {
+            gameScreen[i].GetComponent<JumbotronScreen>().killCount.text = numbKills.ToString();
+            gameScreen[i].GetComponent<JumbotronScreen>().headshotCount.text = numbHeadshot.ToString();
         }
     }
 }
