@@ -1090,6 +1090,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street 1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9f4ab6142af295f419d42de74d07dc21,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1972,6 +1977,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492863650541768064, guid: 943f4d554d480414e89d90c53eec2677,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492863650541768064, guid: 943f4d554d480414e89d90c53eec2677,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9121872625124955962, guid: 943f4d554d480414e89d90c53eec2677,
         type: 3}
@@ -6891,6 +6906,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492863650541768064, guid: 943f4d554d480414e89d90c53eec2677,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8492863650541768064, guid: 943f4d554d480414e89d90c53eec2677,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 9121872625124955962, guid: 943f4d554d480414e89d90c53eec2677,
         type: 3}

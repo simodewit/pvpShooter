@@ -65,8 +65,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.7595176, y: 1.3961537, z: 0.31}
-  m_Center: {x: 0.025052339, y: 0.6993159, z: 0}
+  m_Size: {x: 0.7595176, y: 0.74511045, z: 0.31}
+  m_Center: {x: 0.025052339, y: 1.0248375, z: 0}
 --- !u!54 &8244929181783184487
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,9 +106,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 122dfd4fe8e824e4f8634eb802c0f276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volume: {fileID: 0}
   hp: 100
   isPlayer: 0
   isHealing: 0
+  playerdied: 0
   deathEffects: {fileID: 1784772841702986085, guid: 52c9856e057b641459e2487d22a2981d,
     type: 3}
   hitEffects: {fileID: 2217496569226012337, guid: 6f7fcac7029c79b41af22762460c9cbe,

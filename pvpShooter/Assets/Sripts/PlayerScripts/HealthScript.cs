@@ -74,8 +74,13 @@ public class HealthScript : MonoBehaviour
             {
                 winGame.numbKills += 1;
                 winGame.OnKill();
-                FindAnyObjectByType<SpawnEnemy>().enemies.Remove(gameObject);
-                Instantiate(deathEffects, transform.position, transform.rotation);
+                RaycastHit hit;
+                Vector3 spawnPos = transform.position;
+                if(Physics.Raycast(transform.position + Vector3.up,-Vector3.up, out hit, 10)){
+                    spawnPos = hit.point;
+                }
+                Instantiate(deathEffects, spawnPos, transform.rotation);
+                FindAnyObjectByType<SpawnEnemy>().enemies.Remove(gameObject);// gadverdamme!
                 Destroy(gameObject);
             }
         }
