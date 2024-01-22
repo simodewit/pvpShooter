@@ -37,7 +37,7 @@ public class WinGameScript : MonoBehaviour
         }
         for (int i = 0; i < gameScreen.Length; i++)
         {
-            gameScreen[i].GetComponent<JumbotronScreen>().killCount.text = numbKills.ToString();
+            gameScreen[i].GetComponent<JumbotronScreen>().killCount.text = numbKills.ToString()+"/40" ;
             gameScreen[i].GetComponent<JumbotronScreen>().headshotCount.text = numbHeadshot.ToString();
         }
     }
