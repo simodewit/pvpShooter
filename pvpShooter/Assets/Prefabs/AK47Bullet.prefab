@@ -144,6 +144,7 @@ MonoBehaviour:
   speed: 20
   timeToDie: 10
   killTime: 0
+  hitSfx: {fileID: 4116641261201959070, guid: 7a12129fac8fff34581f4d3429fe0660, type: 3}
 --- !u!65 &1285051988817853990
 BoxCollider:
   m_ObjectHideFlags: 0
