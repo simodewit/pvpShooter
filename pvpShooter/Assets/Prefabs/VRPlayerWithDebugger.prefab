@@ -2144,7 +2144,7 @@ CharacterController:
   serializedVersion: 3
   m_Height: 2
   m_Radius: 0.2
-  m_SlopeLimit: 45
+  m_SlopeLimit: 30
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
@@ -5641,10 +5641,10 @@ MonoBehaviour:
   hp: 100
   isPlayer: 1
   isHealing: 0
-  playerdied: 0
   deathEffects: {fileID: 0}
   hitEffects: {fileID: 0}
   healthBar: {fileID: 6400932695111009067}
+  lost: {fileID: 0}
   healingAmount: 1
   healingInterval: 0.5
 --- !u!65 &9207117483268210828
