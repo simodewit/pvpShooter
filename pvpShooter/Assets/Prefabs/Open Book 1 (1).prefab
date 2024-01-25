@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8374011188221512646
+--- !u!1001 &5573149338404079285
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,68 +8,68 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74
+      value: 1.2262222
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.00000047683716
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5
+      value: 4.4225497
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -8679921383154817045, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: -7511558181221131132, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6b6e212ae26201e4e88f9bf29345cf80, type: 2}
-    - target: {fileID: 919132149155446097, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113,
+    - target: {fileID: 919132149155446097, guid: 3a2f0a84290aa894988ac682c37c1e0d,
         type: 3}
       propertyPath: m_Name
-      value: Open Book (1)
+      value: Open Book 1 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: dbe95e4a1709f5d4ead9d0cf3e1d7113, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 3a2f0a84290aa894988ac682c37c1e0d, type: 3}
