@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class JumbotronScreen : MonoBehaviour
 {
-    public TMP_Text time, killCount, headshotCount;
+    public TMP_Text time, killCount, headshotCount, winHeadshots, winTime;
     public GameObject youWonPanel;
     private float currentTime;
 

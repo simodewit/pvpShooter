@@ -223,6 +223,51 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.00115
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0013372094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0013372094
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641904192663854271, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2553663372986767354, guid: f61fa4f838b9b7d41ae840c25357f207,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -236,6 +281,11 @@ PrefabInstance:
     - target: {fileID: 2705246944738475966, guid: f61fa4f838b9b7d41ae840c25357f207,
         type: 3}
       propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2724878951919622354, guid: f61fa4f838b9b7d41ae840c25357f207,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3036114187026355845, guid: f61fa4f838b9b7d41ae840c25357f207,

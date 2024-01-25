@@ -25,8 +25,11 @@ public class WinGameScript : MonoBehaviour
         {
             for (int i = 0; i < gameScreen.Length; i++)
             {
+                gameScreen[i].GetComponent<JumbotronScreen>().winHeadshots.text = numbHeadshot.ToString();
+                gameScreen[i].GetComponent<JumbotronScreen>().winTime.text = gameScreen[0].GetComponent<JumbotronScreen>().time.text;
                 gameScreen[i].GetComponent<JumbotronScreen>().isWon = true;
                 gameScreen[i].GetComponent<JumbotronScreen>().youWonPanel.SetActive(true);
+                gameScreen[i].SetActive(false);
             }
             if(sendToMainMenu == false)
             {
