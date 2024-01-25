@@ -15,6 +15,7 @@ TagManager:
   - Cheer
   - Win
   - PP
+  - Lost
   layers:
   - Default
   - TransparentFX

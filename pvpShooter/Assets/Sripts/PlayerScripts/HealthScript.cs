@@ -7,12 +7,14 @@ public class HealthScript : MonoBehaviour
 {
     public VolumeProfile volume;
     private ColorAdjustments colorAdjustments;
+    bool isLost = false;
 
     public int hp;
-    public bool isPlayer, isHealing, playerdied;
+    public bool isPlayer, isHealing;
     public GameObject deathEffects, hitEffects;
     public Slider healthBar;
     private WinGameScript winGame;
+    public AudioSource lost;
 
     public int healingAmount;
     public float healingInterval;
@@ -20,9 +22,9 @@ public class HealthScript : MonoBehaviour
 
     public void Start()
     {
-        playerdied = false;
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+            lost = GameObject.FindWithTag("Lost").GetComponent<AudioSource>();
             winGame = GameObject.FindWithTag("Win").GetComponent<WinGameScript>();
         }
         if (isPlayer)
@@ -42,11 +44,6 @@ public class HealthScript : MonoBehaviour
         if (isHealing == true)
         {
             HealPlayer();
-        }
-        if (playerdied == true)
-        {
-            Invoke("ReturnToMainMenu", 5);
-            playerdied = false;
         }
     }
     public void Health(int damage)
@@ -68,7 +65,12 @@ public class HealthScript : MonoBehaviour
                 {
                     colorAdjustments.saturation.value = -100;
                 }
-                playerdied = true;
+                Invoke("ReturnToMainMenu", 5);
+                if (isLost == false)
+                {
+                    lost.Play();
+                    isLost = true;
+                }
             }
             else
             {

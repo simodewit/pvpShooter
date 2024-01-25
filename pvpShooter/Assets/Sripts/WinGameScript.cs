@@ -8,6 +8,7 @@ public class WinGameScript : MonoBehaviour
     public int numbKills, numbHeadshot;
     public SpawnEnemy enemySpawner;
     public GameObject[] gameScreen;
+    public AudioSource win, tenRemaining, five, four, three, two, one;
 
     private bool sendToMainMenu = false;
 
@@ -15,7 +16,7 @@ public class WinGameScript : MonoBehaviour
     {
         if (numbKills == enemySpawner.maxSpawns - 10)
         {
-            //10 kills remaining
+            tenRemaining.Play();
         }
         if (numbKills == enemySpawner.maxSpawns - 5)
         {
@@ -25,6 +26,7 @@ public class WinGameScript : MonoBehaviour
         {
             for (int i = 0; i < gameScreen.Length; i++)
             {
+                win.Play();
                 gameScreen[i].GetComponent<JumbotronScreen>().winHeadshots.text = numbHeadshot.ToString();
                 gameScreen[i].GetComponent<JumbotronScreen>().winTime.text = gameScreen[0].GetComponent<JumbotronScreen>().time.text;
                 gameScreen[i].GetComponent<JumbotronScreen>().isWon = true;
