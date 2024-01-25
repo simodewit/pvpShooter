@@ -8,7 +8,7 @@ public class WinGameScript : MonoBehaviour
     public int numbKills, numbHeadshot;
     public SpawnEnemy enemySpawner;
     public GameObject[] gameScreen;
-    public AudioSource win, tenRemaining, five, four, three, two, one;
+    public AudioSource win, tenRemaining;
 
     private bool sendToMainMenu = false;
 
@@ -17,10 +17,6 @@ public class WinGameScript : MonoBehaviour
         if (numbKills == enemySpawner.maxSpawns - 10)
         {
             tenRemaining.Play();
-        }
-        if (numbKills == enemySpawner.maxSpawns - 5)
-        {
-            //5 kills remaining
         }
         if (numbKills == enemySpawner.maxSpawns)
         {

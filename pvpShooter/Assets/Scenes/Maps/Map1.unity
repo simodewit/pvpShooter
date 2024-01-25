@@ -11206,11 +11206,6 @@ MonoBehaviour:
   - {fileID: 450215931}
   win: {fileID: 1288656198}
   tenRemaining: {fileID: 1006524602}
-  five: {fileID: 0}
-  four: {fileID: 0}
-  three: {fileID: 0}
-  two: {fileID: 0}
-  one: {fileID: 0}
 --- !u!4 &1270515055
 Transform:
   m_ObjectHideFlags: 0
